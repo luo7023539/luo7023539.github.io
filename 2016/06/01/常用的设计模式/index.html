@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>常用的设计模式 | Finish</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="常用的设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用的设计模式">
+<meta property="og:url" content="http://yoursite.com/2016/06/01/常用的设计模式/index.html">
+<meta property="og:site_name" content="Finish">
+<meta property="og:description" content="常用的设计模式">
+<meta property="og:updated_time" content="2016-10-06T13:21:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用的设计模式">
+<meta name="twitter:description" content="常用的设计模式">
+  
+    <link rel="alternative" href="/atom.xml" title="Finish" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Finish</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Keep Calm and Carry On</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-常用的设计模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/01/常用的设计模式/" class="article-date">
+  <time datetime="2016-06-01T09:25:30.000Z" itemprop="datePublished">2016-06-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      常用的设计模式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>常用的设计模式<br><a id="more"></a></p>
+<h2 id="1-设计模式"><a href="#1-设计模式" class="headerlink" title="1.设计模式"></a>1.设计模式</h2><h4 id="1-1-单例模式"><a href="#1-1-单例模式" class="headerlink" title="1.1 单例模式"></a>1.1 单例模式</h4><p>对象数据类型的作用：把描述同一件事物的属性和方法放在同一段堆内存中，起到分组的作用，防止冲突；</p>
+<p>这样不同事物间即使属性名一样也不会发生冲突.这种分组的编写代码模式叫做单例模式。</p>
+<p>在单例模式中把对象名叫做命名空间。</p>
+<p>单例模式是一种项目开发中经常使用的模式，可以使用单例模式进行模块化开发。 </p>
+<p>模块化开发：对于一个较大的项目，需要多人协同开发，根据项目需求划分成几个功能板块，每个人负责一部分，同时开发，最后把每个人的代码进行合并</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var person = &#123;</div><div class="line">  name: &quot;Amy&quot;,</div><div class="line">  age: 12,</div><div class="line">  write: function()&#123;</div><div class="line">    alert(this.name,this.age);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line">person.write();</div></pre></td></tr></table></figure>
+<h4 id="1-2-工厂模式"><a href="#1-2-工厂模式" class="headerlink" title="1.2 工厂模式"></a>1.2 工厂模式</h4><p>单例模式虽然解决了分组的问题，但是不能实现批量的生产，属于手工作业模式。</p>
+<p>工厂模式把实现同一件事情的代码放到一个函数中，如果以后想实现这个功能，就不需要重新编写代码了，只需执行当前函数就可以了，这就叫做“函数的封装”。</p>
+<p>函数的封装，是为了低耦合高内聚，减少页面中的冗余代码，提高代码的重复利用率</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function factory(name,age)&#123;</div><div class="line">  var obj = &#123;&#125;;</div><div class="line">  obj.name = name;</div><div class="line">  obj.age = age;</div><div class="line">  obj.write = function()&#123;</div><div class="line">    alert(this.name+&quot;can write JS!&quot;);</div><div class="line">  &#125;</div><div class="line">  return obj;</div><div class="line">&#125;</div><div class="line">var p1 = factory(&quot;Amy&quot;,12);</div><div class="line">var p2 = factory(&quot;Bob&quot;,14);</div><div class="line">p1.write();</div><div class="line">p2.write();</div></pre></td></tr></table></figure>
+<h2 id="2-构造函数"><a href="#2-构造函数" class="headerlink" title="2.构造函数"></a>2.构造函数</h2><h4 id="2-1-构造函数的目的"><a href="#2-1-构造函数的目的" class="headerlink" title="2.1 构造函数的目的"></a>2.1 构造函数的目的</h4><p>构造函数模式的目的就是为了创建自定义类，并且创建这个类的实例<br>构造函数模式拥有了类和实例的概念，并且实例和实例之间是相互独立的，在JS中叫做实例识别</p>
+<h4 id="2-2-构造函数的特点"><a href="#2-2-构造函数的特点" class="headerlink" title="2.2 构造函数的特点"></a>2.2 构造函数的特点</h4><p>从形式上看，一个函数被作为构造函数还是普通函数执行的唯一区别，看是否使用了new运算符。</p>
+<p>执行的时候，构造函数new Person();而createPerson()只是普通函数执行。</p>
+<p>通过new执行后，Person就是一个类了。</p>
+<p>约定俗成的规范是首字母大写:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">new Person();newCreatePerson();</div></pre></td></tr></table></figure>
+<p>回顾数组的创建方式：<br>//字面量创建方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var arr = [];</div><div class="line">//字面量的创建方式</div><div class="line">var arr = new Array();</div><div class="line">//实例创建方式--构造函数执行方式</div></pre></td></tr></table></figure>
+<p>不管这两种哪种方式，arr都是Array类的实例</p>
+<p>JS中所有的类都是函数数据类型的，通过new执行变成一个类，但是他本身也是一个普通函数</p>
+<p>JS中所有的实例是对象数据类型的</p>
+<p>函数代码执行的时候:</p>
+<ul>
+<li>相同点：都是形成一个私有作用域，然后形参赋值，然后预解析，代码从上至下执行(类和普通函数一样，类也具有普通函数的一面)；</li>
+<li>不同点：构造函数在代码执行之前，不用手动创建对象，浏览器会默认创建一个对象数据类型的值(这个对象就是当前类的实例，以当前实例为主体，将属性名和属性值赋给实例,this代表当前实例)，浏览器会默认将创建的实例返回</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function CreatePerson(name,age)&#123;</div><div class="line">//浏览器默认创建的对象就是实例p1</div><div class="line"> this.name = name;</div><div class="line"> this.age = age;</div><div class="line"> this.write = function()&#123;</div><div class="line">   console.log(this.name,this.age);</div><div class="line"> &#125;</div><div class="line">//浏览器默认将创建的实例返回</div><div class="line">&#125;</div><div class="line">var p1 = new CreatePerson(&apos;Amy&apos;,18);</div><div class="line">var p2 = new CreatePerson(&apos;Bob&apos;,18);</div><div class="line">var p3 = CreatePerson(&quot;Cindy&quot;,20);</div><div class="line">//这样就是普通函数执行方式，并非构造函数执行，则函数中this指window(方法名前没有点),p3没有返回值，则为undefined</div><div class="line">this在构造函数中，是当前类的实例(this的第 4 种情况)</div><div class="line">虽然各个实例p1,p2都是CreatePerson的实例，都拥有write方法，但是不同实例之间的方法是不一样的；实例和实例之间是单独的个体，所以私有属性之间不相等</div><div class="line">console.log(p1.write === p2.write); //false</div></pre></td></tr></table></figure>
+<h2 id="3-构造函数-扩展"><a href="#3-构造函数-扩展" class="headerlink" title="3.构造函数-扩展"></a>3.构造函数-扩展</h2><h4 id="3-1-构造函数的本质"><a href="#3-1-构造函数的本质" class="headerlink" title="3.1 构造函数的本质"></a>3.1 构造函数的本质</h4><p>在构造函数中，new Fn()执行，如果Fn()中不需要传递参数的话，后边的()可以省略</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">function Fn()&#123;</div><div class="line">this.x = 100;</div><div class="line">this.getX = function()&#123;</div><div class="line"> console.log(this.x);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">var f = new Fn;</div><div class="line">在类中出现的this.xxx=xxx中，this都是当前类的实例，而某一个属性值（方法），方法中的this则需要看方法前面的点才能知道this是谁</div><div class="line"></div><div class="line">var ss = f.getX;</div><div class="line">ss();  //undefined--&gt;window下没有x属性</div><div class="line">类有普通函数一面，也有构造函数一面</div><div class="line">function Fn()&#123;</div><div class="line">var num = 10;</div><div class="line">//this.num </div><div class="line">this.x = 100;</div><div class="line">this.getX = function()&#123;</div><div class="line"> console.log(this.x);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">var f1 = new Fn();</div><div class="line">console.log(f1.num); //undefined</div></pre></td></tr></table></figure>
+<p>var num只是当前形成私有作用域中的一个私有变量，只有this才能给当前实例增加属性和方法</p>
+<p>在构造函数模式中，浏览器会默认把实例返回，返回的是对象数据类型的值；如果手动写返回值了，若返回基本数据类型的值，当前实例是不变的；若返回引用数据类型的值，当前实例会被返回的值替换掉</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Fn()&#123;</div><div class="line">this.x = 100;</div><div class="line">this.getX = function()&#123;</div><div class="line"> console.log(this.x);</div><div class="line">&#125;</div><div class="line">//浏览器默认返回实例</div><div class="line">//return 100;  基本数据类型</div><div class="line">//return &#123;&quot;name&quot;:100&#125;  引用数据类型，会替换原有返回值</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="3-2-检测方法"><a href="#3-2-检测方法" class="headerlink" title="3.2 检测方法"></a>3.2 检测方法</h4><p>检测某个实例是否属于这个类–&gt;instanceof</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var f1 = new Fn();</div><div class="line">console.log(f1 instanceof Fn);  //true</div><div class="line">console.log(f1 instanceof Array);  //false</div><div class="line">console.log(f1 instanceof Obejct);  //true--&gt;所有实例都是对象数据类型的，而每一个对象数据类型都是Object内置类的实例</div></pre></td></tr></table></figure>
+<p>对于检测数据类型，typeof有自己的局限性，不能细分Obejct下的对象，例如数组，正则</p>
+<p>“in”检测某个属性是否属于这个对象–&gt; attr in object,不管是公有属性还是私有属性，只要存在则返回true</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;getX&apos; in f1); //若返回true，则证明getX是f1的私有方法</div></pre></td></tr></table></figure>
+<p>hasOwnProperty用来检测某一属性是某对象的私有属性，只能检测私有属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(f1.hasOwnProperty(getX)); //true--&gt;说明getX是f1的私有属性</div></pre></td></tr></table></figure>
+<p>检测某一属性为该对象的公有属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function hasPubProperty(obj,attr)&#123;</div><div class="line">return (attr in obj) &amp;&amp; !obj.hasOwnProperty(attr);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>isPrototypeOf来判断指定对象object1是否存在于另一个对象object2的原型链中，是则返回true，否则返回false。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">object1.isPrototypeOf(object2);</div></pre></td></tr></table></figure>
+<h2 id="4-原型链模式"><a href="#4-原型链模式" class="headerlink" title="4.原型链模式"></a>4.原型链模式</h2><h4 id="4-1-原型链构成"><a href="#4-1-原型链构成" class="headerlink" title="4.1 原型链构成"></a>4.1 原型链构成</h4><p>每一个函数数据类型(普通函数、类)都有一个天生自带的性:</p>
+<p>prototype(原型)，并且这个属性是一个对象数据类型的值</p>
+<p>在prototype上，浏览器自动给它增加了一个constructor(构造函数)属性，属性是当前函数或类本身</p>
+<p>每一个对象数据类型(普通对象，实例，prototype)也自带一个属性:</p>
+<p>__proto__ (两边各自两个下划线),属性值是指向当前实例所属类的原型</p>
+<h4 id="4-2-提取共有"><a href="#4-2-提取共有" class="headerlink" title="4.2 提取共有"></a>4.2 提取共有</h4><p>基于构造函数的原型模式，解决方法或属性共有的问题，把实例之间相同的属性和方法提取为共有的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function CreatePerson(name,age)&#123;</div><div class="line">  this.name = name;</div><div class="line">  this.age = age;</div><div class="line">&#125;</div><div class="line">CreatePerson.prototype.write = function()&#123;</div><div class="line">  console.log(this.name,this.age);</div><div class="line">&#125;</div><div class="line">var p1 = new CreatePerson(&quot;Amy&quot;,12);</div><div class="line">var p2 = new CreatePerson(&quot;Bob&quot;,14);</div><div class="line">想让谁公有就把谁提取到CreatePerson.prototype上即可</div><div class="line"></div><div class="line">console.log(p1.write === p2.write); //true</div></pre></td></tr></table></figure>
+<p>将新生成的对象的_ prop 属性赋值为构造函数的prototype属性，使得通过构造函数创建的所有对象可以共享相同的原型,这意味着同一个构造函数创建的所有对象都继承自一个相同的对象，因此它们都是同一个类的对象。 </p>
+<p>在JavaScript中，每一个函数都有默认的原型对象属性prototype，该对象默认包含了两个成员属性：constructor和 __proto__。 </p>
+<h4 id="4-3-基类Object"><a href="#4-3-基类Object" class="headerlink" title="4.3 基类Object"></a>4.3 基类Object</h4><p>Object是所有对象数据类型的基类(最顶层的类)</p>
+<p>在它的原型上没有__proto__属性</p>
+<p>f1通过<em> proto </em>可以向上级查找，不管找到多少级，最后总能找到Object</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(f1 instanceof Object); //true</div></pre></td></tr></table></figure>
+<p>f1.hasOwnProperty(x) ==&gt; hasOwnProperty是f1的属性。</p>
+<p>但是f1的私有属性上并没有这个方法，如何处理的呢？</p>
+<p>通过对象名.属性名的方式获取属性值的时候，首先在对象的私有属性上进行查找，如果私有存在这个属性，则获取的是私有的属性值；</p>
+<p>如果私有的没有这个属性，则通过proto找到所属类的原型，原型上定义的属性和方法都是当前实例的公有属性和方法，原型上存在的话，获取的是公有的属性值，如果原型上也没有，则通过原型上的proto继续向上查找，一直找到Object的prototype为止 这种查找模式叫原型链模式</p>
+<p>在IE浏览器中，原型模式也是同样原理，但是IE浏览器害怕通过<em> proto 把公有的属性修改，所以禁止使用 \</em>_proto__ 查找</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">f1.sum = function()&#123;&#125;  //修改私有的</div><div class="line">f1.__proto__.sum = function()&#123;&#125;  //修改公有的 //IE禁用</div><div class="line">Fn.prototype.sum = function()&#123;&#125;  //修改公有的</div></pre></td></tr></table></figure>
+<h2 id="5-原型扩展"><a href="#5-原型扩展" class="headerlink" title="5.原型扩展"></a>5.原型扩展</h2><h4 id="5-1-批量设置原型上的公有属性和方法"><a href="#5-1-批量设置原型上的公有属性和方法" class="headerlink" title="5.1 批量设置原型上的公有属性和方法"></a>5.1 批量设置原型上的公有属性和方法</h4><ul>
+<li>起别名</li>
+</ul>
+<p>var pro = Fn.prototype;  //把原来原型指向的地址赋给pro，他们操作的是同一个内存空间<br>pro.getY = function(){}</p>
+<ul>
+<li>重构原型对象</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Fn.prototype = &#123;</div><div class="line">    a: function()&#123;</div><div class="line"></div><div class="line">    &#125;,</div><div class="line">    b: function()&#123;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">f.a();</div><div class="line">f.b();</div><div class="line">console.log(f.constructor); //function Object</div></pre></td></tr></table></figure>
+<p>自己新开辟一个堆内存，存放公有属性和方法，把浏览器原来提供的Fn.prototype替换掉，并在空闲时销毁</p>
+<ul>
+<li>只有浏览器天生提供的Fn.prototype堆内存中才会有constructor,而自己开辟的堆内存中没有这个属性，所以f的构造方法会找到Object;constructor的指向就不是Fn而是Object 为了和原来的保持一致，需要手动增加constructor指向</li>
+</ul>
+<p>contrunstor: Fn</p>
+<ul>
+<li>用这种方式给内置类增加公有属性</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Array.prototype.unique = function()&#123;</div><div class="line">//数组驱重的方法</div><div class="line">&#125;</div><div class="line">Array.prototype = &#123;</div><div class="line">constructor : Array,</div><div class="line">unique : function()&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样做会把之前存在于原型上的方法和属性给替换掉，所以用这种方式修改内置类的话浏览器会屏蔽掉，无法修改<br>};</p>
+<p>但是可以一个个的修改内置的方法，当方法名和内置方法名重复的时候，会替换掉内值方法 所以在内置类原型上增加方法一定要加上特殊前缀，以示区别，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Array.prototype.sort = function()&#123;</div><div class="line">console.log(&quot;OK&quot;);</div><div class="line">&#125;</div><div class="line">//这样将修改内值方法sort，失去排序功能</div></pre></td></tr></table></figure>
+<h4 id="5-2-原型中的this"><a href="#5-2-原型中的this" class="headerlink" title="5.2 原型中的this"></a>5.2 原型中的this</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">function Fn()&#123;</div><div class="line">    this.x = 100;</div><div class="line">    this.y = 200;</div><div class="line">    this.getY = function()&#123;</div><div class="line">        console.log(this.y);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">Fn.prototype = &#123;</div><div class="line">    constructor: Fn,</div><div class="line">    y : 300,</div><div class="line">    getX : function()&#123;</div><div class="line">        console.log(this.x);</div><div class="line">    &#125;,</div><div class="line">    getY : function()&#123;</div><div class="line">        console.log(this.y);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">var f = new Fn;</div><div class="line">f.getX();</div><div class="line">f.__proto__.getX();</div><div class="line">在类中的this:this.xxx=xxx ==&gt;this指当前类的实例 某个方法中的this,看执行的时候&quot;.&quot;前边是谁就是谁</div><div class="line"></div><div class="line">f.getX();  //this-&gt;f </div><div class="line">console.log(f.x);  //100</div><div class="line">f.__proto__.getX();  // this-&gt;f.__proto__  </div><div class="line">//f.__proto__.x-&gt;undefiend先向公有方法中查找，然后向Object中查找，没有则为undefined</div><div class="line">Fn.prototype.getX(); //undefined</div><div class="line">f.getY(); //200</div><div class="line">f.__proto__.getY();  //300 this-&gt;f.__proto__.getY(),即公有方法中的getY(),公有中y:300</div><div class="line">先确定this的指向</div><div class="line">把this替换成对应的代码</div><div class="line">按照原型链查找机制查找结果</div></pre></td></tr></table></figure>
+<h4 id="5-3-链式写法"><a href="#5-3-链式写法" class="headerlink" title="5.3 链式写法"></a>5.3 链式写法</h4><p>执行完成一个方法后继续执行下一个方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr.sort(function(a,b)&#123;return a-b&#125;).reverse().pop();</div></pre></td></tr></table></figure>
+<p>原理：arr执行sort方法-&gt;因为sort是Array.prototype上的公有方法，</p>
+<p>arr是Array的一个实例-&gt;数组才能使用Array原型上定义的属性和方法</p>
+<p>sort方法执行完成后返回的是一个数组，可以继续执行下面的方法，</p>
+<p>reverse返回的也是一个数组；pop返回的是被删除的那个元素</p>
+<h4 id="5-4-原型链继承"><a href="#5-4-原型链继承" class="headerlink" title="5.4 原型链继承"></a>5.4 原型链继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">for(var key in obj)&#123;</div><div class="line">  //默认可以把私有的和在所属类原型上扩展的方法和属性都能遍历到，但是一般情况下遍历对象只遍历私有的即可</div><div class="line">  if(obj.propertyIsEnumerable)&#123;</div><div class="line">    console.log(key);</div><div class="line">    //只将私有属性和方法遍历出来，自定义的方法和属性以及公有的方法和属性将不被遍历</div><div class="line">  &#125;</div><div class="line">  if(obj.hasOwnProperty(key))&#123;</div><div class="line">    //console.log(key);</div><div class="line">    //只遍历私有的</div><div class="line">  &#125;</div><div class="line">  //后者方式更普遍</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Object.create(proto);创建一个拥有指定原型和若干指定属性的对象 proto一个对象，作为新创建对象的原型 Object.create(proto);创建一个新对象，把proto作为这个对象的原型 propertyIsEnumerable该值指示指定属性是否为对象的一部分以及该属性是否是可枚举的。</p>
+<h4 id="5-5-原型继承方式"><a href="#5-5-原型继承方式" class="headerlink" title="5.5 原型继承方式"></a>5.5 原型继承方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function A()&#123;</div><div class="line">    this.x = 100;</div><div class="line">&#125;</div><div class="line">A.prototype.getX = function()&#123;</div><div class="line">    console.log(this.x);</div><div class="line">&#125;</div><div class="line">function B()&#123;</div><div class="line">    this.y = 200;</div><div class="line">&#125;</div><div class="line">B.prototype = new A;</div></pre></td></tr></table></figure>
+<p>子类B继承父类A的所有属性和方法(私有和公有的)的方式，A的实例既有私有属性方法，又有公有属性和方法，所以用A的实例作为B的原型地址</p>
+<ul>
+<li>继承特点：把父类的私有的和公有的都继承到子类原型上，都是子类公有的</li>
+<li>核心：原型继承并不是把父类的属性和方法克隆一份给子类，而是让父类和子类之间增加了原型链的链接，以后子类的实例想要用父类的方法，需要一级级的向上查找来使用</li>
+</ul>
+<h2 id="6-除原型链外的其他继承方式"><a href="#6-除原型链外的其他继承方式" class="headerlink" title="6.除原型链外的其他继承方式"></a>6.除原型链外的其他继承方式</h2><ul>
+<li>call继承<br>把父类的私有的属性和方法克隆一份，作为子类私有的属性</li>
+<li>冒充对象继承<br>把父类私有的和公有的克隆一份给子类私有的</li>
+<li>混合模式继承</li>
+<li>原型继承+call继承</li>
+<li>寄生组合式继承<br>私有的只拿私有的(call)，公有的拿公有的(Object.create())</li>
+<li>中间类继承法(不兼容)</li>
+</ul>
+<h2 id="7-面向对象"><a href="#7-面向对象" class="headerlink" title="7.面向对象"></a>7.面向对象</h2><p>对象：js中万物皆对象，是泛指</p>
+<p>类：对象的具体细分</p>
+<p>实例：某一个类别中具体的一个事物</p>
+<p>对象是一个抽象的概念<br>内置类：</p>
+<ul>
+<li><p>Array,Number,String,Boolean,Null,Undefined,Object,RegExp,Date,Function</p>
+</li>
+<li><p>HTMLCollection元素集合类，通过getElementByTagName获取的元素集合都是它的实例</p>
+</li>
+<li>NodeList节点集合类，通过getElementsByName获取的节点集合都是它的实例</li>
+</ul>
+<p>通过对一个实例的研究，得出这一个类的知识，认为所有的类的实例都具有这些特征，这个过程叫面向对象<br>所有编程语言都是面向对象开发的，类的继承、封装、多态</p>
+<ul>
+<li>继承：子类继承父类中的属性和方法</li>
+<li>多态：当前方法的多种形态(后台语言中，多态包含重载和重写)</li>
+<li>重载：方法名相同，参数不一样（参数个数，参数类型）；JS中不存在重载</li>
+</ul>
+<p>JS中函数方法名一样的话，后边的会把前边的覆盖掉，最后只保留一个</p>
+<p>js中类似重载的操作：根据传递单数的不同，实现不同的功能</p>
+<p>重写：子类重写父类的方法</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/06/01/常用的设计模式/" data-id="citxzqs7v0007yyfyoyszibd4" class="article-share-link">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2016/06/01/常用的设计模式/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/01/预解释作用域闭包this/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          预解释、作用域、闭包、this关键字
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/01/常见需要处理的默认事件/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">阻止默认事件</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2016/06/01/常用的设计模式/" data-title="常用的设计模式" data-url="http://yoursite.com/2016/06/01/常用的设计模式/"></div>
+  </section>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码管理/">代码管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端工程化/">前端工程化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/代码管理/" style="font-size: 10px;">代码管理</a> <a href="/tags/前端工程化/" style="font-size: 10px;">前端工程化</a> <a href="/tags/性能优化/" style="font-size: 13.33px;">性能优化</a> <a href="/tags/总结/" style="font-size: 16.67px;">总结</a> <a href="/tags/计算机基础/" style="font-size: 10px;">计算机基础</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/27/模块化开发/">模块化开发</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/20/React+ES6 问题/">React + ES6 问题</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/15/React 基础/">React 基础入门</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/05/Script/">Script async、defer属性</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/05/正则表达式/">正则表达式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://arvinxiang.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+          <li>
+            <a href="http://yuancheng.work" target="_blank">远程.work</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Luo Liang<br>
+      Powered by <a href="//hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"reqianduan"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JS中常用的方法 | Finish</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="常用的DOM、字符串、数学、时间函数等方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS中常用的方法">
+<meta property="og:url" content="http://yoursite.com/2016/05/15/JS中常用的方法/index.html">
+<meta property="og:site_name" content="Finish">
+<meta property="og:description" content="常用的DOM、字符串、数学、时间函数等方法">
+<meta property="og:updated_time" content="2016-10-06T13:21:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS中常用的方法">
+<meta name="twitter:description" content="常用的DOM、字符串、数学、时间函数等方法">
+  
+    <link rel="alternative" href="/atom.xml" title="Finish" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Finish</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Keep Calm and Carry On</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-JS中常用的方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/15/JS中常用的方法/" class="article-date">
+  <time datetime="2016-05-15T03:30:11.000Z" itemprop="datePublished">2016-05-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JS中常用的方法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>常用的DOM、字符串、数学、时间函数等方法<br><a id="more"></a></p>
+<h2 id="1-DOM-document-object-model"><a href="#1-DOM-document-object-model" class="headerlink" title="1.DOM document object model"></a>1.DOM document object model</h2><p>DOM 就是描述html节点关系的图谱<br>DOM提供获取元素的方法和之间关系属性以及操作元素的方法</p>
+<h4 id="1-1-获取元素方法"><a href="#1-1-获取元素方法" class="headerlink" title="1.1 获取元素方法"></a>1.1 获取元素方法</h4><p>通过ID名来获取元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var oTab = document.getElementById(&apos;tab&apos;);</div></pre></td></tr></table></figure>
+<p>通过id获取时上下文只能是document</p>
+<p>若文档中出现同名ID，则通过该方法获得的是第一个元素</p>
+<p>若没获取到元素，则返回null</p>
+<p>在IE6/7中会把表单元素的name属性值当做id来用，并且不区分id的大小写<br>所以不要让表单元素的name和id重复，不要用id的大小写区分元素<br>也可以直接用ID名来代替获取元素对象(但是不推荐).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">例：console.log(tab);也可获取到元素</div></pre></td></tr></table></figure>
+<p>通过标签名来获取元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var oP = document.getElementsByTagName(&apos;p&apos;);</div></pre></td></tr></table></figure>
+<p>在整个文档中通过标签名获取一组元素<br>document在这里为上下文(context),可通过改变上下文来限制获取范围；</p>
+<p>获取这组元素长度：Obj.length或Obj[“length”]</p>
+<p>获取第一个元素：Obj[0]或Obj.item(0)</p>
+<p>通过元素name属性值获取一组元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var names = document.getElementsByName(&apos;name&apos;);</div></pre></td></tr></table></figure>
+<p>在IE浏览器下只对表单元素属性有效<br>通过元素class属性值获取一组元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var list = document.getElementsByClassName(&apos;list&apos;);</div></pre></td></tr></table></figure>
+<p>这个方法是项目中最常用的方法；但是不兼容IE6/7/8<br>通过元素class属性值获取一组元素的另一方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">document.querySelector(&apos;.tab&apos;);</div><div class="line">document.querySelectorAll(&apos;.tab&apos;);</div></pre></td></tr></table></figure>
+<p>同样，此方法不兼容IE6/7/8</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">document.querySelector(); 获取的是第一个类名元素</div><div class="line">document.querySelectorAll(); 获取多个元素，是类数组集合</div></pre></td></tr></table></figure>
+<p>获取html元素：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.documentElement；</div></pre></td></tr></table></figure>
+<p>获取body元素：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.body</div></pre></td></tr></table></figure>
+<p>获取当前屏幕宽度的兼容方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var width = document.documentElement.clientWidth || document.body.clientWidth;</div></pre></td></tr></table></figure>
+<h4 id="1-2-增加DOM的方法"><a href="#1-2-增加DOM的方法" class="headerlink" title="1.2 增加DOM的方法"></a>1.2 增加DOM的方法</h4><p>动态创建一个div元素对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var div = document.createElement(&quot;div&quot;);</div></pre></td></tr></table></figure>
+<p>将创建元素添加到页面去,默认添加到容器的末尾位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.body.appendChild(div);</div></pre></td></tr></table></figure>
+<p>也可以添加到指定元素之前，第一个参数为添加元素，第二个参数为指定元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.body.insertBefore(oP,oDiv);</div></pre></td></tr></table></figure>
+<p>等同于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">oDiv.parentNode.insertBefore(oP,oDiv);</div></pre></td></tr></table></figure>
+<h4 id="1-3-删除DOM的方法"><a href="#1-3-删除DOM的方法" class="headerlink" title="1.3 删除DOM的方法"></a>1.3 删除DOM的方法</h4><p>只有父级元素才有权利删除，所以必须找到父元素才能删除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">oDiv.parentNode.removeChild(oDiv);</div></pre></td></tr></table></figure>
+<h4 id="1-4-克隆DOM的方法"><a href="#1-4-克隆DOM的方法" class="headerlink" title="1.4 克隆DOM的方法"></a>1.4 克隆DOM的方法</h4><p>cloneNode() 默认为false，只克隆当前的;设置为true可以把选定元素的子孙元素也克隆出来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var a = oP.cloneNode();</div><div class="line">cloneNode(true);</div></pre></td></tr></table></figure>
+<h4 id="1-5-替换DOM的方法"><a href="#1-5-替换DOM的方法" class="headerlink" title="1.5 替换DOM的方法"></a>1.5 替换DOM的方法</h4><p>replaceChild(newNode,oldNode)将newNode元素替换oldNode元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">oDiv.parentNode.replaceChild(dd,oP);</div></pre></td></tr></table></figure>
+<h4 id="1-6-增加自定义属性"><a href="#1-6-增加自定义属性" class="headerlink" title="1.6 增加自定义属性"></a>1.6 增加自定义属性</h4><p>给DOM增加自定义属性的方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">obj[&quot;key&quot;]=value;</div><div class="line">obj.key=value;</div></pre></td></tr></table></figure>
+<p>获取形式只能是obj.key，另一种方式是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">obj.setAttribute(key,value);</div></pre></td></tr></table></figure>
+<ol>
+<li>获取形式只能是obj.getAttribute(key)</li>
+<li>删除形式只能是obj.removeAttribute(key)</li>
+</ol>
+<p>二者区别在于前者的添加属性不会显示在结构上；后者添加的属性会改变html结构，显示在结构上而后者的缺陷在于IE6/7/8下不能修改class属性</p>
+<h4 id="1-7-节点类型"><a href="#1-7-节点类型" class="headerlink" title="1.7 节点类型"></a>1.7 节点类型</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">类型	       nodeType	     nodeName	        nodeValue</div><div class="line">元素节点	      1	       大写的标签名	         null</div><div class="line">文本节点          3	         #text	            文字内容</div><div class="line">注释节点(注释)	 8	       #comment	           注释内容</div><div class="line">document	     9	       #document	        null</div></pre></td></tr></table></figure>
+<p>在标准浏览器下，把空格和回车的内容都作为text文本节点处理</p>
+<h4 id="1-8-DOM获取关系属性"><a href="#1-8-DOM获取关系属性" class="headerlink" title="1.8 DOM获取关系属性"></a>1.8 DOM获取关系属性</h4><p>Node节点:一个页面中的标签、文字、注释……都是节点</p>
+<ol>
+<li>Obj.childNodes 获取所有子节点 (包括文本节点、注释节点、元素节点。。。)</li>
+<li>Obj.children 获取所有元素子节点 (只包含元素节点)</li>
+<li>Obj.parentNode 获取父节点</li>
+<li>Obj.previousSibling 获取上一个哥哥节点(排行第五，则获取的是第四个)</li>
+<li>Obj.nextSibling 获取下一个弟弟节点(排行第五，则获取的是第六个)</li>
+<li>Obj.firstChild 获取所有子节点中第一个</li>
+<li>Obj.lastChild 获取所有子节点中最后一个</li>
+</ol>
+<h2 id="2-Math函数"><a href="#2-Math函数" class="headerlink" title="2.Math函数"></a>2.Math函数</h2><h4 id="2-1-Math方法"><a href="#2-1-Math方法" class="headerlink" title="2.1 Math方法"></a>2.1 Math方法</h4><ol>
+<li>Math.abs();取绝对值</li>
+<li>Math.ceil();向上取整</li>
+<li>Math.floor();向下取整</li>
+<li>Math.round();四舍五入 在负数情况下五及五以下是舍</li>
+<li>Math.max(val1,val2,val3…);求最大值</li>
+<li>Math.min(val1,val2,val3…);求最小值</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Math.abs(-12);</div><div class="line">Math.ceil(12.5);</div><div class="line">Math.floor(12.5);</div><div class="line">Math.round(12.4);</div><div class="line">Math.min(11,12,13,14,15);</div><div class="line">Math.max(11,12,13,14,15);</div></pre></td></tr></table></figure>
+<h4 id="2-2-随机数"><a href="#2-2-随机数" class="headerlink" title="2.2 随机数"></a>2.2 随机数</h4><p>Math.random(); 获取[0,1)之间的随机小数(包含0不包含1)</p>
+<p>获取[m,n]之间的随机整数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Math.round(Math.random()*(n-m)+m);  //公式</div></pre></td></tr></table></figure>
+<h2 id="3-String字符串类"><a href="#3-String字符串类" class="headerlink" title="3.String字符串类"></a>3.String字符串类</h2><h4 id="3-1-字符串属性"><a href="#3-1-字符串属性" class="headerlink" title="3.1 字符串属性"></a>3.1 字符串属性</h4><p>str.length 获取字符串中字符个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str = &quot;hello world&quot;;</div><div class="line">console.log(str.length);  //11</div></pre></td></tr></table></figure>
+<h4 id="3-2-字符串操作"><a href="#3-2-字符串操作" class="headerlink" title="3.2 字符串操作"></a>3.2 字符串操作</h4><p>字符串截取方法：</p>
+<p>str.substr(m,n); 从索引m开始，截取n个字符</p>
+<p>str.substring(m,n); 从索引m出开始查找，找到索引n处，不包含n，将查找到的内容返回</p>
+<p>str.slice(m,n); 从索引m出开始查找，找到索引n处，不包含n，将查找到的内容返回;支持负数索引,计算为str.length+负数索引</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &quot;hello world&quot;;</div><div class="line">console.log(str.substr(8,3));  //rld</div><div class="line">console.log(str.substring(8,11));  //rld</div><div class="line">以上三方法若参数中只有m一个参数，则都截取到str末尾</div></pre></td></tr></table></figure>
+<p>查找字符串索引</p>
+<p>str.indexOf(字符); 获取字符串中该字符第一次出现的索引位置</p>
+<p>str.lastIndexOf(字符); 获取字符串中该字符最后一次出现的索引位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var str = &quot;hello world&quot;;</div><div class="line">console.log(str.indexOf(&quot;l&quot;));  //2</div><div class="line">console.log(str.lastIndexOf(&quot;l&quot;));  //9</div><div class="line">console.log(str.indexOf(&quot;a&quot;)); //-1</div><div class="line">以上两方法中若没有找到该字符则返回-1；可用来判断是否包含某字符</div></pre></td></tr></table></figure>
+<p>大小写转换</p>
+<p>str.toLowerCase(); 将字符串转换为小写字母</p>
+<p>str.toUpperCase(); 将字符串转换为大写字母</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var str = &quot;hello WORLD&quot;;</div><div class="line">console.log(str.toLowerCase());</div><div class="line">console.log(str.toUpperCase());</div></pre></td></tr></table></figure>
+<p>替换字符</p>
+<p>str.replace(oldStr,newStr); 在不使用正则的情况下，每一次调用都只替换一次</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var str = &quot;hello world&quot;;</div><div class="line">var newstr = str.replace(/l/g,&apos;a&apos;);</div><div class="line">console.log(newstr);</div></pre></td></tr></table></figure>
+<p>分隔字符串<br>按照指定的字符将字符串拆分成数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var str = &quot;1+2+3+4&quot;</div><div class="line">var arr = str.split(&quot;+&quot;);  //[&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;]</div><div class="line">var arr2 = str.split(&quot;&quot;);  //[&quot;1&quot;,&quot;+&quot;,&quot;2&quot;,&quot;+&quot;,&quot;3&quot;,&quot;+&quot;,&quot;4&quot;]</div><div class="line">var arr3 = str.split(&quot;,&quot;); //[&quot;1+2+3+4&quot;]</div><div class="line">若没有字符则将每一项都拆分成数组元素，若找不到指定字符则将整体按一个</div><div class="line">元素添加到数组</div></pre></td></tr></table></figure>
+<p>此方法对应数组的join方法<br>字符串中也存在索引，从零开始，空格和换行等特殊字符也是字符<br>str.charAt(n); 获取字符串中索引为n的字符</p>
+<p>str.charCodeAt(n); 获取指定位置字符对应的ASCII编码值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var str = &quot;hello world&quot;;</div><div class="line">console.log(str.charAt(8)); //r</div><div class="line">console.log(str.charCodeAt(8)); //114</div></pre></td></tr></table></figure>
+<h2 id="4-Date函数"><a href="#4-Date函数" class="headerlink" title="4.Date函数"></a>4.Date函数</h2><h4 id="4-1-获取时间"><a href="#4-1-获取时间" class="headerlink" title="4.1 获取时间"></a>4.1 获取时间</h4><p>获取电脑时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var time = new Date();  //获取当前电脑时间</div><div class="line">var year = time.getFullYear();</div><div class="line">var month = time.getMonth()+1; // 获得0-11</div><div class="line">var day = time.getDate();</div><div class="line">var week = time.getDay(); //0-6之间，代表周日到周六</div><div class="line">var hours = time.getHours();</div><div class="line">var minutes = time.getMinutes();</div><div class="line">var seconds = time.getSeconds();</div><div class="line">var msecond = time.getMilliseconds();</div><div class="line">获取目标时间，在Date()中传参数</div><div class="line">var targetTime = new Date(&quot;2016-06-20 21:00:00&quot;);</div><div class="line">Date()支持十多种传入时间格式，在日期中用&quot;-&quot;可以连接时间，但是在IE6/7/8中不兼容，需要改成&quot;/&quot;</div><div class="line">var targetTime = new Date(&quot;2016/06/20 21:00:00&quot;);</div></pre></td></tr></table></figure>
+<h4 id="4-2-计算倒计时"><a href="#4-2-计算倒计时" class="headerlink" title="4.2 计算倒计时"></a>4.2 计算倒计时</h4><p>getTime(); </p>
+<p>获取当前时间距离1970年1月1日午夜(00:00)到现在的毫秒差<br>则用目标时间距离1970年的毫秒差 减去 当前时间距离1970年的毫秒差，则是目标时间与当前时间之间的差值</p>
+<h2 id="5-定时器"><a href="#5-定时器" class="headerlink" title="5.定时器"></a>5.定时器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">window.setInterval([function],[interval]); 每隔一段时间执行一次</div><div class="line">window.setTimeout([function],[interval]); 隔一段时间仅执行一次</div><div class="line">clearInterval(); clearTimeout(); 清除定时器</div><div class="line">定时器的返回值是一个数字，代表这是第几个定时器</div></pre></td></tr></table></figure>
+<h2 id="6-深入函数数据类型"><a href="#6-深入函数数据类型" class="headerlink" title="6.深入函数数据类型"></a>6.深入函数数据类型</h2><p>JS在预解析时将变量或函数预解析到它们能调用的环境（变量运行时环境）中，并且预解析发生在当前 作用域下的变量和函数进行预解析时是不一样的，变量只是提前声明，而函数是提前声明和定义都完成了</p>
+<p>函数执行可以写在任何位置，因为定义的这个操作在预解析时已完成了</p>
+<p>函数执行时会形成一个新的私有作用域(栈内存)，首先进行的是预解析，其次代码执行<br>函数执行一次就形成一个新的私有作用域，执行完成之后，当前的私有作用域会销毁</p>
+<h2 id="7-栈内存和堆内存"><a href="#7-栈内存和堆内存" class="headerlink" title="7.栈内存和堆内存"></a>7.栈内存和堆内存</h2><p>刚开始加载页面时浏览器会自带一个js的执行环境，这个环境也叫做“栈内存”，也叫作用域引用数据类型会先开辟一段内存空间，把属性名和属性值都存起来，叫做“堆内存”</p>
+<p>栈内存(作用域)存储的是基本数据类型，代码从上至下执行<br>当一个方法执行时，每个方法都会建立自己的内存栈，在这个方法内定义的变量将会逐个放入这块栈内存里，随着方法的执行结束，这个方法的内存栈也将自然销毁了。</p>
+<p>因此，所有在方法中定义的变量都是放在栈内存中的；因为对象的创建成本通常较大，堆内存中的对象不会随方法的结束而销毁，为的是能够反复利用；即使方法结束后，这个对象还可能被另一个引用变量所引用（方法的参数传递时很常见），则这个对象依然不会被销毁，只有当一个对象没有任何引用变量引用它时，系统的垃圾回收机制才会在核实的时候回收它。<br>因为与垃圾回收机制有关，栈内存和堆内存的作用都是为了使程序运行时占用的内存最小。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/05/15/JS中常用的方法/" data-id="citxzqs7d0000yyfygc10m754" class="article-share-link">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2016/05/15/JS中常用的方法/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/17/git基本命令/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          git基本命令
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/11/Src Href/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">src href</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2016/05/15/JS中常用的方法/" data-title="JS中常用的方法" data-url="http://yoursite.com/2016/05/15/JS中常用的方法/"></div>
+  </section>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码管理/">代码管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端工程化/">前端工程化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/代码管理/" style="font-size: 10px;">代码管理</a> <a href="/tags/前端工程化/" style="font-size: 10px;">前端工程化</a> <a href="/tags/性能优化/" style="font-size: 13.33px;">性能优化</a> <a href="/tags/总结/" style="font-size: 16.67px;">总结</a> <a href="/tags/计算机基础/" style="font-size: 10px;">计算机基础</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/27/模块化开发/">模块化开发</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/20/React+ES6 问题/">React + ES6 问题</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/15/React 基础/">React 基础入门</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/05/Script/">Script async、defer属性</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/05/正则表达式/">正则表达式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://arvinxiang.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+          <li>
+            <a href="http://yuancheng.work" target="_blank">远程.work</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Luo Liang<br>
+      Powered by <a href="//hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"reqianduan"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>

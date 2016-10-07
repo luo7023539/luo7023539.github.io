@@ -1,0 +1,664 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Finish</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="个人技术博客,向大家推荐一些不错的入门文章、以及一些个人总结分享,欢迎大家一起交流">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Finish">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="Finish">
+<meta property="og:description" content="个人技术博客,向大家推荐一些不错的入门文章、以及一些个人总结分享,欢迎大家一起交流">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Finish">
+<meta name="twitter:description" content="个人技术博客,向大家推荐一些不错的入门文章、以及一些个人总结分享,欢迎大家一起交流">
+  
+    <link rel="alternative" href="/atom.xml" title="Finish" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Finish</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Keep Calm and Carry On</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main">
+  
+    <article id="post-Form 表单提交" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/22/Form 表单提交/" class="article-date">
+  <time datetime="2016-05-22T11:30:30.000Z" itemprop="datePublished">2016-05-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/22/Form 表单提交/">Form 表单提交</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Form表单提交数据的几种方式"><a href="#Form表单提交数据的几种方式" class="headerlink" title="Form表单提交数据的几种方式"></a>Form表单提交数据的几种方式</h1><h3 id="一、submit提交"><a href="#一、submit提交" class="headerlink" title="一、submit提交"></a>一、submit提交</h3><p>在form标签中添加Action(提交的地址)和method(post),且有一个submit按钮</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">（&lt;input type=’submit’&gt;）</div></pre></td></tr></table></figure>
+<p>就可以进行数据的提交，每一个input标签都需要有一个name属性，才能进行提交。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;form action=’http://www.123.com/postValue’ method=’post’&gt;</div><div class="line">&lt;input type=’text’ name=’username’ /&gt;</div><div class="line">&lt;input type=’password’ name=’password’/&gt;</div><div class="line">&lt;input type=’submit’ value=’登陆&apos;/&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+<p>当点击登陆时，向数据库发生的数据是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">username=username&amp;password=password.</div></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2016/05/22/Form 表单提交/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/05/22/Form 表单提交/" data-id="citzvbnpw00030lfyw5xw221u" class="article-share-link">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2016/05/22/Form 表单提交/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-网站性能优化小技巧" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/21/网站性能优化小技巧/" class="article-date">
+  <time datetime="2016-05-21T11:30:30.000Z" itemprop="datePublished">2016-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/21/网站性能优化小技巧/">网站性能优化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="网站性能优化"><a href="#网站性能优化" class="headerlink" title="网站性能优化"></a>网站性能优化</h2><ul>
+<li>尽量减少向服务器请求的次数『减少HTTP请求』</li>
+<li>CSS/JS 文件进行合并 </li>
+<li>ICON图片也进行合并</li>
+<li>雪碧图  css sprite</li>
+<li>图片延迟加载</li>
+<li>数据异步加载</li>
+<li>在移动端，若为一个简单的宣传页，可以把css和js写成内嵌式</li>
+</ul>
+<h4 id="图片延迟加载："><a href="#图片延迟加载：" class="headerlink" title="图片延迟加载："></a>图片延迟加载：</h4><ol>
+<li><p>对于首屏内容中的图片，首先给对应区域一张默认图片占位，当首屏内容加载完成后，在开始加载真实的图片</p>
+</li>
+<li><p>对于其他屏中的图片：也是给一张默认的图片，当滚动条滚动到对应区域的时候，再开始加载真实图片 </p>
+</li>
+</ol>
+<p>给图片区域增加默认图片当做背景<br>img设置display：none<br>之后将真实图片显示出来</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/05/21/网站性能优化小技巧/" data-id="cityf0lhg0003izfyiq98b8lf" class="article-share-link">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2016/05/21/网站性能优化小技巧/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/性能优化/">性能优化</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-CSS3 动画" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/21/CSS3 动画/" class="article-date">
+  <time datetime="2016-05-21T11:30:30.000Z" itemprop="datePublished">2016-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/21/CSS3 动画/">CSS3动画</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="CSS3-动画"><a href="#CSS3-动画" class="headerlink" title="CSS3 动画"></a>CSS3 动画</h2><p>移动端中只需要两套(带前缀和不带前缀)</p>
+<h3 id="transfrom"><a href="#transfrom" class="headerlink" title="transfrom:"></a>transfrom:</h3><h4 id="1、旋转"><a href="#1、旋转" class="headerlink" title="1、旋转"></a>1、旋转</h4><p>rotate（）函数通过指定的角度参数使元素相对远点进行旋转。</p>
+<p>设置一个角度值，用来指定旋转的幅度，正值为相对原点中心顺时针旋转，负值则逆时针旋转。</p>
+<h4 id="2、变形—扭曲-skew"><a href="#2、变形—扭曲-skew" class="headerlink" title="2、变形—扭曲 skew"></a>2、变形—扭曲 skew</h4><p>扭曲skew（）函数能够让元素倾斜显示，它可以将一个对象以其中心位置围绕着X轴和Y轴按照一个角度的倾斜。</p>
+<p>skew（x，y）<br>skewX（x）  skewY（y）<br>rotate仅旋转不改变元素的形状。<br>
+        
+          <p class="article-more-link">
+            <a href="/2016/05/21/CSS3 动画/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/05/21/CSS3 动画/" data-id="cityfjl0g0008izfyx826vve9" class="article-share-link">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2016/05/21/CSS3 动画/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS3/">CSS3</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ES6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/20/ES6/" class="article-date">
+  <time datetime="2016-05-20T10:30:30.000Z" itemprop="datePublished">2016-05-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/20/ES6/">ECMAScript6</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#ECMAScript6<br>ECMAScript简称就是ES,你可以把它看成是一套标准,JavaScript就是实施了这套标准的一门语言 现在主流浏览器使用的是ECMAScript5</p>
+<p>##1. 作用域变量<br>作用域就是一个变量的作用范围。</p>
+<p>也就是你声明一个变量以后,这个变量可以在什么场合下使用 以前的JavaScript只有全局作用域，还有一个函数作用域</p>
+<p>###1.1 var的问题</p>
+<p>var没有块级作用域，定义后在当前闭包中都可以访问，如果变量名重复，就会覆盖前面定义的变量，并且也有可能被其他人更改。<br>
+        
+          <p class="article-more-link">
+            <a href="/2016/05/20/ES6/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/05/20/ES6/" data-id="cityemukr0001iyfyfn9gfhkn" class="article-share-link">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2016/05/20/ES6/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-带Var和不带Var" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/20/带Var和不带Var/" class="article-date">
+  <time datetime="2016-05-20T07:25:25.000Z" itemprop="datePublished">2016-05-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/20/带Var和不带Var/">带var不带var的具体表现</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="声明变量和不声明变量的区别"><a href="#声明变量和不声明变量的区别" class="headerlink" title="声明变量和不声明变量的区别"></a>声明变量和不声明变量的区别</h2><p>Javascript声明变量的时候，虽然用var关键字声明和不用关键字声明，很多时候运行并没有问题，但是这两种方式还是有区别的。可以正常运行的代码并不代表是合适的代码。</p>
+<p>如果只考虑在全局声明跟全局直接赋值的话<br>使用上面确实没有太大区别。</p>
+<p>因为js找变量不仅在作用域里面找，还跑到全局对象那里去找。</p>
+<p>导致我们使用全局的属性都忽略书写全局，代码就不规范了。</p>
+<p>当有一个变量和全局属性重名的时候就有点不舒服了。</p>
+<p>而且属性是可以用delete删除的，而变量不行，除非手动配置变量。</p>
+<p>a = 1 ;<br>在预解释上面也不一样。<br>不带var的话，在该行代码上面使用就报错啦</p>
+<p>JS中变量申明分显式申明和隐式申明。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Var i=100  显示申明</div><div class="line">i=100  隐式申明</div></pre></td></tr></table></figure>
+<p>在函数中使用var关键字进行显式申明的变量是做为局部变量，而没有用var关键字，使用直接赋值方式声明的是全局变量。</p>
+<p>当我们使用访问一个没有声明的变量时，JS会报错。而当我们给一个没有声明的变量赋值时，JS不会报错，相反它会认为我们是要隐式申明一个全局变量，这一点一定要注意。</p>
+<p>var num = 1是在当前域中声明变量. 如果在方法中声明，则为局部变量；</p>
+<p>如果是在全局域中声明，则为全局变量。</p>
+<p>而num = 1，事实上是对属性赋值操作。首先，它会尝试在当前作用域链（如在方法中声明，则当前作用域链代表全局作用域和方法局部作用域etc。。。）中解析 num； </p>
+<p>如果在任何当前作用域链中找到num，则会执行对num属性赋值； </p>
+<p>如果没有找到num，它才会在全局对象（即当前作用域链的最顶层对象，如window对象）中创造num属性并赋值。</p>
+<p>注意！它并不是声明了一个全局变量，而是创建了一个全局对象的属性</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/05/20/带Var和不带Var/" data-id="cityetd9z0000izfyb26kkjrz" class="article-share-link">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2016/05/20/带Var和不带Var/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-webStorage" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/20/webStorage/" class="article-date">
+  <time datetime="2016-05-20T07:24:25.000Z" itemprop="datePublished">2016-05-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/20/webStorage/">Webstorage</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-cookie的缺陷"><a href="#1-cookie的缺陷" class="headerlink" title="1. cookie的缺陷"></a>1. cookie的缺陷</h2><p>数据大小：cookie的大小限制在4KB左右<br>安全性问题：由于在HTTP请求中的cookie是明文传递的带来的安全性问题。<br>网络负担：我们知道cookie会被附加在每个HTTP请求中，在请求和响应的header中都是要被传输的，所以会消耗额外的网络流量。</p>
+<h2 id="2-WebStorage"><a href="#2-WebStorage" class="headerlink" title="2. WebStorage"></a>2. WebStorage</h2><p>WebStorage是HTML新增的本地存储解决方案之一，但并不是为了取代cookie而制定的标准，cookie作为HTTP协议的一部分用来处理客户端和服务器通信是不可或缺的，session正是依赖于实现的客户端状态保持。WebStorage的意图在于解决本来不应该cookie做，却不得不用cookie的本地存储。<br>
+        
+          <p class="article-more-link">
+            <a href="/2016/05/20/webStorage/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/05/20/webStorage/" data-id="citxzqs7o0003yyfyx0sjco4a" class="article-share-link">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2016/05/20/webStorage/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Gulp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/18/Gulp/" class="article-date">
+  <time datetime="2016-05-18T10:30:11.000Z" itemprop="datePublished">2016-05-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/18/Gulp/">Gulp</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-什么是gulp"><a href="#1-什么是gulp" class="headerlink" title="1. 什么是gulp"></a>1. 什么是gulp</h2><p>gulp是可以自动化执行任务的工具 在平时开发的流程里面,一定有一些任务需要手工重复得执行,只要你觉得有些动作是要重复去做的,就可以把这些动作创建成一个gulp任务,然后在特定的条件下自动执行. 比如在less源文件发生改变后自动编译成css文件</p>
+<p>####1.1 流的概念</p>
+<ul>
+<li>Stream是nodejs各种对象实现的抽象接口。</li>
+<li>所有的stream对象都是EventEmitter的实例,可以发射事件。</li>
+<li>流是一种有起点和终点的数据传输手段。</li>
+<li>上一个的输出是下一个的输入</li>
+</ul>
+<p>####1.2 gulp中的流<br>gulp正是通过代码优于配置的策略来尽量简化任务编写的工作。</p>
+<p>类似jquery里的链式操作，把各个方法串连起来构建完整的任务。</p>
+<p>用gulp编写任务也可看作是用Node.js代码编写任务。</p>
+<p>当使用流时,gulp不需要生成大量的中间文件，只将最后的输出写入磁盘，整个过程因此变得非常快。<br>
+        
+          <p class="article-more-link">
+            <a href="/2016/05/18/Gulp/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/05/18/Gulp/" data-id="cityemukm0000iyfytpf9yi5m" class="article-share-link">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2016/05/18/Gulp/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端工程化/">前端工程化</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-git基本命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/17/git基本命令/" class="article-date">
+  <time datetime="2016-05-17T10:30:11.000Z" itemprop="datePublished">2016-05-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/17/git基本命令/">git基本命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>git的基本使用（版本控制、分支管理、多人协作）<br>
+        
+          <p class="article-more-link">
+            <a href="/2016/05/17/git基本命令/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/05/17/git基本命令/" data-id="citxzqs7k0001yyfycrzy6vzb" class="article-share-link">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2016/05/17/git基本命令/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码管理/">代码管理</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
+  </nav>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码管理/">代码管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端工程化/">前端工程化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/代码管理/" style="font-size: 10px;">代码管理</a> <a href="/tags/前端工程化/" style="font-size: 10px;">前端工程化</a> <a href="/tags/性能优化/" style="font-size: 13.33px;">性能优化</a> <a href="/tags/总结/" style="font-size: 16.67px;">总结</a> <a href="/tags/计算机基础/" style="font-size: 10px;">计算机基础</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/27/模块化开发/">模块化开发</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/20/React+ES6 问题/">React + ES6 问题</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/15/React 基础/">React 基础入门</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/05/Script/">Script async、defer属性</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/05/正则表达式/">正则表达式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://arvinxiang.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+          <li>
+            <a href="http://yuancheng.work" target="_blank">远程.work</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Luo Liang<br>
+      Powered by <a href="//hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"reqianduan"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>

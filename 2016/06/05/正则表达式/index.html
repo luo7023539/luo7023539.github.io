@@ -1,0 +1,375 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>正则表达式 | Finish</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JS正则表达式中的基本知识">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式">
+<meta property="og:url" content="http://yoursite.com/2016/06/05/正则表达式/index.html">
+<meta property="og:site_name" content="Finish">
+<meta property="og:description" content="JS正则表达式中的基本知识">
+<meta property="og:updated_time" content="2016-10-06T13:21:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式">
+<meta name="twitter:description" content="JS正则表达式中的基本知识">
+  
+    <link rel="alternative" href="/atom.xml" title="Finish" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Finish</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Keep Calm and Carry On</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/05/正则表达式/" class="article-date">
+  <time datetime="2016-06-05T07:21:09.000Z" itemprop="datePublished">2016-06-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      正则表达式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JS正则表达式中的基本知识<br><a id="more"></a></p>
+<h2 id="1-什么是正则表达式"><a href="#1-什么是正则表达式" class="headerlink" title="1. 什么是正则表达式"></a>1. 什么是正则表达式</h2><p>在常见的字符串检索或替换中，我们需要提供一种模式表示检索工替换的规则<br>正则表达式使用单个字符串来描述、匹配一系列符合某个句法规则的字符串<br>判断正则是否能匹配给定参数字符串</p>
+<h2 id="2-JS正则中的特殊字符"><a href="#2-JS正则中的特殊字符" class="headerlink" title="2. JS正则中的特殊字符"></a>2. JS正则中的特殊字符</h2><h4 id="需要转义的特殊字符"><a href="#需要转义的特殊字符" class="headerlink" title="需要转义的特殊字符"></a>需要转义的特殊字符</h4><p>( [ { \ ^ $ | ) ? * + .</p>
+<h4 id="特殊字符说明"><a href="#特殊字符说明" class="headerlink" title="特殊字符说明"></a>特殊字符说明</h4><ol>
+<li>$    匹配输入字符串的结尾位置。请使用 \$</li>
+<li>( )    标记一个子表达式的开始和结束位置,请使用( )</li>
+<li>*    匹配前面的子表达式零次或多次,请使用 *</li>
+<li>+    匹配前面的子表达式一次或多次,请使用 +</li>
+<li>.    匹配除换行符\n之外的任何单字符,请使用 .</li>
+<li>[ ]    标记一个中括号表达式的开始,请使用 [ 或 ]</li>
+<li>?    匹配前面的子表达式零次或一次,请使用 \?</li>
+<li>\    将下一个字符标记为或特殊字符,请使用 \</li>
+<li>^    匹配输入字符串的开始位置,请使用 \^</li>
+<li>{}    标记限定符表达式的开始。请使用 {</li>
+<li>¦    指明两项之间的一个选择,请使用 \¦ </li>
+</ol>
+<hr>
+<h2 id="3-预定义的特殊字符"><a href="#3-预定义的特殊字符" class="headerlink" title="3.预定义的特殊字符"></a>3.预定义的特殊字符</h2><p>字符    描述</p>
+<ol>
+<li>\t    制表符</li>
+<li>\n    制表符</li>
+<li>\r    回车符</li>
+<li>\f    换页符</li>
+<li>\v    垂直制表符</li>
+<li>\0    空字符</li>
+<li>\x0B    垂直tab</li>
+</ol>
+<hr>
+<h2 id="4-范围符号"><a href="#4-范围符号" class="headerlink" title="4. 范围符号"></a>4. 范围符号</h2><p>符号    含义    示例</p>
+<ol>
+<li>[]    字符范围    [a-z] [0-9] [a-z0-9]</li>
+<li>[^]    字符范围以外    [^a-z]</li>
+<li>^    行首    ^zf</li>
+<li>$    行尾    zf$</li>
+<li>\b    零宽单词边界    \bhello</li>
+<li>\B    非\b    \Bhello</li>
+</ol>
+<h2 id="预定义类"><a href="#预定义类" class="headerlink" title=". 预定义类"></a>. 预定义类</h2><p>字符    等同于    含义    示例</p>
+<ol>
+<li>.    [^\n\r]    任意字符    /…/.test(‘abc’)</li>
+<li>\d    [0-9]    数字0-9    /\d\d\d/.test(‘123’)</li>
+<li>\D    [^0-9]    非\d,即不是数字0-9    /\D\D\D/.test(‘abc’)</li>
+<li>\w    [a-zA-Z<em>0-9]    数字0-9、字母a-z及a-z、下划线    /\w\w/.test(‘a</em>‘)</li>
+<li>\W    [^a-zA-Z_0-9]    非\W    /\W\W/.test(‘@#’)</li>
+<li>\s    [\t\n\x0B\f\r]    空格、TAB、换页符、换行符    /\sabc/.test(‘ abc’)</li>
+<li>\S    [^\t\n\x0B\f\r]    非\s    /\Sd/.test(‘a d’)</li>
+</ol>
+<h2 id="6-分组"><a href="#6-分组" class="headerlink" title="6. 分组"></a>6. 分组</h2><p>符号    含义    示例</p>
+<ol>
+<li>(x)    分组，并记录匹配到的字符串    /(abc)/</li>
+<li>\n    表示使用分组符(x)匹配到的字符串    /(abc)\1/.test(‘abcabc’)</li>
+<li><p>(?:x)    仅分组不捕获    /(?:abc)(def)\1/.test(‘abcdefdef’);</p>
+<h2 id="7-重复"><a href="#7-重复" class="headerlink" title="7.重复"></a>7.重复</h2><p>符号    含义    示例</p>
+</li>
+<li><p>a<em>,a+    重复次数&gt;=0,重复次数&gt;=1 贪婪算法    /abc</em>.test(‘abccc’)/</p>
+</li>
+<li>a<em>? a+?    同a</em>,a+ 非贪婪算法    /abc*/.test(‘ab’)</li>
+<li>a?    出现0次或1次    /a?bc/.test(‘ab’)</li>
+<li>a¦b    a或者b    /a¦b/.test(‘a’)</li>
+<li>a{n},a{n,},a{n,m}    重复n次，重复&gt;=n次,重复n&lt;=x&lt;=m    /a{2}/.test(‘aa’)</li>
+</ol>
+<h2 id="8-前瞻"><a href="#8-前瞻" class="headerlink" title="8.前瞻"></a>8.前瞻</h2><p>正则    名称    描述</p>
+<ol>
+<li>(?=exp)    正向前瞻    匹配后面是exp的位置</li>
+<li>(?!exp)    负向前瞻    匹配后面不是exp的位置</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var result = &apos;abbcdefbg&apos;.match(/b+?(?=g)/g); // [&apos;b&apos;] 前面符合正则</div><div class="line">var result = &apos;abbcdefbg&apos;.match(/b+(?!g)/g); // [&apos;bb&apos;] 前面不符合正则</div></pre></td></tr></table></figure>
+<h2 id="9-标志位"><a href="#9-标志位" class="headerlink" title="9.标志位"></a>9.标志位</h2><p>符号    含义</p>
+<ol>
+<li>global    匹配所有的情况</li>
+<li>ignoreCase    忽略大小写</li>
+<li>multiline    跨行匹配</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/abc/img.test(&apos;ABC&apos;); //true</div><div class="line">RegExp(&apos;abc&apos;,&apos;img&apos;);</div><div class="line">/abc/g.global //true</div><div class="line">/abc/i.ignoreCase //true</div><div class="line">/abc/m.multiline //true</div><div class="line">/abc/g.source //true 返回正则的内容</div></pre></td></tr></table></figure>
+<h2 id="10-RegExp对象方法"><a href="#10-RegExp对象方法" class="headerlink" title="10.RegExp对象方法"></a>10.RegExp对象方法</h2><p>方法    含义    示例</p>
+<ol>
+<li>compile    可以改变正则的内容    var reg = /abc/;reg.compile(‘def’);reg.test(‘def’);//true</li>
+<li>exec    用正则匹配字符串获取匹配结果    /abc/.exec(‘abcdef’); // “abc”</li>
+<li>test    如果匹配返回true    /ab/.test(‘ab’)</li>
+<li>toString    返回正则内容    /ab/.toString()</li>
+<li>exec 返回单次匹配的数组结果</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var str = &quot;school school&quot;;</div><div class="line">var patt = new RegExp(&quot;school&quot;,&apos;g&apos;);</div><div class="line">var result;</div><div class="line">while ((result = patt.exec(str)) != null)  &#123;</div><div class="line">    console.log(result);</div><div class="line">    console.log(patt.lastIndex);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="11-字符串的正则方法"><a href="#11-字符串的正则方法" class="headerlink" title="11.字符串的正则方法"></a>11.字符串的正则方法</h2><p>方法    含义    示例</p>
+<ol>
+<li>search    查找正则匹配对应的索引    ‘abcdefabc’.search(/(abc)\1/)</li>
+<li>replace    替换    ‘aabbbcc’.replace(/b+?/); //aa1bbcc</li>
+<li>match    匹配    ‘aabbbccbbb’.match(/b+/g) //</li>
+<li>split    分割字符串    ‘aabbbcc’.split(/b+/); /[“aa”,”cc”]<br>match</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var path = &apos;/users/:id/:name&apos;;</div><div class="line">console.log(path.match(/:(\w+)/));</div><div class="line">console.log(path.match(/:(\w+)/g));</div><div class="line">replace</div><div class="line"></div><div class="line">console.log(&apos;/users/:id/:name&apos;.replace(/:\w+/g,&apos;(\\w+)&apos;));</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/06/05/正则表达式/" data-id="citxzqs7z000byyfyvctrlh5e" class="article-share-link">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2016/06/05/正则表达式/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/05/Script/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          Script async、defer属性
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/01/预解释作用域闭包this/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">预解释、作用域、闭包、this关键字</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2016/06/05/正则表达式/" data-title="正则表达式" data-url="http://yoursite.com/2016/06/05/正则表达式/"></div>
+  </section>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码管理/">代码管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端工程化/">前端工程化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/代码管理/" style="font-size: 10px;">代码管理</a> <a href="/tags/前端工程化/" style="font-size: 10px;">前端工程化</a> <a href="/tags/性能优化/" style="font-size: 13.33px;">性能优化</a> <a href="/tags/总结/" style="font-size: 16.67px;">总结</a> <a href="/tags/计算机基础/" style="font-size: 10px;">计算机基础</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/27/模块化开发/">模块化开发</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/20/React+ES6 问题/">React + ES6 问题</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/15/React 基础/">React 基础入门</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/05/Script/">Script async、defer属性</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/05/正则表达式/">正则表达式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://arvinxiang.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+          <li>
+            <a href="http://yuancheng.work" target="_blank">远程.work</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Luo Liang<br>
+      Powered by <a href="//hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"reqianduan"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>

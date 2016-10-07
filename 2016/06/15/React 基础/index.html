@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>React 基础入门 | Finish</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. 什么是reactReact 是一个用于构建用户界面的JavaScript库
+2. 安装react$ bower install react babel –save
+3. 直接在浏览器中使用React">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React 基础入门">
+<meta property="og:url" content="http://yoursite.com/2016/06/15/React 基础/index.html">
+<meta property="og:site_name" content="Finish">
+<meta property="og:description" content="1. 什么是reactReact 是一个用于构建用户界面的JavaScript库
+2. 安装react$ bower install react babel –save
+3. 直接在浏览器中使用React">
+<meta property="og:updated_time" content="2016-10-07T12:01:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React 基础入门">
+<meta name="twitter:description" content="1. 什么是reactReact 是一个用于构建用户界面的JavaScript库
+2. 安装react$ bower install react babel –save
+3. 直接在浏览器中使用React">
+  
+    <link rel="alternative" href="/atom.xml" title="Finish" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Finish</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Keep Calm and Carry On</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-React 基础" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/15/React 基础/" class="article-date">
+  <time datetime="2016-06-15T03:30:11.000Z" itemprop="datePublished">2016-06-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React 基础入门
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-什么是react"><a href="#1-什么是react" class="headerlink" title="1. 什么是react"></a>1. 什么是react</h2><p>React 是一个用于构建用户界面的JavaScript库</p>
+<h2 id="2-安装react"><a href="#2-安装react" class="headerlink" title="2. 安装react"></a>2. 安装react</h2><p>$ bower install react babel –save</p>
+<h2 id="3-直接在浏览器中使用React"><a href="#3-直接在浏览器中使用React" class="headerlink" title="3. 直接在浏览器中使用React"></a>3. 直接在浏览器中使用React</h2><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;../bower_components/react/react.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;../bower_components/react/react-dom.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;../bower_components/babel/browser.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script type=&quot;text/babel&quot; src=&quot;index.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>react.js 是 React 的核心库</li>
+<li>react-dom.js 是提供与DOM相关的功能,会在window下增加ReactDOM属性</li>
+<li>browser.js 的作用是将JSX语法转为JavaScript语法<br>script中的type属性为text/babel,因为React独有的JSX语法,跟JavaScript不兼容</li>
+</ul>
+<h2 id="4-ReactDOM-render"><a href="#4-ReactDOM-render" class="headerlink" title="4. ReactDOM.render"></a>4. ReactDOM.render</h2><p>ReactDOM.render 是 React 的最基本方法,用于将标签模板转为HTML语言，并插入指定的DOM节点</p>
+<h3 id="4-1-index-html"><a href="#4-1-index-html" class="headerlink" title="4.1. index.html"></a>4.1. index.html</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">+   &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</div><div class="line">+   &lt;script type=&quot;text/babel&quot; src=&quot;js/1.react.js&quot;/&gt;</div></pre></td></tr></table></figure>
+<h3 id="4-2-js-1-react-js"><a href="#4-2-js-1-react-js" class="headerlink" title="4.2. js/1.react.js"></a>4.2. js/1.react.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ReactDOM.render(</div><div class="line">&lt;h1&gt;珠峰培训&lt;/h1&gt;,</div><div class="line">    document.getElementById(&apos;app&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>上面代码将一个h1标题，插入app元素内部</p>
+<h2 id="5-JSX-语法"><a href="#5-JSX-语法" class="headerlink" title="5. JSX 语法"></a>5. JSX 语法</h2><p>是一种JS和HTML混合的语法,将组件的结构、数据甚至样式都聚合在一起定义组件,会编译成普通的Javascript。</p>
+<p>遇到HTML标签(以 &lt; 开头)，就用HTML规则解析</p>
+<p>遇到代码块(以 { 开头)，就用JavaScript规则解析</p>
+<p>使用样式时可以让style等于一个样式对象</p>
+<p>使用样式类时只能使用className=类名,因为class是Javascript关键字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var persons = [&apos;刘德华&apos;, &apos;范冰冰&apos;, &apos;郭跃&apos;];</div><div class="line">var style = &#123;color:&apos;red&apos;&#125;;</div><div class="line">ReactDOM.render(</div><div class="line">  &lt;div&gt;</div><div class="line">  &#123;</div><div class="line">    persons.map(function (person) &#123;</div><div class="line">      return &lt;div style=&#123;style&#125;&gt;Hello, &#123;person&#125;!&lt;/div&gt;</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line">  &lt;/div&gt;,</div><div class="line">  document.getElementById(&apos;app&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<h2 id="6-定义组件"><a href="#6-定义组件" class="headerlink" title="6. 定义组件"></a>6. 定义组件</h2><p>我们可以很直观的将一个复杂的页面分割成若干个独立组件,每个组件包含自己的逻辑和样式 再将这些独立组件组合完成一个复杂的页面。 </p>
+<p>这样既减少了逻辑复杂度，又实现了代码的重用</p>
+<ul>
+<li>可组合：一个组件可以和其他的组件一起使用或者可以直接嵌套在另一个组件内部</li>
+<li>可重用：每个组件都是具有独立功能的，它可以被使用在多个场景中</li>
+<li>可维护：每个小的组件仅仅包含自身的逻辑，更容易被理解和维护<h3 id="6-1-定义组件"><a href="#6-1-定义组件" class="headerlink" title="6.1 定义组件"></a>6.1 定义组件</h3>React允许将代码封装成组件，然后像插入普通HTML标签一样，在网页中插入这个组件</li>
+</ul>
+<p>组件类的第一个字母必须大写<br>组件类能且只能包含一个顶层标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var Message = React.createClass(&#123;</div><div class="line">    render: function() &#123;</div><div class="line">        return &lt;h1&gt;Hello&lt;/h1&gt;;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">ReactDOM.render(</div><div class="line">    &lt;Message/&gt;,</div><div class="line">    document.getElementById(&apos;app&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>###6.2 组件的属性<br>每个组件可以有自己的属性,一般用来存放组件初始后不变的数据,比如人的性别，姓名等</p>
+<p>属性一般用作组件的数据源，一般由父组件传入,比如你的名字一般是由你父母取的</p>
+<p>属性可以通过this.props中取出</p>
+<p>propTypes可以用来定义传入组件属性的名称和类型</p>
+<p>getDefaultProps函数可以用来定会引起组件的默认属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">var Person = React.createClass(&#123;</div><div class="line">    //类似于约定了一个接口文档,用于这是验证传递给组件的属性，</div><div class="line">    propTypes: &#123;</div><div class="line">        //定义msg的属性类型为字符串，必须传入</div><div class="line">        name: React.PropTypes.string.isRequired,</div><div class="line">        gender: React.PropTypes.string.isRequired,</div><div class="line">        age:React.PropTypes.number.isRequired</div><div class="line">    &#125;,</div><div class="line">    getDefaultProps:function()&#123;</div><div class="line">        return &#123;name:&apos;无名氏&apos;&#125;</div><div class="line">    &#125;,</div><div class="line">    render: function() &#123;</div><div class="line">        //属性可以通过属性对象this.props中取出</div><div class="line">        return (&lt;h1&gt; &#123;this.props.name&#125;</div><div class="line">                     &#123;this.props.gender&#125;</div><div class="line">                     &#123;this.props.age&#125;</div><div class="line">                &lt;/h1&gt;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">var props = &#123;</div><div class="line">    gender:&apos;男&apos;,</div><div class="line">    age:18</div><div class="line">&#125;</div><div class="line">ReactDOM.render(</div><div class="line">    &lt;Person &#123;...props&#125; /&gt;,//属性可以在使用组件时传入</div><div class="line">    document.getElementById(&apos;app&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<h3 id="6-3-this-props-children"><a href="#6-3-this-props-children" class="headerlink" title="6.3 this.props.children"></a>6.3 this.props.children</h3><p>this.props对象的属性与组件实例的属性一一对应,但this.props.children属性表示组件的所有子节点 React.Children.map是一个工具方法，用于实现对数组元素的映射</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">var Person = React.createClass(&#123;</div><div class="line">    render: function() &#123;</div><div class="line">      return (</div><div class="line">            &lt;ol&gt;</div><div class="line">                &#123;</div><div class="line">                    React.Children.map(this.props.children,</div><div class="line">                      function (child) &#123;</div><div class="line">                        return &lt;li&gt;&#123;child&#125;&lt;/li&gt;;</div><div class="line">                    &#125;)</div><div class="line">                &#125;</div><div class="line">            &lt;/ol&gt;</div><div class="line">      );</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">ReactDOM.render(</div><div class="line">    &lt;Person&gt;</div><div class="line">        &lt;span&gt;大毛&lt;/span&gt;</div><div class="line">        &lt;span&gt;二毛&lt;/span&gt;</div><div class="line">        &lt;span&gt;三毛&lt;/span&gt;</div><div class="line">    &lt;/Person&gt;,</div><div class="line">    document.getElementById(&apos;app&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<h3 id="6-4-state状态"><a href="#6-4-state状态" class="headerlink" title="6.4 state状态"></a>6.4 state状态</h3><p>组件的状态就像人的心情，会经常变化，而且只能由自己来改变<br>组件一开始有一个初始状态,然后用户互动,导致状态变化，从而触发界面重新渲染</p>
+<p>getInitialState用来定义初始状态</p>
+<p>可以给按钮绑定事件，当事件发生的时候调用对应的方法改变组件的状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">var Person = React.createClass(&#123;</div><div class="line">    getInitialState: function() &#123;</div><div class="line">        return &#123;happy: true&#125;;</div><div class="line">    &#125;,</div><div class="line">    getDefaultProps:function()&#123;</div><div class="line">        return &#123;name:&apos;无名氏&apos;&#125;;</div><div class="line">    &#125;,</div><div class="line">    handleClick: function(event) &#123;</div><div class="line">        this.setState(&#123;happy: !this.state.happy&#125;);</div><div class="line">    &#125;,</div><div class="line">    render: function() &#123;</div><div class="line">        var heart = this.state.happy ? &apos;开心&apos; : &apos;不开心&apos;;</div><div class="line">        return (</div><div class="line">            &lt;p &gt;</div><div class="line">                 &#123;this.props.name&#125; &#123;heart&#125; &lt;br/&gt;</div><div class="line">                 &lt;button onClick=&#123;this.handleClick&#125;&gt;变心&lt;/button&gt;</div><div class="line">            &lt;/p&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">ReactDOM.render(</div><div class="line">    &lt;Person name=&quot;林志玲&quot; /&gt;,</div><div class="line">    document.getElementById(&apos;app&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>常用的事件</p>
+<ul>
+<li>剪贴板事件 onKeyDown onKeyPress onKeyUp</li>
+<li>键盘事件 onFocus onBlur</li>
+<li>焦点事件 onChange onInput onSubmit</li>
+<li>鼠标事件 onClick onDoubleClick onMouseDown onMouseEnter onMouseLeave</li>
+</ul>
+<h3 id="6-5-表单元素双向数据绑定"><a href="#6-5-表单元素双向数据绑定" class="headerlink" title="6.5 表单元素双向数据绑定"></a>6.5 表单元素双向数据绑定</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">var Input = React.createClass(&#123;</div><div class="line">    getInitialState: function() &#123;//获取初始状态</div><div class="line">        return &#123;value: &apos;珠峰培训&apos;&#125;;</div><div class="line">    &#125;,</div><div class="line">    handleChange: function(event) &#123; //处理改变事件</div><div class="line">        this.setState(&#123;value: event.target.value&#125;);</div><div class="line">    &#125;,</div><div class="line">    render: function () &#123;</div><div class="line">        var value = this.state.value;</div><div class="line">        return (</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;input style=&#123;&#123;color:&apos;red&apos;&#125;&#125; type=&quot;text&quot;</div><div class="line">                value=&#123;value&#125; onChange=&#123;this.handleChange&#125; /&gt;</div><div class="line">                &lt;p&gt;&#123;value&#125;&lt;/p&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">ReactDOM.render(&lt;Input/&gt;, document.getElementById(&apos;app&apos;));</div></pre></td></tr></table></figure>
+<p>注意: 如果给表单元素设置了value属性，则必须指定onChange事件处理函数，否则 此字段会变成只读状态</p>
+<h2 id="7-复合组件"><a href="#7-复合组件" class="headerlink" title="7. 复合组件"></a>7. 复合组件</h2><p>多个简单的组件嵌套，可构成一个复杂的复合组件，从而完成复杂的交互逻辑</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">var Panel = React.createClass(&#123;</div><div class="line">    render: function () &#123;</div><div class="line">        return (</div><div class="line">            &lt;div className=&quot;panel panel-default&quot;&gt;</div><div class="line">                &lt;PanelHead head=&#123;this.props.head&#125;/&gt;</div><div class="line">                &lt;PanelBody body=&#123;this.props.body&#125;/&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">var PanelHead = React.createClass(&#123;</div><div class="line">    render: function () &#123;</div><div class="line">        return (</div><div class="line">            &lt;div className=&quot;panel-heading&quot;&gt;</div><div class="line">                &#123;this.props.head&#125;</div><div class="line">            &lt;/div&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">var PanelBody = React.createClass(&#123;</div><div class="line">    render: function () &#123;</div><div class="line">        return (</div><div class="line">            &lt;div className=&quot;panel-body&quot;&gt;</div><div class="line">                &#123;this.props.body&#125;</div><div class="line">            &lt;/div&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">ReactDOM.render(</div><div class="line">    &lt;Panel</div><div class="line">        head=&quot;头部&quot;</div><div class="line">        body=&quot;正文&quot;</div><div class="line">    /&gt;,</div><div class="line">    document.getElementById(&apos;app&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<h2 id="8-组件的生命周期"><a href="#8-组件的生命周期" class="headerlink" title="8. 组件的生命周期"></a>8. 组件的生命周期</h2><p>React中可以指定在组件的生命周期的不同阶段执行的函数</p>
+<h4 id="渲染前"><a href="#渲染前" class="headerlink" title="渲染前"></a>渲染前</h4><ul>
+<li>getDefaultProps 在组件类创建的时候调用一次,则此处返回的对象中的相应属性将会合并到this.props</li>
+<li>getInitialState 在组件挂载之前调用一次。返回值将会作为this.state的初始值。</li>
+<li>componentWillMount 在首次渲染之前触发<br>####渲染</li>
+<li>render 当调用的时候，会检测this.props和this.state，返回一个组件<br>####渲染后</li>
+<li>componentDidMount 在初始化渲染执行之后立刻调用一次</li>
+<li>shouldComponentUpdate 在接收到新的props或者state，将要渲染之前调用,返回false则不更新组件</li>
+<li>componentWillUpdate 做一些更新之前的准备工作</li>
+<li>componentDidUpdate 更新之后触发</li>
+<li>componentWillReceiveProps 在组件接收到新的props的时候调用<br>####移除</li>
+<li>componentWillUnmount 在组件从DOM中移除的时候立刻被调用</li>
+<li>componentDidUnmount 组件移除之后调用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">var MessageBox = React.createClass(&#123;</div><div class="line">    getInitialState: function () &#123;</div><div class="line">        console.log(&apos;MessageBox.getInitialState&apos;);</div><div class="line">        return &#123;</div><div class="line">            count: 0,</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    getDefaultProps: function () &#123;</div><div class="line">        console.log(&apos;MessageBox.getDefaultProps&apos;);</div><div class="line">    &#125;,</div><div class="line">    componentWillMount: function () &#123;</div><div class="line">        console.log(&apos;MessageBox.componentWillMount&apos;);</div><div class="line">    &#125;,</div><div class="line">    componentDidMount: function () &#123;</div><div class="line">        console.log(&apos;MessageBox.componentDidMount&apos;);</div><div class="line">    &#125;,</div><div class="line">    componentWillUnmount: function () &#123;</div><div class="line">        console.log(&apos;MessageBox.componentWillUnmount&apos;);</div><div class="line">    &#125;,</div><div class="line">    shouldComponentUpdate: function (nextProp, nextState) &#123;</div><div class="line">        console.log(&apos;MessageBox.shouldComponentUpdate&apos;);</div><div class="line">        if (nextState.count &gt; 10) return false;</div><div class="line">        return true;</div><div class="line">    &#125;,</div><div class="line">    componentWillUpdate: function (nextProp, nextState) &#123;</div><div class="line">        console.log(&apos;MessageBox.componentWillUpdate&apos;);</div><div class="line">    &#125;,</div><div class="line">    componentDidUpdate: function () &#123;</div><div class="line">        console.log(&apos;MessageBox.componentDidUpdate&apos;);</div><div class="line">    &#125;,</div><div class="line">    killMySelf: function () &#123;</div><div class="line">        ReactDOM.unmountComponentAtNode(document.getElementById(&apos;app&apos;));</div><div class="line">    &#125;,</div><div class="line">    doUpdate: function () &#123;</div><div class="line">        this.setState(&#123;</div><div class="line">            count: this.state.count + 1,</div><div class="line">        &#125;);</div><div class="line">    &#125;,</div><div class="line">    render: function () &#123;</div><div class="line">        return (</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;h1 &gt; 计数： &#123;this.state.count&#125;&lt;/h1&gt;</div><div class="line">                &lt;button onClick=&#123;this.killMySelf&#125;&gt;卸载掉这个组件&lt;/button&gt;</div><div class="line">                &lt;button onClick=&#123;this.doUpdate&#125;&gt;手动更新一下组件&lt;/button&gt;</div><div class="line">                &lt;Submessage count=&#123;this.state.count&#125;/&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">var Submessage = React.createClass(&#123;</div><div class="line">    componentWillReceiveProps: function (nextProp) &#123;</div><div class="line">    console.log(&apos;Submessage.componentWillReceiveProps&apos;);</div><div class="line">    &#125;,</div><div class="line">    shouldComponentUpdate: function (nextProp, nextState) &#123;</div><div class="line">        console.log(&apos;Submessage.shouldComponentUpdate&apos;);</div><div class="line">        if (nextProp.count &gt; 5) return false;</div><div class="line">        return true;</div><div class="line">    &#125;,</div><div class="line">    render: function () &#123;</div><div class="line">        return (</div><div class="line">            &lt;h3&gt;当前计数是：&#123;this.props.count&#125;&lt;/h3&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">ReactDOM.render(&lt;MessageBox/&gt;, document.getElementById(&apos;app&apos;));</div><div class="line">ReactDOM.unmountComponentAtNode 从DOM中移除已经挂载的React组件</div></pre></td></tr></table></figure>
+<h2 id="9-DOM操作"><a href="#9-DOM操作" class="headerlink" title="9. DOM操作"></a>9. DOM操作</h2><p>给组件加上ref=”xxx”后，可在父组件中通过this.refs.xxx获取该DOM元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">var Focus = React.createClass(&#123;</div><div class="line">    handleClick: function() &#123;</div><div class="line">        this.refs.msg.focus();</div><div class="line">    &#125;,</div><div class="line">    render: function() &#123;</div><div class="line">        return (</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;input type=&quot;text&quot; ref=&quot;msg&quot; /&gt;</div><div class="line">                &lt;input type=&quot;button&quot; value=&quot;获得焦点&quot;</div><div class="line">                onClick=&#123;this.handleClick&#125; /&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">ReactDOM.render(</div><div class="line">    &lt;Focus /&gt;,</div><div class="line">    document.getElementById(&apos;app&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<h2 id="10-通过Ajax获取数据"><a href="#10-通过Ajax获取数据" class="headerlink" title="10.通过Ajax获取数据"></a>10.通过Ajax获取数据</h2><h3 id="10-1-客户端"><a href="#10-1-客户端" class="headerlink" title="10.1 客户端"></a>10.1 客户端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">var Suggestion = React.createClass(&#123;</div><div class="line">    getInitialState:function()&#123;</div><div class="line">      return &#123;&#125;</div><div class="line">    &#125;,</div><div class="line">    handleChange: function () &#123;</div><div class="line">        var value = this.refs.input.value;</div><div class="line">        $.ajax(&#123;</div><div class="line">            url: &apos;http://www.baidu.com/su&apos;,</div><div class="line">            type: &apos;get&apos;,</div><div class="line">            jsonp: &apos;cb&apos;,</div><div class="line">            dataType: &apos;jsonp&apos;,</div><div class="line">            data: &#123;wd: value&#125;,</div><div class="line">            processData: true,</div><div class="line">            context:this,</div><div class="line">            success: function (result) &#123;</div><div class="line">                var data = result.s;</div><div class="line">                data = data.map(function(item，index)&#123;</div><div class="line">                    return &lt;li key=&#123;index&#125;&gt;&#123;item&#125;&lt;/li&gt;</div><div class="line">                &#125;);</div><div class="line">                this.setState(&#123;content:data&#125;);</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">    &#125;,</div><div class="line">    render: function () &#123;</div><div class="line">        return (</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;input type=&quot;text&quot; ref=&quot;input&quot;</div><div class="line">                onChange=&#123;this.handleChange&#125;/&gt;</div><div class="line">                &lt;ul&gt;</div><div class="line">                    &#123;this.state.content&#125;</div><div class="line">                &lt;/ul&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">ReactDOM.render(&lt;Suggestion&gt;&lt;/Suggestion&gt;, document.getElementById(&apos;app&apos;));</div></pre></td></tr></table></figure>
+<h3 id="10-2-服务器端"><a href="#10-2-服务器端" class="headerlink" title="10.2 服务器端"></a>10.2 服务器端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var app = express();</div><div class="line">app.get(&apos;/jsonp&apos;,function(req,res)&#123;</div><div class="line">    var wd = req.query.wd;//得到关键字</div><div class="line">    var cb = req.query.cb;//得到回调函数的方法名</div><div class="line">    var result = &#123;q:wd,p:false,s:[]&#125;;//拼结果对象</div><div class="line">    for(var i=0;i&lt;10;i++)</div><div class="line">        result.s.push(wd+i);</div><div class="line">    //先设置响应头</div><div class="line">    res.setHeader(&apos;Access-Control-Allow-Origin&apos;,&quot;*&quot;);</div><div class="line">    res.send(`$&#123;cb&#125;($&#123;JSON.stringify(result)&#125;)`);</div><div class="line">&#125;);</div><div class="line">app.listen(9090);</div></pre></td></tr></table></figure>
+<h3 id="10-3-ajax方法"><a href="#10-3-ajax方法" class="headerlink" title="10.3 ajax方法"></a>10.3 ajax方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">function ajax(&#123;url,type,data,processData,jsonp,dataType,context,success&#125;)&#123;</div><div class="line">   var xhr = new XMLHttpRequest();</div><div class="line">   url+= &apos;?&apos;;</div><div class="line">   var params = &apos;&apos;;</div><div class="line">   if(processData)</div><div class="line">       for(var attr in data)&#123;</div><div class="line">           params += (attr+&apos;=&apos;+data[attr]);</div><div class="line">       &#125;</div><div class="line">    else</div><div class="line">       url+=data;</div><div class="line">   url+=params;</div><div class="line">   var method = &apos;jQuery_&apos;+Date.now();</div><div class="line">   url += (&apos;&amp;&apos;+jsonp+&apos;=&apos;+method);</div><div class="line">   xhr.open(type,url,true);</div><div class="line">   xhr.onreadystatechange = function()&#123;</div><div class="line">       if(xhr.readyState == 4 &amp;&amp; /2\d&#123;2&#125;/.test(xhr.status))&#123;</div><div class="line">           var response = xhr.responseText.match(/&#123;[^&#123;&#125;]+&#125;/)[0];</div><div class="line">           var jsonObj = JSON.parse(response);</div><div class="line">           success.bind(context)(jsonObj);</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line">   xhr.send();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="11-mixin"><a href="#11-mixin" class="headerlink" title="11. mixin"></a>11. mixin</h2><p>公用抽取出来,让不同的组件共用同一部分逻辑，实现代码重用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">var counterMix = &#123;</div><div class="line">    getInitialState:function()&#123;</div><div class="line">        return &#123;count:0&#125;;</div><div class="line">    &#125;,</div><div class="line">    componentWillUpdate:function()&#123;</div><div class="line">        console.log(&apos;componentWillUpdate&apos;);</div><div class="line">    &#125;,</div><div class="line">    handleClick:function()&#123;</div><div class="line">        this.setState(&#123;count:this.state.count+1&#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">var Counter1 = React.createClass(&#123;</div><div class="line">   mixins: [counterMix],</div><div class="line">   render:function()&#123;</div><div class="line">       return (</div><div class="line">           &lt;div&gt;</div><div class="line">               &#123;this.state.count&#125;</div><div class="line">               &lt;button onClick=&#123;this.handleClick&#125;&gt;增加&lt;/button&gt;</div><div class="line">           &lt;/div&gt;</div><div class="line">       )</div><div class="line">   &#125;</div><div class="line">&#125;);</div><div class="line">var Counter2 = React.createClass(&#123;</div><div class="line">    mixins: [counterMix],</div><div class="line">    render:function()&#123;</div><div class="line">        return (</div><div class="line">            &lt;div&gt;</div><div class="line">                &#123;this.state.count&#125;</div><div class="line">                &lt;button onClick=&#123;this.handleClick&#125;&gt;增加&lt;/button&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">ReactDOM.render(&lt;div&gt;</div><div class="line">  &lt;Counter1/&gt;</div><div class="line">  &lt;Counter2/&gt;</div><div class="line">&lt;/div&gt;,document.getElementById(&apos;app&apos;));</div></pre></td></tr></table></figure>
+<h2 id="12-插件实现双向数据绑定"><a href="#12-插件实现双向数据绑定" class="headerlink" title="12. 插件实现双向数据绑定"></a>12. 插件实现双向数据绑定</h2><p>在index.html引入插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">+ &lt;script src=&quot;lib/react/react-with-addons.js&quot;&gt;&lt;/script&gt;</div><div class="line">JS实现</div><div class="line">var Input = React.createClass(&#123;</div><div class="line">    mixins:[React.addons.LinkedStateMixin],</div><div class="line">    getInitialState: function() &#123;//获取初始状态</div><div class="line">        return &#123;msg: &apos;珠峰培训&apos;&#125;;</div><div class="line">    &#125;,</div><div class="line">    render: function () &#123;</div><div class="line">        var msg = this.state.msg;</div><div class="line">        return (</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;input type=&quot;text&quot; valueLink=&#123;this.linkState(&apos;msg&apos;)&#125; /&gt;</div><div class="line">                &lt;p&gt;&#123;msg&#125;&lt;/p&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">ReactDOM.render(&lt;Input/&gt;, document.getElementById(&apos;app&apos;));</div><div class="line">``` </div><div class="line"></div><div class="line">## 13.留言版</div></pre></td></tr></table></figure>
+<p>var Board = React.createClass({<br>    getInitialState: function () {<br>        return {<br>            msg: ‘请输入’,<br>            messages:this.props.messages<br>        };<br>    },<br>    render: function () {<br>        return (<br>            <div><br>                <h1>{this.props.title}</h1><br>                <input type="text" defaultvalue="{this.state.msg}" ref="txtMsg" onclick="{this.clear}/"><br>                <input type="button" value="发言" onclick="{this.leaveMsg}/"><br>                <ul><br>                    {<br>                        this.state.messages.map(function (item, index) {<br>                            return <li key="{index}">{item}</li><br>                        })<br>                    }<br>                </ul><br>            </div><br>        )<br>    },<br>    clear:function(){<br>        this.refs.txtMsg.value =  ‘’;<br>    },<br>    leaveMsg: function (event) {<br>     this.state.messages.push(this.refs.txtMsg.value);<br>       //每次状态都是一个新的state对象<br>localStorage.setItem(‘messages’,JSON.stringify(this.state.messages));<br>     this.setState({<br>           messages:this.state.messages<br>     },function(){<br>           this.refs.txtMsg.value =  ‘’;<br>     });<br>    }<br>})<br>var data = {<br>    title: ‘留言版’,<br>    messages: JSON.parse(localStorage.getItem(‘messages’))||[]<br>}<br>ReactDOM.render(<br>    <board {...data}="">,<br>    document.getElementById(‘app’)<br>);<br>```</board></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/06/15/React 基础/" data-id="citzvbnpb00000lfyy7sbcyv0" class="article-share-link">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2016/06/15/React 基础/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/20/React+ES6 问题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          React + ES6 问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/05/Script/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">Script async、defer属性</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2016/06/15/React 基础/" data-title="React 基础入门" data-url="http://yoursite.com/2016/06/15/React 基础/"></div>
+  </section>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码管理/">代码管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端工程化/">前端工程化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/代码管理/" style="font-size: 10px;">代码管理</a> <a href="/tags/前端工程化/" style="font-size: 10px;">前端工程化</a> <a href="/tags/性能优化/" style="font-size: 13.33px;">性能优化</a> <a href="/tags/总结/" style="font-size: 16.67px;">总结</a> <a href="/tags/计算机基础/" style="font-size: 10px;">计算机基础</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/27/模块化开发/">模块化开发</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/20/React+ES6 问题/">React + ES6 问题</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/15/React 基础/">React 基础入门</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/05/Script/">Script async、defer属性</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/05/正则表达式/">正则表达式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://arvinxiang.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+          <li>
+            <a href="http://yuancheng.work" target="_blank">远程.work</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Luo Liang<br>
+      Powered by <a href="//hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"reqianduan"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ECMAScript6 | Finish</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#ECMAScript6ECMAScript简称就是ES,你可以把它看成是一套标准,JavaScript就是实施了这套标准的一门语言 现在主流浏览器使用的是ECMAScript5
+##1. 作用域变量作用域就是一个变量的作用范围。
+也就是你声明一个变量以后,这个变量可以在什么场合下使用 以前的JavaScript只有全局作用域，还有一个函数作用域
+###1.1 var的问题
+var没有块级作用域，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ECMAScript6">
+<meta property="og:url" content="http://yoursite.com/2016/05/20/ES6/index.html">
+<meta property="og:site_name" content="Finish">
+<meta property="og:description" content="#ECMAScript6ECMAScript简称就是ES,你可以把它看成是一套标准,JavaScript就是实施了这套标准的一门语言 现在主流浏览器使用的是ECMAScript5
+##1. 作用域变量作用域就是一个变量的作用范围。
+也就是你声明一个变量以后,这个变量可以在什么场合下使用 以前的JavaScript只有全局作用域，还有一个函数作用域
+###1.1 var的问题
+var没有块级作用域，">
+<meta property="og:updated_time" content="2016-10-06T13:54:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ECMAScript6">
+<meta name="twitter:description" content="#ECMAScript6ECMAScript简称就是ES,你可以把它看成是一套标准,JavaScript就是实施了这套标准的一门语言 现在主流浏览器使用的是ECMAScript5
+##1. 作用域变量作用域就是一个变量的作用范围。
+也就是你声明一个变量以后,这个变量可以在什么场合下使用 以前的JavaScript只有全局作用域，还有一个函数作用域
+###1.1 var的问题
+var没有块级作用域，">
+  
+    <link rel="alternative" href="/atom.xml" title="Finish" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Finish</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Keep Calm and Carry On</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-ES6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/20/ES6/" class="article-date">
+  <time datetime="2016-05-20T10:30:30.000Z" itemprop="datePublished">2016-05-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ECMAScript6
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#ECMAScript6<br>ECMAScript简称就是ES,你可以把它看成是一套标准,JavaScript就是实施了这套标准的一门语言 现在主流浏览器使用的是ECMAScript5</p>
+<p>##1. 作用域变量<br>作用域就是一个变量的作用范围。</p>
+<p>也就是你声明一个变量以后,这个变量可以在什么场合下使用 以前的JavaScript只有全局作用域，还有一个函数作用域</p>
+<p>###1.1 var的问题</p>
+<p>var没有块级作用域，定义后在当前闭包中都可以访问，如果变量名重复，就会覆盖前面定义的变量，并且也有可能被其他人更改。<br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">if (true) &#123;</div><div class="line">     var a = &quot;a&quot;; // 期望a是某一个值</div><div class="line"> &#125;</div><div class="line">console.log(a);</div><div class="line">var在for循环标记变量共享，一般在循环中使用的i会被共享，其本质上也是由于没有块级作用域造成的</div><div class="line">for (var i = 0; i &lt; 3; i++) &#123;</div><div class="line">     setTimeout(function () &#123;</div><div class="line">         alert(i);</div><div class="line">     &#125;, 0);</div><div class="line"> &#125;</div><div class="line">结果</div><div class="line">弹窗三次 3</div></pre></td></tr></table></figure>
+<p>##1.2 块级作用域<br>在用var定义变量的时候，变量是通过闭包进行隔离的，现在用了let，不仅仅可以通过闭包隔离，还增加了一些块级作用域隔离。 块级作用用一组大括号定义一个块,使用 let 定义的变量在大括号的外面是访问不到的</p>
+<p>###1.2.1 实现块级作用域</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">if(true)&#123;</div><div class="line">    let name = &apos;zfpx&apos;;</div><div class="line">&#125;</div><div class="line">console.log(name);// ReferenceError: name is not defined</div></pre></td></tr></table></figure>
+<p>###1.2.2 不会污染全局对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">if(true)&#123;</div><div class="line">    let name = &apos;zfpx&apos;;</div><div class="line">&#125;</div><div class="line">console.log(window.name);</div><div class="line">结果 undefined</div></pre></td></tr></table></figure>
+<p>###1.2.3 for循环中也可以使用i</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// 嵌套循环不会相互影响</div><div class="line">    for (let i = 0; i &lt; 3; i++) &#123;</div><div class="line">        console.log(&quot;out&quot;, i);</div><div class="line">        for (let i = 0; i &lt; 2; i++) &#123;</div><div class="line">            console.log(&quot;in&quot;, i);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">结果 out 0 in 0 in 1 out 1 in 0 in 1 out 2 in 0 in 1</div></pre></td></tr></table></figure>
+<p>###1.2.4 重复定义会报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">if(true)&#123;</div><div class="line">    let a = 1;</div><div class="line">    let a = 2; //Identifier &apos;a&apos; has already been declared</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###1.2.5 不存在变量的预解释</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for (let i = 0; i &lt; 2; i ++)&#123;</div><div class="line">    console.log(&apos;inner&apos;,i);</div><div class="line">    let i = 100;</div><div class="line">&#125;</div><div class="line">结果 i is not defined</div></pre></td></tr></table></figure>
+<p>###1.2.6 闭包的新写法<br>以前</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">;(function () &#123;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>现在</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>##2. 常量<br>使用const我们可以去声明一个常量，常量一旦赋值就不能再修改了</p>
+<p>###2.1 常量不能重新赋值<br>const MY_NAME = ‘zfpx’;<br>MY_NAME = ‘zfpx2’;//Assignment to constant variable</p>
+<p>###2.2 变量值可改变<br>注意const限制的是不能给变量重新赋值，而变量的值本身是可以改变的,下面的操作是可以的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const names = [&apos;zfpx1&apos;];</div><div class="line">names.push(&apos;zfpx2&apos;);</div><div class="line">console.log(names);</div></pre></td></tr></table></figure>
+<p>###2.3 不同的块级作用域可以多次定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">const A = &quot;0&quot;;</div><div class="line">&#123;</div><div class="line">    const A = &quot;A&quot;;</div><div class="line">    console.log(A)</div><div class="line">&#125;</div><div class="line">&#123;</div><div class="line">    const A = &quot;B&quot;;</div><div class="line">    console.log(A)</div><div class="line">&#125;</div><div class="line">console.log(A)</div><div class="line">结果 A B 0</div></pre></td></tr></table></figure>
+<p>##3. 解构</p>
+<p>###3.1 解析数组<br>解构意思就是分解一个东西的结构,可以用一种类似数组的方式定义N个变量，可以将一个数组中的值按照规则赋值过去。</p>
+<p>var [name,age] = [‘zfpx’,8];<br>console.log(name,age);</p>
+<p>###3.2 嵌套赋值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let [x, [y], z] = [1, [2.1, 2.2]];</div><div class="line">console.log(x, y, z);</div><div class="line"></div><div class="line">let [x, [y,z]] = [1, [2.1, 2.2]];</div><div class="line">console.log(x,y,z);</div></pre></td></tr></table></figure>
+<p>这样数组里的第一个项目就会交给前面name这个变量，第二个项目的值会分配给age这个变量</p>
+<p>###3.3 省略赋值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let [, , x] = [1, 2, 3];</div><div class="line">console.log(x);</div></pre></td></tr></table></figure>
+<p>###3.2 解构对象<br>对象也可以被解构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;name:&apos;zfpx&apos;,age:8&#125;;</div><div class="line">//对象里的name属性的值会交给name这个变量，age的值会交给age这个变量</div><div class="line">var &#123;name,age&#125; = obj;</div><div class="line">//对象里的name属性的值会交给myname这个变量，age的值会交给myage这个变量</div><div class="line">let &#123;name: myname, age: myage&#125; = obj;</div><div class="line">console.log(name,age,myname,myage);</div></pre></td></tr></table></figure>
+<p>###3.3 默认值<br>在赋值和传参的时候可以使用默认值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">let [a = &quot;a&quot;, b = &quot;b&quot;, c =new Error(&apos;C必须指定&apos;)] = [1, , 3];</div><div class="line">console.log(a, b, c);</div><div class="line"></div><div class="line">function ajax (options) &#123;</div><div class="line">    var method = options.method || &quot;get&quot;;</div><div class="line">    var data = options.data || &#123;&#125;;</div><div class="line">    //.....</div><div class="line">&#125;</div><div class="line">function ajax (&#123;method = &quot;get&quot;, data&#125;) &#123;</div><div class="line">    console.log(arguments);</div><div class="line">&#125;</div><div class="line">ajax(&#123;</div><div class="line">    method: &quot;post&quot;,</div><div class="line">    data: &#123;&quot;name&quot;: &quot;zfpx&quot;&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>##4. 字符串</p>
+<p>###4.1 模板字符串<br>模板字符串用反引号(数字1左边的那个键)包含，其中的变量用${}括起来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var name = &apos;zfpx&apos;,age = 8;</div><div class="line">let desc = `$&#123;name&#125; is $&#123;age&#125; old!`;</div><div class="line">console.log(desc);</div></pre></td></tr></table></figure>
+<p>//所有模板字符串的空格和换行，都是被保留的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var str = `&lt;ul&gt;</div><div class="line">&lt;li&gt;a&lt;/li&gt;</div><div class="line">&lt;li&gt;b&lt;/li&gt;</div><div class="line">&lt;/ul&gt;`;</div><div class="line">console.log(str);</div></pre></td></tr></table></figure>
+<p>其中的变量会用变量的值替换掉</p>
+<p>###4.2 带标签的模板字符串<br>可以在模板字符串的前面添加一个标签，这个标签可以去处理模板字符串 标签其实就是一个函数,函数可以接收两个参数,一个是strings,就是模板字符串里的每个部分的字符 还有一个参数可以使用rest的形式values,这个参数里面是模板字符串里的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var name = &apos;zfpx&apos;,age = 8;</div><div class="line">function desc(strings,...values)&#123;</div><div class="line">    console.log(strings,values);</div><div class="line">&#125;</div><div class="line">desc`$&#123;name&#125; is $&#123;age&#125; old!`;</div></pre></td></tr></table></figure>
+<p>###4.3 字符串新方法<br>includes()：返回布尔值，表示是否找到了参数字符串。</p>
+<p>startsWith()：返回布尔值，表示参数字符串是否在源字符串的头部。</p>
+<p>endsWith()：返回布尔值，表示参数字符串是否在源字符串的尾部。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var s = &apos;zfpx&apos;;</div><div class="line">s.startsWith(&apos;z&apos;) // true</div><div class="line">s.endsWith(&apos;x&apos;) // true</div><div class="line">s.includes(&apos;p&apos;) // true</div></pre></td></tr></table></figure>
+<p>第二个参数，表示开始搜索的位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var s = &apos;zfpx&apos;;</div><div class="line">console.log(s.startsWith(&apos;p&apos;,2)); // true</div><div class="line">console.log(s.endsWith(&apos;f&apos;,2)); // true</div><div class="line">console.log(s.includes(&apos;f&apos;,2)); // false</div></pre></td></tr></table></figure>
+<p>endsWith的行为与其他两个方法有所不同。它针对前n个字符，而其他两个方法针对从第n个位置直到字符串结束</p>
+<p>###4.4 repeat<br>repeat方法返回一个新字符串，表示将原字符串重复n次。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&apos;x&apos;.repeat(3);</div><div class="line">&apos;x&apos;.repeat(0);</div></pre></td></tr></table></figure>
+<p>##5. 函数</p>
+<p>###5.1 默认参数<br>可以给定义的函数接收的参数设置默认的值 在执行这个函数的时候，如果不指定函数的参数的值，就会使用参数的这些默认的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let desc  = function(name=&apos;zfpx&apos;,age=8)&#123;</div><div class="line">    console.log(`$&#123;name&#125; is $&#123;age&#125; years old!`);</div><div class="line">&#125;</div><div class="line">desc(&apos;zfpx2&apos;);</div></pre></td></tr></table></figure>
+<p>###5.1 展开操作符<br>把…放在数组前面可以把一个数组进行展开,可以把一个数组直接传入一个函数而不需要使用apply</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//传入参数</div><div class="line">let print = function(a,b,c)&#123;</div><div class="line">    console.log(a,b,c);</div><div class="line">&#125;</div><div class="line">print([1,2,3]);</div><div class="line">print(...[1,2,3]);</div><div class="line">// 可以替代apply</div><div class="line">var m1 = Math.max.apply(null, [8, 9, 4, 1]);</div><div class="line">var m2 = Math.max(...[8, 9, 4, 1]);</div><div class="line">// 可以替代concat</div><div class="line">var arr1 = [1, 3];</div><div class="line">var arr2 = [3, 5];</div><div class="line">var arr3 = arr1.concat(arr2);</div><div class="line">var arr4 = [...arr1, ...arr2];</div><div class="line">console.log(arr3,arr4);</div><div class="line">//类数组的转数组</div><div class="line">function max(a,b,c) &#123;</div><div class="line">    console.log(Math.max(...arguments));</div><div class="line">&#125;</div><div class="line">max(1, 3, 4);</div></pre></td></tr></table></figure>
+<p>###5.2 剩余操作符<br>剩余操作符可以把其余的参数的值都放到一个叫b的数组里面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let rest = function(a,...b)&#123;</div><div class="line">    console.log(a,b);</div><div class="line">&#125;</div><div class="line">rest(1,2,3);</div></pre></td></tr></table></figure>
+<p>###5.3 解构参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let destruct = function(&#123;name,age&#125;)&#123;</div><div class="line">    console.log(name,age);</div><div class="line">&#125;</div><div class="line">destruct(&#123;name:&apos;zfpx&apos;,age:6&#125;);</div></pre></td></tr></table></figure>
+<p>###5.4 函数的名字<br>ECMAScript 6 给函数添加了一个name属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var desc = function descname()&#123;&#125;</div><div class="line">console.log(desc.name);</div></pre></td></tr></table></figure>
+<p>###5.5 箭头函数<br>箭头函数简化了函数的的定义方式，一般以 “=&gt;” 操作符左边为输入的参数，而右边则是进行的操作以及返回的值inputs=&gt;output</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[1,2,3].forEach(val =&gt; console.log(val)););</div></pre></td></tr></table></figure>
+<p>输入参数如果多于一个要用()包起来，函数体如果有多条语句需要用{}包起来<br>箭头函数根本没有自己的this，导致内部的this就是外层代码块的this。 正是因为它没有this，从而避免了this指向的问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var person = &#123;</div><div class="line">    name:&apos;zfpx&apos;,</div><div class="line">    getName:function()&#123;</div><div class="line">-        setTimeout(function()&#123;console.log(this);&#125;,1000); //在浏览器执行的话this指向window</div><div class="line">+        setTimeout(() =&gt; console.log(this),1000);//在浏览器执行的话this指向person</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">person.getName();</div></pre></td></tr></table></figure>
+<p>##5.6 数组的新方法</p>
+<p>###5.6.1 from<br>将一个数组或者类数组变成数组,会复制一份</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">let newArr = Array.from(oldArr);</div></pre></td></tr></table></figure>
+<p>###5.6.2 Array.of<br>of是为了将一组数值,转换为数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">console.log(Array(3, 4), Array(3, 4).length,</div><div class="line">Array.of(3, 4), Array.of(3, 4).length);</div><div class="line">5.6.3 copyWithin</div><div class="line">Array.prototype.copyWithin(target, start = 0, end = this.length) 盖目标的下标 开始的下标 结束的后一个的下标</div><div class="line">[1, 2, 3, 4, 5].copyWithin(0, 1, 2);</div></pre></td></tr></table></figure>
+<p>####5.6.4 find<br>查到对应的元素和索引</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">let arr = [1, 2 ,3, 3, 4, 5];</div><div class="line">    let find = arr.find((item, index, arr) =&gt; &#123;</div><div class="line">        return item === 3;</div><div class="line">    &#125;);</div><div class="line">    let findIndex = arr.findIndex((item, index, arr) =&gt; &#123;</div><div class="line">        return item === 3;</div><div class="line">    &#125;);</div><div class="line">    console.log(find, findIndex);</div></pre></td></tr></table></figure>
+<p>####5.6.5 fill<br>就是填充数组的意思 会更改原数组 </p>
+<p>Array.prototype.fill(value, start, end = this.length);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let arr = [1, 2, 3, 4, 5, 6];</div><div class="line">arr.fill(&apos;a&apos;, 1, 2);</div><div class="line">console.log(arr);</div></pre></td></tr></table></figure>
+<p>##6. 对象</p>
+<p>###6.1 对象字面量<br>如果你想在对象里添加跟变量名一样的属性，并且属性的值就是变量表示的值就可以直接在对象里加上这些属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">let name = &apos;zfpx&apos;;</div><div class="line">let age = 8;</div><div class="line">let getName = function()&#123;</div><div class="line">    console.log(this.name);</div><div class="line">&#125;</div><div class="line">let person = &#123;</div><div class="line">    name,</div><div class="line">    age,</div><div class="line">    getName</div><div class="line">&#125;</div><div class="line">person.getName();</div></pre></td></tr></table></figure>
+<p>###6.2 Object.is<br>对比两个值是否相等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(Object.is(NaN,NaN));</div></pre></td></tr></table></figure>
+<p>###6.3 Object.assign</p>
+<p>把多个对象的属性复制到一个对象中,第一个参数是复制的对象,从第二个参数开始往后,都是复制的源对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var nameObj = &#123;name:&apos;zfpx&apos;&#125;;</div><div class="line">var ageObj = &#123;age:8&#125;;</div><div class="line">var obj = &#123;&#125;;</div><div class="line">Object.assign(obj,nameObj,ageObj);</div><div class="line">console.log(obj);</div><div class="line">//克隆对象</div><div class="line">function clone (obj) &#123;</div><div class="line">  return Object.assign(&#123;&#125;, obj);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>###6.4 Object.setPrototypeOf<br>将一个指定的对象的原型设置为另一个对象或者null</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var obj1  = &#123;name:&apos;zfpx1&apos;&#125;;</div><div class="line">var obj2 =  &#123;name:&apos;zfpx2&apos;&#125;;</div><div class="line">var obj = &#123;&#125;;</div><div class="line">Object.setPrototypeOf(obj,obj1);</div><div class="line">console.log(obj.name);</div><div class="line">console.log(Object.getPrototypeOf(obj));</div><div class="line">Object.setPrototypeOf(obj,obj2);</div><div class="line">console.log(obj.name);</div><div class="line">console.log(Object.getPrototypeOf(obj));</div><div class="line">6.5 proto</div><div class="line">直接在对象表达式中设置prototype</div><div class="line">var obj1  = &#123;name:&apos;zfpx1&apos;&#125;;</div><div class="line">var obj3 = &#123;</div><div class="line">    __proto__:obj1</div><div class="line">&#125;</div><div class="line">console.log(obj3.name);</div><div class="line">console.log(Object.getPrototypeOf(obj3));</div></pre></td></tr></table></figure>
+<p>##6.6 super<br>通过super可以调用prototype上的属性或方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">let person =&#123;</div><div class="line">    eat()&#123;</div><div class="line">        return &apos;milk&apos;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">let student = &#123;</div><div class="line">    __proto__:person,</div><div class="line">    eat()&#123;</div><div class="line">        return super.eat()+&apos; bread&apos;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">console.log(student.eat());</div></pre></td></tr></table></figure>
+<p>##7. Symbol<br>ES6引入了一种新的原始数据类型Symbol，表示独一无二的值 它是JavaScript语言的第七种数据类型</p>
+<p>###7.1 生成Symbol<br>Symbol值通过Symbol函数生成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let s = Symbol(&apos;zfpx&apos;);</div><div class="line">console.log(s);</div></pre></td></tr></table></figure>
+<p>###7.2 作为属性名<br>由于每一个Symbol值都是不相等的，这意味着Symbol值可以作为标识符，用于对象的属性名，就能保证不会出现同名的属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var luckNum = Symbol();</div><div class="line">var person = &#123;&#125;;</div><div class="line">person[luckNum] = &apos;9&apos;;</div><div class="line">console.log(person[luckNum] ); // 9</div></pre></td></tr></table></figure>
+<p>在对象的内部，使用Symbol值定义属性时，Symbol值必须放在方括号之中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var person = &#123;[luckNum]: &apos;8&apos;&#125;;</div></pre></td></tr></table></figure>
+<p>###7.3 消除魔术变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var Operator = &#123;</div><div class="line">    add: Symbol()</div><div class="line">&#125;;</div><div class="line">function calculate(op, a, b) &#123;</div><div class="line">    switch (op) &#123;</div><div class="line">        case Operator.add:</div><div class="line">            return a + b;</div><div class="line">            break;</div><div class="line">        case Operator.minus:</div><div class="line">            return a - b;</div><div class="line">            break;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">console.log(calculate(Operator.add, 10,10));</div><div class="line">console.log(calculate(Operator.minus, 10,10));</div></pre></td></tr></table></figure>
+<p>##8.生成器(Generator)与迭代器(Iterator)<br>Generator是一个特殊的函数，执行它会返回一个Iterator对象。 </p>
+<p>通过遍历迭代器， Generator函数运行后会返回一个遍历器对象，而不是普通函数的返回值。</p>
+<p>###8.1 Iterators<br>迭代器有一个next方法，每次执行的时候会返回一个对象 对象里面有两个属性，一个是value表示返回的值，还有就是布尔值done,表示是否迭代完成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function buy(books) &#123;</div><div class="line">    let i = 0;</div><div class="line">    return &#123;</div><div class="line">        next()&#123;</div><div class="line">            let done = i == books.length;</div><div class="line">            let value = !done ? books[i++] : undefined;</div><div class="line">            return &#123;</div><div class="line">                value: value,</div><div class="line">                done: done</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">let iterators = buy([&apos;js&apos;, &apos;html&apos;]);</div><div class="line">var curr;</div><div class="line">do &#123;</div><div class="line">    curr = iterators.next();</div><div class="line">    console.log(curr);</div><div class="line">&#125; while (!curr.done);</div></pre></td></tr></table></figure>
+<p>###8.2 Generators<br>生成器用于创建迭代器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function* buy(books)&#123;</div><div class="line">    for(var i=0;i&lt;books.length;i++)&#123;</div><div class="line">        yield books[i];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">let buying = buy([&apos;js&apos;,&apos;html&apos;]);</div><div class="line">var curr;</div><div class="line">do &#123;</div><div class="line">    curr = buying.next();</div><div class="line">    console.log(curr);</div><div class="line">&#125; while (!curr.done);</div></pre></td></tr></table></figure>
+<p>###8.3 连续执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">var fs = require(&apos;fs&apos;);</div><div class="line">function double(val) &#123;</div><div class="line">    return function(next)&#123;</div><div class="line">        setTimeout(function()&#123;</div><div class="line">            next(val*val);</div><div class="line">        &#125;,1000);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">co(function *()&#123;</div><div class="line">    var a = yield double(2);</div><div class="line">    console.log(a);</div><div class="line">    var b = yield double(3);</div><div class="line">    console.log(b);</div><div class="line">&#125;)();</div><div class="line">function co(fn) &#123;</div><div class="line">    return function() &#123;</div><div class="line">        var it = fn();//得到迭代器</div><div class="line">        var curr = null;//当前对象</div><div class="line">        function next(val) &#123;</div><div class="line">            curr = it.next(val);</div><div class="line">            if(!curr.done)&#123;</div><div class="line">                curr.value(next);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        next();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###8.4 promise连续运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">function* genFunc(initValue) &#123;</div><div class="line">    let first = yield new Promise((resolve) =&gt; &#123;</div><div class="line">        setTimeout(()=&gt;&#123;</div><div class="line">            resolve(initValue+&apos;-first&apos;);</div><div class="line">        &#125;,1000);</div><div class="line">    &#125;);</div><div class="line">    let second = yield new Promise((resolve) =&gt; &#123;</div><div class="line">        setTimeout(()=&gt;&#123;</div><div class="line">            resolve(first+&apos;-second&apos;);</div><div class="line">        &#125;,1000);</div><div class="line">    &#125;);</div><div class="line">    let third = yield new Promise((resolve) =&gt; &#123;</div><div class="line">        setTimeout(()=&gt;&#123;</div><div class="line">            resolve(second+&apos;-third&apos;);</div><div class="line">        &#125;,1000);</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line">var it = genFunc(&apos;init&apos;);</div><div class="line">it.next().value.then((value)=&gt; &#123;</div><div class="line">    console.log(value);</div><div class="line">    return it.next(value).value;</div><div class="line">&#125;).then((value)=&gt; &#123;</div><div class="line">    console.log(value);</div><div class="line">    return it.next(value).value;</div><div class="line">&#125;).then((value)=&gt; &#123;</div><div class="line">    console.log(value);</div><div class="line">    return it.next(value).value;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>###8.5 co<br>co用于自动执行迭代器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">function* genFunc(initVal) &#123;</div><div class="line">    let first = yield new Promise((resolve) =&gt; &#123;</div><div class="line">        setTimeout(()=&gt;&#123;</div><div class="line">            resolve(&apos;first&apos;);</div><div class="line">        &#125;,1000);</div><div class="line">    &#125;);</div><div class="line">    let second = yield new Promise((resolve) =&gt; &#123;</div><div class="line">        setTimeout(()=&gt;&#123;</div><div class="line">            resolve(first+&apos;-second&apos;);</div><div class="line">        &#125;,1000);</div><div class="line">    &#125;);</div><div class="line">    let third = yield new Promise((resolve) =&gt; &#123;</div><div class="line">        setTimeout(()=&gt;&#123;</div><div class="line">            resolve(second+&apos;-third&apos;);</div><div class="line">        &#125;,1000);</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line">function co(fn) &#123;</div><div class="line">    return function(initVal) &#123;</div><div class="line">        var it = fn();//得到迭代器</div><div class="line">        var curr = null;//当前迭代到的对象</div><div class="line">        function next(val) &#123;</div><div class="line">            curr = it.next(val);</div><div class="line">            console.log(val);</div><div class="line">            if(!curr.done)&#123;</div><div class="line">                curr.value.then(next)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        next(initVal);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">co(genFunc)();</div><div class="line">/*</div><div class="line">var it = genFunc(&apos;init&apos;);</div><div class="line">it.next().value.then((value)=&gt; &#123;</div><div class="line">    console.log(value);</div><div class="line">    return it.next(value).value;</div><div class="line">&#125;).then((value)=&gt; &#123;</div><div class="line">    console.log(value);</div><div class="line">    return it.next(value).value;</div><div class="line">&#125;).then((value)=&gt; &#123;</div><div class="line">    console.log(value);</div><div class="line">    return it.next(value).value;</div><div class="line">&#125;)</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p>##9. 类</p>
+<p>###9.1 class<br>使用class这个关键词定义一个类,基于这个类创建实例以后会自动执行constructor方法,此方法可以用来初始化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">class Person &#123;</div><div class="line">    constructor(name)&#123;</div><div class="line">        this.name = name;</div><div class="line">    &#125;</div><div class="line">    getName()&#123;</div><div class="line">        console.log(this.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">let person = new Person(&apos;zfpx&apos;);</div><div class="line">person.getName();</div></pre></td></tr></table></figure>
+<p>###9.2 get与set<br>getter可以用来得获取属性，setter可以去设置属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Person &#123;</div><div class="line">    constructor()&#123;</div><div class="line">        this.hobbies = [];</div><div class="line">    &#125;</div><div class="line">    set hobby(hobby)&#123;</div><div class="line">        this.hobbies.push(hobby);</div><div class="line">    &#125;</div><div class="line">    get hobby()&#123;</div><div class="line">        return this.hobbies;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">let person = new Person();</div><div class="line">person.hobby = &apos;basketball&apos;;</div><div class="line">person.hobby = &apos;football&apos;;</div><div class="line">console.log(person.hobby);</div></pre></td></tr></table></figure>
+<p>###9.3 静态方法-static<br>在类里面添加静态的方法可以使用static这个关键词，静态方法就是不需要实例化类就能使用的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">class Person &#123;</div><div class="line">   static add(a,b)&#123;</div><div class="line">       return a+b;</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line">console.log(Person.add(1,2));</div></pre></td></tr></table></figure>
+<p>###9.4 继承extends</p>
+<p>一个类可以去继承其它的类里的东西</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">class Person &#123;</div><div class="line">   constructor(name)&#123;</div><div class="line">     this.name = name;</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line">class Teacher extends Person&#123;</div><div class="line">    constructor(name,age)&#123;</div><div class="line">        super(name);</div><div class="line">        this.age = age;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">var teacher = new Teacher(&apos;zfpx&apos;,8);</div><div class="line">console.log(teacher.name,teacher.age);</div></pre></td></tr></table></figure>
+<p>##10.集合</p>
+<p>###10.1 Set<br>一个Set是一堆东西的集合,Set有点像数组,不过跟数组不一样的是，Set里面不能有重复的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var books = new Set();</div><div class="line">books.add(&apos;js&apos;);</div><div class="line">books.add(&apos;js&apos;);//添加重复元素集合的元素个数不会改变</div><div class="line">books.add(&apos;html&apos;);</div><div class="line">books.forEach(function(book)&#123;//循环集合</div><div class="line">    console.log(book);</div><div class="line">&#125;)</div><div class="line">console.log(books.size);//集合中元数的个数</div><div class="line">console.log(books.has(&apos;js&apos;));//判断集合中是否有此元素</div><div class="line">books.delete(&apos;js&apos;);//从集合中删除此元素</div><div class="line">console.log(books.size);</div><div class="line">console.log(books.has(&apos;js&apos;));</div><div class="line">books.clear();//清空 set</div><div class="line">console.log(books.size);</div></pre></td></tr></table></figure>
+<p>###10.2 Map<br>可以使用 Map 来组织这种名值对的数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var books = new Map();</div><div class="line">books.set(&apos;js&apos;,&#123;name:&apos;js&apos;&#125;);//向map中添加元素</div><div class="line">books.set(&apos;html&apos;,&#123;name:&apos;html&apos;&#125;);</div><div class="line">console.log(books.size);//查看集合中的元素</div><div class="line">console.log(books.get(&apos;js&apos;));//通过key获取值</div><div class="line">books.delete(&apos;js&apos;);//执照key删除元素</div><div class="line">console.log(books.has(&apos;js&apos;));//判断map中有没有key</div><div class="line">books.forEach((value, key) =&gt; &#123; //forEach可以迭代map</div><div class="line">    console.log( key + &apos; = &apos; + value);</div><div class="line">&#125;);</div><div class="line">books.clear();//清空map</div></pre></td></tr></table></figure>
+<p>##11.模块<br>可以根据应用的需求把代码分成不同的模块 每个模块里可以导出它需要让其它模块使用的东西 在其它模块里面可以导入这些模块导出的东西</p>
+<p>###11.1 模块<br>在浏览器中使用模块需要借助 导出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">export var name = &apos;zfpx&apos;;</div><div class="line">export var age = 8;</div><div class="line">导入</div><div class="line">//import &#123;name,age&#125; from &apos;./school.js&apos;;</div><div class="line">import * as school from &apos;./school.js&apos;;</div><div class="line">console.log(school.name,school.age);</div><div class="line">在页面中引用</div><div class="line">&lt;script src=&quot;https://google.github.io/traceur-compiler/bin/traceur.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;https://google.github.io/traceur-compiler/bin/BrowserSystem.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;https://google.github.io/traceur-compiler/src/bootstrap.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script type=&quot;module&quot; src=&quot;index.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>###11.2 重命名<br>导出时重命名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function say()&#123;</div><div class="line">    console.log(&apos;say&apos;);</div><div class="line">&#125;</div><div class="line">export &#123;say as say2&#125;;</div><div class="line">导入时重命名</div><div class="line">import &#123;say2 as say3&#125; from &apos;./school.js&apos;;</div></pre></td></tr></table></figure>
+<p>###11.3 默认导出<br>每个模块都可以有一个默认要导出的东西 导出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">export default function say()&#123;</div><div class="line">    console.log(&apos;say&apos;);</div><div class="line">&#125;</div><div class="line">导入</div><div class="line">import say from &apos;./school.js&apos;;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/05/20/ES6/" data-id="cityemukr0001iyfyfn9gfhkn" class="article-share-link">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2016/05/20/ES6/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/21/CSS3 动画/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          CSS3动画
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/20/带Var和不带Var/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">带var不带var的具体表现</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2016/05/20/ES6/" data-title="ECMAScript6" data-url="http://yoursite.com/2016/05/20/ES6/"></div>
+  </section>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码管理/">代码管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端工程化/">前端工程化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/代码管理/" style="font-size: 10px;">代码管理</a> <a href="/tags/前端工程化/" style="font-size: 10px;">前端工程化</a> <a href="/tags/性能优化/" style="font-size: 13.33px;">性能优化</a> <a href="/tags/总结/" style="font-size: 16.67px;">总结</a> <a href="/tags/计算机基础/" style="font-size: 10px;">计算机基础</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/27/模块化开发/">模块化开发</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/20/React+ES6 问题/">React + ES6 问题</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/15/React 基础/">React 基础入门</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/05/Script/">Script async、defer属性</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/05/正则表达式/">正则表达式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://arvinxiang.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+          <li>
+            <a href="http://yuancheng.work" target="_blank">远程.work</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Luo Liang<br>
+      Powered by <a href="//hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"reqianduan"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>

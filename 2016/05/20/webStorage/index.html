@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Webstorage | Finish</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. cookie的缺陷数据大小：cookie的大小限制在4KB左右安全性问题：由于在HTTP请求中的cookie是明文传递的带来的安全性问题。网络负担：我们知道cookie会被附加在每个HTTP请求中，在请求和响应的header中都是要被传输的，所以会消耗额外的网络流量。
+2. WebStorageWebStorage是HTML新增的本地存储解决方案之一，但并不是为了取代cookie而制定的标准">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Webstorage">
+<meta property="og:url" content="http://yoursite.com/2016/05/20/webStorage/index.html">
+<meta property="og:site_name" content="Finish">
+<meta property="og:description" content="1. cookie的缺陷数据大小：cookie的大小限制在4KB左右安全性问题：由于在HTTP请求中的cookie是明文传递的带来的安全性问题。网络负担：我们知道cookie会被附加在每个HTTP请求中，在请求和响应的header中都是要被传输的，所以会消耗额外的网络流量。
+2. WebStorageWebStorage是HTML新增的本地存储解决方案之一，但并不是为了取代cookie而制定的标准">
+<meta property="og:updated_time" content="2016-10-06T13:23:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Webstorage">
+<meta name="twitter:description" content="1. cookie的缺陷数据大小：cookie的大小限制在4KB左右安全性问题：由于在HTTP请求中的cookie是明文传递的带来的安全性问题。网络负担：我们知道cookie会被附加在每个HTTP请求中，在请求和响应的header中都是要被传输的，所以会消耗额外的网络流量。
+2. WebStorageWebStorage是HTML新增的本地存储解决方案之一，但并不是为了取代cookie而制定的标准">
+  
+    <link rel="alternative" href="/atom.xml" title="Finish" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Finish</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Keep Calm and Carry On</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-webStorage" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/20/webStorage/" class="article-date">
+  <time datetime="2016-05-20T07:24:25.000Z" itemprop="datePublished">2016-05-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Webstorage
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-cookie的缺陷"><a href="#1-cookie的缺陷" class="headerlink" title="1. cookie的缺陷"></a>1. cookie的缺陷</h2><p>数据大小：cookie的大小限制在4KB左右<br>安全性问题：由于在HTTP请求中的cookie是明文传递的带来的安全性问题。<br>网络负担：我们知道cookie会被附加在每个HTTP请求中，在请求和响应的header中都是要被传输的，所以会消耗额外的网络流量。</p>
+<h2 id="2-WebStorage"><a href="#2-WebStorage" class="headerlink" title="2. WebStorage"></a>2. WebStorage</h2><p>WebStorage是HTML新增的本地存储解决方案之一，但并不是为了取代cookie而制定的标准，cookie作为HTTP协议的一部分用来处理客户端和服务器通信是不可或缺的，session正是依赖于实现的客户端状态保持。WebStorage的意图在于解决本来不应该cookie做，却不得不用cookie的本地存储。<br><a id="more"></a></p>
+<h4 id="2-1-localStorage"><a href="#2-1-localStorage" class="headerlink" title="2.1 localStorage"></a>2.1 localStorage</h4><p>用于持久化的本地存储，浏览器窗口关闭后，localStorage存储的数据仍然可以被访问。所有浏览器窗口可以共享localStorage的数据，保存的数据永远不会过期，只能手动删除。</p>
+<h4 id="2-2-sessionStorage"><a href="#2-2-sessionStorage" class="headerlink" title="2.2 sessionStorage"></a>2.2 sessionStorage</h4><p>用于本地存储一个会话中的数据，它不是一种持久化的本地存储。这些数据只有在同一个会话中的页面才能访问，当前页面不可以访问新开页面的数据，并且会话结束后数据也随之销毁而无法使用。</p>
+<h2 id="3-用法"><a href="#3-用法" class="headerlink" title="3. 用法"></a>3. 用法</h2><p>方法    描述</p>
+<ol>
+<li>getItem(key)    获取指定key本地存储的值</li>
+<li>setItem(key, value)    将value值存储到本地的key字段</li>
+<li>removeItem(key)    删除指定key本地存储的值</li>
+<li>clear()    删除localStorage中存储的所有数据</li>
+<li>length    获取存储的键值对的数量</li>
+<li>key(index)    根据索引获取一个指定位置的键名</li>
+</ol>
+<h4 id="3-1-localStorage"><a href="#3-1-localStorage" class="headerlink" title="3.1 localStorage"></a>3.1 localStorage</h4><p>localStorage 方法存储的数据没有时间限制。第二天、第二周或下一年之后，数据依然可用</p>
+<h4 id="3-1-1-如何创建和访问-localStorage："><a href="#3-1-1-如何创建和访问-localStorage：" class="headerlink" title="#3.1.1 如何创建和访问 localStorage："></a>#3.1.1 如何创建和访问 localStorage：</h4><pre><code>localStorage.lastname=&quot;Smith&quot;;
+document.write(localStorage.lastname);
+</code></pre><h4 id="3-1-2-对用户访问页面的次数进行计数"><a href="#3-1-2-对用户访问页面的次数进行计数" class="headerlink" title="#3.1.2 对用户访问页面的次数进行计数"></a>#3.1.2 对用户访问页面的次数进行计数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">if (localStorage.pagecount)</div><div class="line">  &#123;</div><div class="line">  localStorage.pagecount=Number(localStorage.pagecount) +1;</div><div class="line">  &#125;</div><div class="line">else</div><div class="line">  &#123;</div><div class="line">  localStorage.pagecount=1;</div><div class="line">  &#125;</div><div class="line">document.write(&quot;Visits &quot;+ localStorage.pagecount + &quot; time(s).&quot;);</div></pre></td></tr></table></figure>
+<h4 id="3-2-sessionStorage-方法"><a href="#3-2-sessionStorage-方法" class="headerlink" title="3.2 sessionStorage 方法"></a>3.2 sessionStorage 方法</h4><p>sessionStorage 方法针对一个 session 进行数据存储。当用户关闭浏览器窗口后，数据会被删除。</p>
+<h4 id="3-2-1-创建并访问一个-sessionStorage"><a href="#3-2-1-创建并访问一个-sessionStorage" class="headerlink" title="#3.2.1 创建并访问一个 sessionStorage"></a>#3.2.1 创建并访问一个 sessionStorage</h4><p>sessionStorage.lastname=”Smith”;<br>document.write(sessionStorage.lastname);</p>
+<h4 id="3-2-2-对用户在当前-session-中访问页面的次数进行计数"><a href="#3-2-2-对用户在当前-session-中访问页面的次数进行计数" class="headerlink" title="#3.2.2 对用户在当前 session 中访问页面的次数进行计数"></a>#3.2.2 对用户在当前 session 中访问页面的次数进行计数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">if (sessionStorage.pagecount)</div><div class="line">  &#123;</div><div class="line">sessionStorage.pagecount=Number(sessionStorage.pagecount) +1;</div><div class="line">  &#125;</div><div class="line">else</div><div class="line">  &#123;</div><div class="line">  sessionStorage.pagecount=1;</div><div class="line">  &#125;</div><div class="line">document.write(&quot;Visits &quot;+sessionStorage.pagecount+&quot; time(s) this session.&quot;);</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/05/20/webStorage/" data-id="citxzqs7o0003yyfyx0sjco4a" class="article-share-link">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2016/05/20/webStorage/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/20/带Var和不带Var/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          带var不带var的具体表现
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/18/Gulp/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">Gulp</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2016/05/20/webStorage/" data-title="Webstorage" data-url="http://yoursite.com/2016/05/20/webStorage/"></div>
+  </section>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码管理/">代码管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端工程化/">前端工程化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/代码管理/" style="font-size: 10px;">代码管理</a> <a href="/tags/前端工程化/" style="font-size: 10px;">前端工程化</a> <a href="/tags/性能优化/" style="font-size: 13.33px;">性能优化</a> <a href="/tags/总结/" style="font-size: 16.67px;">总结</a> <a href="/tags/计算机基础/" style="font-size: 10px;">计算机基础</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/27/模块化开发/">模块化开发</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/20/React+ES6 问题/">React + ES6 问题</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/15/React 基础/">React 基础入门</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/05/Script/">Script async、defer属性</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/05/正则表达式/">正则表达式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://arvinxiang.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+          <li>
+            <a href="http://yuancheng.work" target="_blank">远程.work</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Luo Liang<br>
+      Powered by <a href="//hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"reqianduan"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Gulp | Finish</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. 什么是gulpgulp是可以自动化执行任务的工具 在平时开发的流程里面,一定有一些任务需要手工重复得执行,只要你觉得有些动作是要重复去做的,就可以把这些动作创建成一个gulp任务,然后在特定的条件下自动执行. 比如在less源文件发生改变后自动编译成css文件
+####1.1 流的概念
+
+Stream是nodejs各种对象实现的抽象接口。
+所有的stream对象都是EventEmitter的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gulp">
+<meta property="og:url" content="http://yoursite.com/2016/05/18/Gulp/index.html">
+<meta property="og:site_name" content="Finish">
+<meta property="og:description" content="1. 什么是gulpgulp是可以自动化执行任务的工具 在平时开发的流程里面,一定有一些任务需要手工重复得执行,只要你觉得有些动作是要重复去做的,就可以把这些动作创建成一个gulp任务,然后在特定的条件下自动执行. 比如在less源文件发生改变后自动编译成css文件
+####1.1 流的概念
+
+Stream是nodejs各种对象实现的抽象接口。
+所有的stream对象都是EventEmitter的">
+<meta property="og:updated_time" content="2016-10-06T13:40:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gulp">
+<meta name="twitter:description" content="1. 什么是gulpgulp是可以自动化执行任务的工具 在平时开发的流程里面,一定有一些任务需要手工重复得执行,只要你觉得有些动作是要重复去做的,就可以把这些动作创建成一个gulp任务,然后在特定的条件下自动执行. 比如在less源文件发生改变后自动编译成css文件
+####1.1 流的概念
+
+Stream是nodejs各种对象实现的抽象接口。
+所有的stream对象都是EventEmitter的">
+  
+    <link rel="alternative" href="/atom.xml" title="Finish" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Finish</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Keep Calm and Carry On</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-Gulp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/18/Gulp/" class="article-date">
+  <time datetime="2016-05-18T10:30:11.000Z" itemprop="datePublished">2016-05-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Gulp
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-什么是gulp"><a href="#1-什么是gulp" class="headerlink" title="1. 什么是gulp"></a>1. 什么是gulp</h2><p>gulp是可以自动化执行任务的工具 在平时开发的流程里面,一定有一些任务需要手工重复得执行,只要你觉得有些动作是要重复去做的,就可以把这些动作创建成一个gulp任务,然后在特定的条件下自动执行. 比如在less源文件发生改变后自动编译成css文件</p>
+<p>####1.1 流的概念</p>
+<ul>
+<li>Stream是nodejs各种对象实现的抽象接口。</li>
+<li>所有的stream对象都是EventEmitter的实例,可以发射事件。</li>
+<li>流是一种有起点和终点的数据传输手段。</li>
+<li>上一个的输出是下一个的输入</li>
+</ul>
+<p>####1.2 gulp中的流<br>gulp正是通过代码优于配置的策略来尽量简化任务编写的工作。</p>
+<p>类似jquery里的链式操作，把各个方法串连起来构建完整的任务。</p>
+<p>用gulp编写任务也可看作是用Node.js代码编写任务。</p>
+<p>当使用流时,gulp不需要生成大量的中间文件，只将最后的输出写入磁盘，整个过程因此变得非常快。<br><a id="more"></a></p>
+<h2 id="2-安装gulp"><a href="#2-安装gulp" class="headerlink" title="2. 安装gulp"></a>2. 安装gulp</h2><h4 id="2-1-安装node"><a href="#2-1-安装node" class="headerlink" title="2. 1 安装node"></a>2. 1 安装node</h4><p>gulp是基于Nodejs的自动任务运行器<br>安装Gulp和相关行件用的都是node的包管理工具npm<br>所以你需要先在电脑上安装 node,确定在命令行工具的下面可以使用npm这个命令，这样就能去安装Gulp了 node.js官网<br>安装好以后，我们可以打开命令行工具<br>mac 用户可以使用终端工具<br>windows 用户可以找到cmd命令行工具。</p>
+<h4 id="2-2-gulp-命令行工具"><a href="#2-2-gulp-命令行工具" class="headerlink" title="2. 2 gulp 命令行工具"></a>2. 2 gulp 命令行工具</h4><p>使用 npm install 去安装 gulp，注意加上一个 -g 的参数，表示在全局范围内去安装.</p>
+<p>一般用 npm 安装的时候用一个 -g 的参数就表示，这个安装的东西会作为命令去执行。</p>
+<p>如果你在mac或linux下遇到了权限问题,在下面这个命令的前面加上 sudo npm install gulp -g 并输入mac密码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g gulp</div></pre></td></tr></table></figure>
+<p>安装完成后可以输入 gulp –help 如果输出一些帮助的信息就表示可以gulp命令行成功安装了</p>
+<h4 id="2-3-本地安装gulp"><a href="#2-3-本地安装gulp" class="headerlink" title="2. 3 本地安装gulp"></a>2. 3 本地安装gulp</h4><p>先打开命令行窗口并将当前路径定位到你指定的目录</p>
+<p>先创建一个本地文件夹并进入,文件夹名称不能叫gulp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir learngulp</div><div class="line">cd learngulp</div></pre></td></tr></table></figure>
+<h4 id="2-4-在项目目录下初始化项目配置文件"><a href="#2-4-在项目目录下初始化项目配置文件" class="headerlink" title="2. 4 在项目目录下初始化项目配置文件"></a>2. 4 在项目目录下初始化项目配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm init -y</div></pre></td></tr></table></figure>
+<h4 id="2-5-在项目下安装-gulp"><a href="#2-5-在项目下安装-gulp" class="headerlink" title="2. 5 在项目下安装 gulp"></a>2. 5 在项目下安装 gulp</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp --save</div></pre></td></tr></table></figure>
+<p>执行后的结果有两个</p>
+<p>会在node_modules下安装本地的gulp库<br>会添加配置到package.json文件里面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;devDependencies&quot;: &#123;</div><div class="line">    &quot;gulp&quot;: &quot;^3.9.0&quot;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<h2 id="3-运行gulp"><a href="#3-运行gulp" class="headerlink" title="3. 运行gulp"></a>3. 运行gulp</h2><h4 id="3-1-创建配置文件"><a href="#3-1-创建配置文件" class="headerlink" title="3.1 创建配置文件"></a>3.1 创建配置文件</h4><p>gulp的任务要放到一个叫 gulpfile.js 的文件里面 先在项目的根目录下面创建一个这样的文件 然后在这个文件的顶部添加下面这行代码</p>
+<p>  var gulp = require(‘gulp’);<br>通过require可以把gulp模块引入当前项目并赋值给gulp变量 这样gulp这个变量里面就会拥有gulp的所有的方法了</p>
+<h4 id="3-2-创建gulp的任务"><a href="#3-2-创建gulp的任务" class="headerlink" title="3.2 创建gulp的任务"></a>3.2 创建gulp的任务</h4><p>可以使用gulp的task方法 同样我们去创建一个叫 hello 的任务，它要做的事就是在控制台上输出 “您好” 这两个字</p>
+<p>第一个参数是任务的名称<br>第二个参数是任务的定义,是一个匿名函数<br> gulp.task(‘hello’, function () {<br>   console.log(‘您好’);<br> });</p>
+<h4 id="3-3-执行gulp任务"><a href="#3-3-执行gulp任务" class="headerlink" title="3.3 执行gulp任务"></a>3.3 执行gulp任务</h4><p>打开命令行工具，进入到项目所在的目录，然后输入：</p>
+<p>$ gulp hello<br>会返回：</p>
+<pre><code>[21:36:34] Starting &apos;hello&apos;...
+您好
+[21:36:34] Finished &apos;hello&apos; after 959 μs
+</code></pre><p>gulp后面跟着的是任务的名称 不输入任务名称的话会默认找default任务，找不到会报错</p>
+<h2 id="4-gulp-js工作方式"><a href="#4-gulp-js工作方式" class="headerlink" title="4. gulp.js工作方式"></a>4. gulp.js工作方式</h2><p>gulp的使用流程一般是</p>
+<p>首先通过<code>gulp.src()方法获取到想要处理的文件流
+然后把文件流通过pipe方法导入到gulp的插件中
+最后把经过插件处理后的流再通过pipe方法导入到</code>gulp.dest()<code>中
+`gulp.dest()</code>方法则把流中的内容写入到文件中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var gulp = require(&apos;gulp&apos;);</div><div class="line">gulp.src(&apos;src/index.js&apos;)             // 获取文件的流的api</div><div class="line">    .pipe(gulp.dest(&apos;dist&apos;)); // 写文件的api</div></pre></td></tr></table></figure>
+<h2 id="5-gulp插件"><a href="#5-gulp插件" class="headerlink" title="5. gulp插件"></a>5. gulp插件</h2><p>gulp提供了一些很实用的接口，但本身并不能做太多的事情,其它实用的功能都是依靠插件来进行扩展的</p>
+<h4 id="5-1-使用插件步骤"><a href="#5-1-使用插件步骤" class="headerlink" title="5.1 使用插件步骤"></a>5.1 使用插件步骤</h4><p>npm install xxx –save-dev 安装插件<br>在 gulpfile.js 顶部引入此插件<br>在创建任务的时候使用此插件</p>
+<h4 id="5-2-less"><a href="#5-2-less" class="headerlink" title="5.2 less"></a>5.2 less</h4><p>less插件可以把less文件编译成css</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$    npm install gulp-less --save-dev</div><div class="line">var gulp = require(&apos;gulp&apos;);</div><div class="line">    var less = require(&apos;gulp-less&apos;);</div><div class="line">    gulp.task(&apos;less&apos;,function()&#123;</div><div class="line">        return gulp.src(&apos;app/less/*.less&apos;)</div><div class="line">        .pipe(less())</div><div class="line">        .pipe(gulp.dest(&apos;dist/css&apos;));</div><div class="line">    &#125;);</div><div class="line">    gulp.task(&apos;default&apos;,[&apos;less&apos;]);</div></pre></td></tr></table></figure>
+<h4 id="5-3-gulp-concat"><a href="#5-3-gulp-concat" class="headerlink" title="5.3 gulp-concat"></a>5.3 gulp-concat</h4><p>这个插件可以把几个文件合并到一块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$    npm install gulp-concat --save-dev</div><div class="line">  var gulp = require(&apos;gulp&apos;);</div><div class="line">  var concat = require(&apos;gulp-concat&apos;);</div><div class="line"></div><div class="line">  gulp.task(&apos;concat&apos;,function()&#123;</div><div class="line">    //指定要合并的文件glob</div><div class="line">      return gulp.src([&apos;app/js/*.js&apos;,&apos;!app/js/*.tmp.js&apos;])</div><div class="line">         //进行合并并指定合并后的文件名</div><div class="line">          .pipe(concat(&apos;app.js&apos;))</div><div class="line">          //输出到目标路径</div><div class="line">          .pipe(gulp.dest(&apos;dist/js&apos;));</div><div class="line">  &#125;);</div><div class="line">  gulp.task(&apos;default&apos;,[&apos;concat&apos;]);</div></pre></td></tr></table></figure>
+<h4 id="5-4-gulp-uglify"><a href="#5-4-gulp-uglify" class="headerlink" title="5.4 gulp-uglify"></a>5.4 gulp-uglify</h4><p>合并后我们可以对JS文件进行压缩,最小化处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$  npm install gulp-uglify --save-dev</div><div class="line">    var gulp = require(&apos;gulp&apos;);</div><div class="line">    var concat = require(&apos;gulp-concat&apos;);</div><div class="line">    var uglify = require(&apos;gulp-uglify&apos;)</div><div class="line"></div><div class="line">    gulp.task(&apos;uglify&apos;,function()&#123;</div><div class="line">        return gulp.src([&apos;app/js/*.js&apos;,&apos;!app/js/*.tmp.js&apos;])</div><div class="line">          //把多个JS文件合并成一个文件</div><div class="line">            .pipe(concat(&apos;app.js&apos;))</div><div class="line">            //对合并后的app.js文件进行压缩</div><div class="line">            .pipe(uglify())</div><div class="line">            //输出到目的地</div><div class="line">            .pipe(gulp.dest(&apos;dist/js&apos;));</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    gulp.task(&apos;default&apos;,[&apos;uglify&apos;]);</div></pre></td></tr></table></figure>
+<h4 id="5-5-gulp-rename"><a href="#5-5-gulp-rename" class="headerlink" title="5.5 gulp-rename"></a>5.5 gulp-rename</h4><p>在把处理好的文件存放到指定的位置之前，我们可以先去重新命名一下它</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">$ npm install gulp-rename --save-dev</div><div class="line">    var gulp = require(&apos;gulp&apos;);</div><div class="line">    var concat = require(&apos;gulp-concat&apos;);</div><div class="line">    var uglify = require(&apos;gulp-uglify&apos;);</div><div class="line">    var rename = require(&apos;gulp-rename&apos;);</div><div class="line">    gulp.task(&apos;uglify&apos;,function()&#123;</div><div class="line">      //指定要处理的文件</div><div class="line">        return gulp.src([&apos;app/js/*.js&apos;,&apos;!app/js/*.tmp.js&apos;])</div><div class="line">        //合并成一个文件</div><div class="line">            .pipe(concat(&apos;app.js&apos;))</div><div class="line">            //保存此文件</div><div class="line">            .pipe(gulp.dest(&apos;dist/js&apos;))</div><div class="line">            //进行压缩</div><div class="line">            .pipe(uglify())</div><div class="line">            //对此文件进行重命名</div><div class="line">            .pipe(rename(&apos;app.min.js&apos;))</div><div class="line">            //再输出一次</div><div class="line">            .pipe(gulp.dest(&apos;dist/js&apos;));</div><div class="line">    &#125;);</div><div class="line">    gulp.task(&apos;default&apos;,[&apos;uglify&apos;]);</div></pre></td></tr></table></figure>
+<h4 id="5-6-gulp-minify-css"><a href="#5-6-gulp-minify-css" class="headerlink" title="5.6 gulp-minify-css"></a>5.6 gulp-minify-css</h4><p>压缩css</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$    npm install gulp-minify-css --save-dev</div><div class="line">   var gulp = require(&apos;gulp&apos;);</div><div class="line">    var less = require(&apos;gulp-less&apos;);</div><div class="line">    //在文件的顶部去包含这个插件，起个名字，叫做 minify</div><div class="line">    var minify = require(&apos;gulp-minify-css&apos;);</div><div class="line">    var rename = require(&apos;gulp-rename&apos;);</div><div class="line">    gulp.task(&apos;minify&apos;,function()&#123;</div><div class="line">        return gulp.src(&apos;app/less/page.less&apos;)//指定 less文件</div><div class="line">            .pipe(less())//把less编译成css</div><div class="line">            .pipe(gulp.dest(&apos;dist/css&apos;))//输出到目的地</div><div class="line">            .pipe(minify())//对 css再进行压缩</div><div class="line">            .pipe(rename(&apos;page.min.css&apos;))//重命名</div><div class="line">            .pipe(gulp.dest(&apos;dist/css&apos;));//输出到目的地</div><div class="line">    &#125;);</div><div class="line">    gulp.task(&apos;default&apos;,[&apos;less&apos;]);</div></pre></td></tr></table></figure>
+<h4 id="5-7-gulp-minify-html"><a href="#5-7-gulp-minify-html" class="headerlink" title="5.7 gulp-minify-html"></a>5.7 gulp-minify-html</h4><p>html文件压缩</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ npm install gulp-minify-html --save-dev</div><div class="line">    var gulp = require(&apos;gulp&apos;),</div><div class="line">        minifyHtml = require(&quot;gulp-minify-html&quot;);</div><div class="line">    gulp.task(&apos;minify-html&apos;, function () &#123;</div><div class="line">        gulp.src(&apos;src/*.html&apos;) // 要压缩的html文件</div><div class="line">        .pipe(minifyHtml())    //压缩</div><div class="line">        .pipe(gulp.dest(&apos;dist/html&apos;));//输出到目的地</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<h4 id="5-8-gulp-inject"><a href="#5-8-gulp-inject" class="headerlink" title="5.8 gulp-inject"></a>5.8 gulp-inject</h4><p>动态自动插入生成后的js和css文件到html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"> npm install --save-dev gulp-inject</div><div class="line"> &lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">  &lt;title&gt;My index&lt;/title&gt;</div><div class="line">  &lt;!-- inject:css --&gt;</div><div class="line">  &lt;!-- endinject --&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">  &lt;!-- inject:js --&gt;</div><div class="line">  &lt;!-- endinject --&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div><div class="line"> var gulp = require(&apos;gulp&apos;);</div><div class="line">var inject = require(&apos;gulp-inject&apos;);</div><div class="line"></div><div class="line">gulp.task(&apos;index&apos;, function () &#123;</div><div class="line">  var target = gulp.src(&apos;./src/index.html&apos;);</div><div class="line">  var sources = gulp.src([&apos;./src/**/*.js&apos;, &apos;./src/**/*.css&apos;]);</div><div class="line">  return target.pipe(inject(sources))</div><div class="line">    .pipe(gulp.dest(&apos;./src&apos;));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="5-9-gulp-babel"><a href="#5-9-gulp-babel" class="headerlink" title="5.9 gulp-babel"></a>5.9 gulp-babel</h4><p>可以使用此插件把es6的代码编译成es5的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">  npm install gulp-babel gulp-plumber --save</div><div class="line">  gulp.task(&apos;js&apos;, function () &#123;</div><div class="line">    return gulp.src(&apos;src/js/*.js&apos;)//指定要处理的文件</div><div class="line">        .pipe(plumber())</div><div class="line">        .pipe(babel(&#123;presets:[&apos;es2015&apos;]&#125;))</div><div class="line">        .pipe(concat(&apos;all.js&apos;))//合并成一个文件</div><div class="line">        .pipe(gulp.dest(&apos;build/js&apos;))//保存此文件</div><div class="line">        .pipe(uglify())//进行压缩</div><div class="line">        .pipe(rename(&apos;all.min.js&apos;))//对此文件进行重命名</div><div class="line">        .pipe(gulp.dest(&apos;build/js&apos;));//再输出一次</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="5-10-gulp-connect"><a href="#5-10-gulp-connect" class="headerlink" title="5.10 gulp-connect"></a>5.10 gulp-connect</h4><p>有些时候我们需要把文件放到本地服务器上去预览， gulp-connect可以帮我们创建一个本地服务器去运行我们的项目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">  npm install gulp-connect --save-dev</div><div class="line"> var gulp = require(&apos;gulp&apos;);</div><div class="line"> var connect = require(&apos;gulp-connect&apos;);</div><div class="line"> gulp.task(&apos;server&apos;,function()&#123;</div><div class="line">    connect.server(&#123;</div><div class="line">        root:&apos;dist&apos;,//服务器的根目录</div><div class="line">        port:8080 //服务器的地址，没有此配置项默认也是 8080</div><div class="line">    &#125;);</div><div class="line"> &#125;);</div><div class="line">//运行此任务的时候会在8080上启动服务器，</div><div class="line"> gulp.task(&apos;default&apos;,[&apos;server&apos;]);</div></pre></td></tr></table></figure>
+<h4 id="5-11-自动刷新"><a href="#5-11-自动刷新" class="headerlink" title="5.11 自动刷新"></a>5.11 自动刷新</h4><p>我们希望当文件变化的时候浏览器可以自动刷新，这样我们就不需要文件修改后手动去刷新浏览器了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">var gulp = require(&apos;gulp&apos;);</div><div class="line">var connect = require(&apos;gulp-connect&apos;);</div><div class="line">gulp.task(&apos;copy-html&apos;,function()&#123;</div><div class="line">     gulp.src(&apos;app/index.html&apos;)//指定源文件</div><div class="line">         .pipe(gulp.dest(&apos;dist&apos;))//拷贝到dist目录</div><div class="line">         .pipe(connect.reload());//通知浏览器重启</div><div class="line">&#125;);</div><div class="line">gulp.task(&apos;watch&apos;,function()&#123;</div><div class="line">  //当index.html文件变化时执行copy-html任务</div><div class="line">    gulp.watch(&apos;app/index.html&apos;,[&apos;copy-html&apos;]);</div><div class="line">&#125;);</div><div class="line">gulp.task(&apos;server&apos;,function()&#123;</div><div class="line">    connect.server(&#123;</div><div class="line">        root:&apos;dist&apos;,//服务器的根目录</div><div class="line">        port:8080, //服务器的地址，没有此配置项默认也是 8080</div><div class="line">        livereload:true//启用实时刷新的功能</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line">//运行此任务的时候会在8080上启动服务器，</div><div class="line">gulp.task(&apos;default&apos;,[&apos;server&apos;,&apos;watch&apos;]);</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/05/18/Gulp/" data-id="cityemukm0000iyfytpf9yi5m" class="article-share-link">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2016/05/18/Gulp/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端工程化/">前端工程化</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/20/webStorage/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          Webstorage
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/17/git基本命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">git基本命令</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2016/05/18/Gulp/" data-title="Gulp" data-url="http://yoursite.com/2016/05/18/Gulp/"></div>
+  </section>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码管理/">代码管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端工程化/">前端工程化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/代码管理/" style="font-size: 10px;">代码管理</a> <a href="/tags/前端工程化/" style="font-size: 10px;">前端工程化</a> <a href="/tags/性能优化/" style="font-size: 13.33px;">性能优化</a> <a href="/tags/总结/" style="font-size: 16.67px;">总结</a> <a href="/tags/计算机基础/" style="font-size: 10px;">计算机基础</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/27/模块化开发/">模块化开发</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/20/React+ES6 问题/">React + ES6 问题</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/15/React 基础/">React 基础入门</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/05/Script/">Script async、defer属性</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/05/正则表达式/">正则表达式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://arvinxiang.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+          <li>
+            <a href="http://yuancheng.work" target="_blank">远程.work</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Luo Liang<br>
+      Powered by <a href="//hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"reqianduan"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>
