@@ -8,26 +8,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="#ECMAScript6ECMAScript简称就是ES,你可以把它看成是一套标准,JavaScript就是实施了这套标准的一门语言 现在主流浏览器使用的是ECMAScript5
 ##1. 作用域变量作用域就是一个变量的作用范围。
-也就是你声明一个变量以后,这个变量可以在什么场合下使用 以前的JavaScript只有全局作用域，还有一个函数作用域
-###1.1 var的问题
-var没有块级作用域，">
+也就是你声明一个变量以后,这个变量可以在什么场合下使用 以前的JavaScript只有全局作用域，还有一个函数作用域">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ECMAScript6">
 <meta property="og:url" content="http://yoursite.com/2016/05/20/ES6/index.html">
 <meta property="og:site_name" content="Finish">
 <meta property="og:description" content="#ECMAScript6ECMAScript简称就是ES,你可以把它看成是一套标准,JavaScript就是实施了这套标准的一门语言 现在主流浏览器使用的是ECMAScript5
 ##1. 作用域变量作用域就是一个变量的作用范围。
-也就是你声明一个变量以后,这个变量可以在什么场合下使用 以前的JavaScript只有全局作用域，还有一个函数作用域
-###1.1 var的问题
-var没有块级作用域，">
-<meta property="og:updated_time" content="2016-10-06T13:54:22.000Z">
+也就是你声明一个变量以后,这个变量可以在什么场合下使用 以前的JavaScript只有全局作用域，还有一个函数作用域">
+<meta property="og:updated_time" content="2016-10-07T14:46:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ECMAScript6">
 <meta name="twitter:description" content="#ECMAScript6ECMAScript简称就是ES,你可以把它看成是一套标准,JavaScript就是实施了这套标准的一门语言 现在主流浏览器使用的是ECMAScript5
 ##1. 作用域变量作用域就是一个变量的作用范围。
-也就是你声明一个变量以后,这个变量可以在什么场合下使用 以前的JavaScript只有全局作用域，还有一个函数作用域
-###1.1 var的问题
-var没有块级作用域，">
+也就是你声明一个变量以后,这个变量可以在什么场合下使用 以前的JavaScript只有全局作用域，还有一个函数作用域">
   
     <link rel="alternative" href="/atom.xml" title="Finish" type="application/atom+xml">
   
@@ -107,9 +101,9 @@ var没有块级作用域，">
       
         <p>#ECMAScript6<br>ECMAScript简称就是ES,你可以把它看成是一套标准,JavaScript就是实施了这套标准的一门语言 现在主流浏览器使用的是ECMAScript5</p>
 <p>##1. 作用域变量<br>作用域就是一个变量的作用范围。</p>
-<p>也就是你声明一个变量以后,这个变量可以在什么场合下使用 以前的JavaScript只有全局作用域，还有一个函数作用域</p>
+<p>也就是你声明一个变量以后,这个变量可以在什么场合下使用 以前的JavaScript只有全局作用域，还有一个函数作用域<br><a id="more"></a></p>
 <p>###1.1 var的问题</p>
-<p>var没有块级作用域，定义后在当前闭包中都可以访问，如果变量名重复，就会覆盖前面定义的变量，并且也有可能被其他人更改。<br><a id="more"></a></p>
+<p>var没有块级作用域，定义后在当前闭包中都可以访问，如果变量名重复，就会覆盖前面定义的变量，并且也有可能被其他人更改。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">if (true) &#123;</div><div class="line">     var a = &quot;a&quot;; // 期望a是某一个值</div><div class="line"> &#125;</div><div class="line">console.log(a);</div><div class="line">var在for循环标记变量共享，一般在循环中使用的i会被共享，其本质上也是由于没有块级作用域造成的</div><div class="line">for (var i = 0; i &lt; 3; i++) &#123;</div><div class="line">     setTimeout(function () &#123;</div><div class="line">         alert(i);</div><div class="line">     &#125;, 0);</div><div class="line"> &#125;</div><div class="line">结果</div><div class="line">弹窗三次 3</div></pre></td></tr></table></figure>
 <p>##1.2 块级作用域<br>在用var定义变量的时候，变量是通过闭包进行隔离的，现在用了let，不仅仅可以通过闭包隔离，还增加了一些块级作用域隔离。 块级作用用一组大括号定义一个块,使用 let 定义的变量在大括号的外面是访问不到的</p>
 <p>###1.2.1 实现块级作用域</p>
@@ -245,7 +239,7 @@ var没有块级作用域，">
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/05/20/ES6/" data-id="cityemukr0001iyfyfn9gfhkn" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/05/20/ES6/" data-id="citzvy07f00041ifyjm6xmrme" class="article-share-link">分享到</a>
       
 
       
@@ -337,11 +331,11 @@ var没有块级作用域，">
           </li>
         
           <li>
-            <a href="/2016/06/05/Script/">Script async、defer属性</a>
+            <a href="/2016/06/05/正则表达式/">正则表达式</a>
           </li>
         
           <li>
-            <a href="/2016/06/05/正则表达式/">正则表达式</a>
+            <a href="/2016/06/05/Script/">Script async、defer属性</a>
           </li>
         
       </ul>

@@ -95,9 +95,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h2><p>AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。 AMD规范</p>
-<h2 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h2><p>CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。 </p>
-<p>CMD规范这些规范的目的都是为了 JavaScript 的模块化开发，特别是在浏览器端的。 </p>
-<p>目前这些规范的实现都能达成浏览器端模块化开发的目的<br>
+<h2 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h2><p>CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。<br>
         
           <p class="article-more-link">
             <a href="/2016/06/27/模块化开发/#more">Read More</a>
@@ -107,7 +105,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/06/27/模块化开发/" data-id="citxzqs7x0008yyfy5ht8ck2p" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/06/27/模块化开发/" data-id="citzvy088000t1ifytvgv7r6b" class="article-share-link">分享到</a>
       
 
       
@@ -148,24 +146,17 @@
       
         <p>##React + ES6 实践中遇到的问题</p>
 <p>##react Javascript</p>
-<h3 id="一：Cannot-read-property-‘setState’-of-undefined"><a href="#一：Cannot-read-property-‘setState’-of-undefined" class="headerlink" title="一：Cannot read property ‘setState’ of undefined"></a>一：Cannot read property ‘setState’ of undefined</h3><p>在ES6的class中React是不会自动绑定this的，所以需要自己绑定：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">将</div><div class="line">onClick=&#123;this.props.onBtnClick&#125;改成onClick=&#123;this.props.onBtnClose.bind(this)&#125;</div><div class="line"></div><div class="line">或者在class的构造函数中绑定this：this.handleClose = this.handleClose.bind(this);</div></pre></td></tr></table></figure>
-<p>或者直接使用箭头函数()=&gt;</p>
-<p>当然，用creatClass这种写法，就不会有这个问题了。</p>
-<p>详见：<br><a href="https://facebook.github.io/react/docs/reusable-components.html#es6-classes" target="_blank" rel="external">https://facebook.github.io/react/docs/reusable-components.html#es6-classes</a></p>
-<h3 id="二：Uncaught-TypeError-Cannot-read-property-‘xxx’-of-undefined"><a href="#二：Uncaught-TypeError-Cannot-read-property-‘xxx’-of-undefined" class="headerlink" title="二：Uncaught TypeError: Cannot read property ‘xxx’ of undefined"></a>二：Uncaught TypeError: Cannot read property ‘xxx’ of undefined</h3><p>如果你调用不了某个prop，请检查是否在constructor里声明，例如这样子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">class MyComponent extends React.Component &#123; </div><div class="line">constructor(props) &#123; </div><div class="line">super(props); </div><div class="line">&#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>因为你没有在构造函数里传入，深入当然找不到咯。另外不要忘记调用super，因为es6中规定子类构造函数必须调用父类构造函数。</p>
-<h3 id="三：Adjacent-JSX-elements-must-be-wrapped-in-an-enclosing-tag"><a href="#三：Adjacent-JSX-elements-must-be-wrapped-in-an-enclosing-tag" class="headerlink" title="三：Adjacent JSX elements must be wrapped in an enclosing tag"></a>三：Adjacent JSX elements must be wrapped in an enclosing tag</h3><p>遇到这个问题，你可能会去不停的招，我哪个标签没有闭合？明明全都闭合了呀！！</p>
-<p>你可以看看你的代码是不是这个样子的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">class MyComponent extends React.Component &#123; </div><div class="line">render() &#123; </div><div class="line">return ( </div><div class="line">Welcome to </div><div class="line">www.imyzf.com</div><div class="line">) </div><div class="line">&#125; </div><div class="line">&#125; </div><div class="line">是的，这里的每一个标签都闭合，可它还是会报错。因为上面的代码，按照JSX编译器的规则，会被翻译成以下内容：（实际上并不能编译，会报错的）</div><div class="line">class MyComponent extends React.Component &#123; </div><div class="line">render() &#123; </div><div class="line">return ( </div><div class="line">React.createElement(“h1”, null, “Welcome to”), </div><div class="line">React.createElement(“h2”, null, “www.imyzf.com”) </div><div class="line">) </div><div class="line">&#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>发现问题了吧， 一个函数不能同时返回两个值，所以render中只能返回一个DOM结点 ，这里你可以用div把内容包围起来，当然你要注意一下包围了以后会不会影响到css。</p>
-
+<h3 id="一：Cannot-read-property-‘setState’-of-undefined"><a href="#一：Cannot-read-property-‘setState’-of-undefined" class="headerlink" title="一：Cannot read property ‘setState’ of undefined"></a>一：Cannot read property ‘setState’ of undefined</h3><p>在ES6的class中React是不会自动绑定this的，所以需要自己绑定：<br>
+        
+          <p class="article-more-link">
+            <a href="/2016/06/20/React+ES6 问题/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/06/20/React+ES6 问题/" data-id="citzvbnpg00010lfyqau5dh73" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/06/20/React+ES6 问题/" data-id="citzvy07k00091ify2h56gt9a" class="article-share-link">分享到</a>
       
 
       
@@ -216,7 +207,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/06/15/React 基础/" data-id="citzvbnpb00000lfyy7sbcyv0" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/06/15/React 基础/" data-id="citzvy07j00081ify79jvjebx" class="article-share-link">分享到</a>
       
 
       
@@ -225,6 +216,56 @@
 
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/05/正则表达式/" class="article-date">
+  <time datetime="2016-06-05T07:21:09.000Z" itemprop="datePublished">2016-06-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/05/正则表达式/">正则表达式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JS正则表达式中的基本知识</p>
+<h2 id="1-什么是正则表达式"><a href="#1-什么是正则表达式" class="headerlink" title="1. 什么是正则表达式"></a>1. 什么是正则表达式</h2><p>在常见的字符串检索或替换中，我们需要提供一种模式表示检索工替换的规则<br>正则表达式使用单个字符串来描述、匹配一系列符合某个句法规则的字符串<br>判断正则是否能匹配给定参数字符串<br>
+        
+          <p class="article-more-link">
+            <a href="/2016/06/05/正则表达式/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/06/05/正则表达式/" data-id="citzvy08b000v1ifyro2aukw9" class="article-share-link">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2016/06/05/正则表达式/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -256,31 +297,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Script-async、defer属性"><a href="#Script-async、defer属性" class="headerlink" title="Script async、defer属性"></a>Script async、defer属性</h2><h3 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h3><h4 id="async-属性规定一旦脚本可用，则会异步执行。"><a href="#async-属性规定一旦脚本可用，则会异步执行。" class="headerlink" title="async 属性规定一旦脚本可用，则会异步执行。"></a>async 属性规定一旦脚本可用，则会异步执行。</h4><p>注释：async 属性仅适用于外部脚本（只有在使用 src 属性时）。</p>
-<p>注释：有多种执行外部脚本的方法：</p>
-<ul>
-<li>如果 async=”async”：脚本相对于页面的其余部分异步地执行（当页面继续进行解析时，脚本将被执行）</li>
-<li><p>如果不使用 async 且 defer=”defer”：脚本将在页面完成解析时执行</p>
-</li>
-<li><p>如果既不使用 async 也不使用 defer：在浏览器继续解析页面之前，立即读取并执行脚本</p>
-</li>
-</ul>
-<h4 id="执行时刻"><a href="#执行时刻" class="headerlink" title="执行时刻"></a>执行时刻</h4><p>每一个async属性的脚本都在它下载结束之后立刻执行，同时会在window的load事件之前执行。所以就有可能出现脚本执行顺序被打乱的情况；每一个defer属性的脚本都是在页面解析完毕之后，按照原本的顺序执行，同时会在document的DOMContentLoaded之前执行。</p>
-<p>简单的来说，使用这两个属性会有三种可能的情况</p>
-<ul>
-<li><p>如果async为true，那么脚本在下载完成后异步执行。</p>
-</li>
-<li><p>如果async为false，defer为true，那么脚本会在页面解析完毕之后执行。</p>
-</li>
-<li><p>如果async和defer都为false，那么脚本会在页面解析中，停止页面解析，立刻下载并且执行，</p>
-</li>
-</ul>
-<p>最后给一点个人的建议，无论使用defer还是async属性，都需要首先将页面中的js文件进行整理，哪些文件之间有依赖性，哪些文件可以延迟加载等等，做好js代码的合并和拆分，然后再根据页面需要使用这两个属性。</p>
-
+<p>注释：有多种执行外部脚本的方法：<br>
+        
+          <p class="article-more-link">
+            <a href="/2016/06/05/Script/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/06/05/Script/" data-id="cityfx9sb000gizfys7q4o2cu" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/06/05/Script/" data-id="citzvy07q000d1ify2ks13g1u" class="article-share-link">分享到</a>
       
 
       
@@ -289,55 +316,6 @@
 
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/05/正则表达式/" class="article-date">
-  <time datetime="2016-06-05T07:21:09.000Z" itemprop="datePublished">2016-06-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/05/正则表达式/">正则表达式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JS正则表达式中的基本知识<br>
-        
-          <p class="article-more-link">
-            <a href="/2016/06/05/正则表达式/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://yoursite.com/2016/06/05/正则表达式/" data-id="citxzqs7z000byyfyvctrlh5e" class="article-share-link">分享到</a>
-      
-
-      
-        <a href="http://yoursite.com/2016/06/05/正则表达式/#ds-thread" class="article-comment-link">评论</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -378,7 +356,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/06/01/预解释作用域闭包this/" data-id="citx1aqso0000ejfyw43samk0" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/06/01/预解释作用域闭包this/" data-id="citzvy08e00101ifyh1p9znop" class="article-share-link">分享到</a>
       
 
       
@@ -417,7 +395,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>常用的设计模式<br>
+        <p>常用的设计模式</p>
+<h2 id="1-设计模式"><a href="#1-设计模式" class="headerlink" title="1.设计模式"></a>1.设计模式</h2><h4 id="1-1-单例模式"><a href="#1-1-单例模式" class="headerlink" title="1.1 单例模式"></a>1.1 单例模式</h4><p>对象数据类型的作用：把描述同一件事物的属性和方法放在同一段堆内存中，起到分组的作用，防止冲突；<br>
         
           <p class="article-more-link">
             <a href="/2016/06/01/常用的设计模式/#more">Read More</a>
@@ -427,7 +406,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/06/01/常用的设计模式/" data-id="citxzqs7v0007yyfyoyszibd4" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/06/01/常用的设计模式/" data-id="citzvy07z000l1ifymmhzyuem" class="article-share-link">分享到</a>
       
 
       
@@ -478,7 +457,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/06/01/常见需要处理的默认事件/" data-id="cityfnbdj000dizfyn25un0u3" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/06/01/常见需要处理的默认事件/" data-id="citzvy086000r1ifyk0ojxc1y" class="article-share-link">分享到</a>
       
 
       
@@ -552,11 +531,11 @@
           </li>
         
           <li>
-            <a href="/2016/06/05/Script/">Script async、defer属性</a>
+            <a href="/2016/06/05/正则表达式/">正则表达式</a>
           </li>
         
           <li>
-            <a href="/2016/06/05/正则表达式/">正则表达式</a>
+            <a href="/2016/06/05/Script/">Script async、defer属性</a>
           </li>
         
       </ul>
