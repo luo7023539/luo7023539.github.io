@@ -4,21 +4,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>模块化开发 | Finish</title>
+  <title>Archives: 2016/6 | Finish</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="AMDAMD 是 RequireJS 在推广过程中对模块定义的规范化产出。 AMD规范
-CMDCMD 是 SeaJS 在推广过程中对模块定义的规范化产出。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="模块化开发">
-<meta property="og:url" content="http://yoursite.com/2016/06/27/模块化开发/index.html">
+  <meta name="description" content="个人技术博客,向大家推荐一些不错的入门文章、以及一些个人总结分享,欢迎大家一起交流">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Finish">
+<meta property="og:url" content="http://yoursite.com/archives/2016/06/page/2/index.html">
 <meta property="og:site_name" content="Finish">
-<meta property="og:description" content="AMDAMD 是 RequireJS 在推广过程中对模块定义的规范化产出。 AMD规范
-CMDCMD 是 SeaJS 在推广过程中对模块定义的规范化产出。">
-<meta property="og:updated_time" content="2016-10-07T14:46:48.000Z">
+<meta property="og:description" content="个人技术博客,向大家推荐一些不错的入门文章、以及一些个人总结分享,欢迎大家一起交流">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="模块化开发">
-<meta name="twitter:description" content="AMDAMD 是 RequireJS 在推广过程中对模块定义的规范化产出。 AMD规范
-CMDCMD 是 SeaJS 在推广过程中对模块定义的规范化产出。">
+<meta name="twitter:title" content="Finish">
+<meta name="twitter:description" content="个人技术博客,向大家推荐一些不错的入门文章、以及一些个人总结分享,欢迎大家一起交流">
   
     <link rel="alternative" href="/atom.xml" title="Finish" type="application/atom+xml">
   
@@ -74,93 +70,63 @@ CMDCMD 是 SeaJS 在推广过程中对模块定义的规范化产出。">
   </div>
 </header>
     <div class="outer">
-      <section id="main"><article id="post-模块化开发" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/27/模块化开发/" class="article-date">
-  <time datetime="2016-06-27T09:30:29.000Z" itemprop="datePublished">2016-06-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+      <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      模块化开发
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2016/06/01/常用的设计模式/" class="archive-article-date">
+  <time datetime="2016-06-01T09:25:30.000Z" itemprop="datePublished">6月 1</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/06/01/常用的设计模式/">常用的设计模式</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h2><p>AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。 AMD规范</p>
-<h2 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h2><p>CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。<br><a id="more"></a><br>CMD规范这些规范的目的都是为了 JavaScript 的模块化开发，特别是在浏览器端的。 </p>
-<p>目前这些规范的实现都能达成浏览器端模块化开发的目的</p>
-<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。</p>
-<p>不过 RequireJS 从 2.0 开始，也改成可以延迟执行（根据写法不同，处理方式不同）。</p>
-<p>CMD 推崇 as lazy as possible.</p>
-<p>AMD推崇依赖前置,CMD 推崇依赖就近 AMD 默认推荐的是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">define([&apos;./a&apos;, &apos;./b&apos;], function(a, b) &#123; // 依赖必须一开始就写好</div><div class="line">a.doSomething()</div><div class="line">// 此处略去 100 行</div><div class="line">b.doSomething()</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>CMD默认推荐的是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">define(function(require, exports, module) &#123;</div><div class="line">var a = require(&apos;./a&apos;)</div><div class="line">a.doSomething()</div><div class="line">// 此处略去 100 行</div><div class="line">var b = require(&apos;./b&apos;) // 依赖可以就近书写</div><div class="line">b.doSomething()</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>虽然 AMD 也支持 CMD 的写法，同时还支持将 require 作为依赖项传递，但 RequireJS 的作者默认是最喜欢上面的写法，也是官方文档里默认的模块定义写法。</p>
-<p>AMD 的 API 默认是一个当多个用，CMD 的 API 严格区分，推崇职责单一。</p>
-<p>比如 AMD 里，require 分全局 require 和局部 require，都叫 require。CMD 里，没有全局 require，而是根据模块系统的完备性，提供 seajs.use 来实现模块系统的加载启动。</p>
-<p>CMD 里，每个 API 都简单纯粹。</p>
-<h2 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h2><p><a href="http://www.ruanyifeng.com/blog/2012/10/javascript_module.html" target="_blank" rel="external">@Javascript模块化编程（一）：模块的写法</a></p>
-<p><a href="http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html" target="_blank" rel="external">@avascript模块化编程（二）：AMD规范</a></p>
-<p><a href="http://www.zhihu.com/question/20351507/answer/14859415" target="_blank" rel="external">@AMD 和 CMD 的区别有哪些?</a></p>
-<p><a href="https://github.com/seajs/seajs/issues/277" target="_blank" rel="external">@Sea.js与RequireJS的异同</a></p>
-<p><a href="http://www.zhufengpeixun.com/kecheng/detail_999503" target="_blank" rel="external">@sea.js视频教程</a></p>
-<p><a href="http://www.cnblogs.com/dojo-lzz/p/4707725.html" target="_blank" rel="external">@以代码爱好者角度来看AMD与CMD</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://yoursite.com/2016/06/27/模块化开发/" data-id="ciu18zptg000wtkfy2kgd03b9" class="article-share-link">分享到</a>
-      
-
-      
-        <a href="http://yoursite.com/2016/06/27/模块化开发/#ds-thread" class="article-comment-link">评论</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
+    </header>
   </div>
+</article>
   
     
-<nav id="article-nav">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2016/06/01/常见需要处理的默认事件/" class="archive-article-date">
+  <time datetime="2016-06-01T07:21:09.000Z" itemprop="datePublished">6月 1</time>
+</a>
+      
   
-    <a href="/2016/06/30/前后端交互指南/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">
-        
-          前后端交互指南
-        
-      </div>
-    </a>
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/06/01/常见需要处理的默认事件/">阻止默认事件</a>
+    </h1>
   
-  
-    <a href="/2016/06/20/React+ES6 问题/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">React + ES6 问题</div>
-    </a>
-  
-</nav>
 
-  
+    </header>
+  </div>
 </article>
+  
+  
+    </div></section>
+  
 
 
-  <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2016/06/27/模块化开发/" data-title="模块化开发" data-url="http://yoursite.com/2016/06/27/模块化开发/"></div>
-  </section>
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/archives/2016/06/">&laquo; 上一页</a><a class="page-number" href="/archives/2016/06/">1</a><span class="page-number current">2</span>
+  </nav>
 </section>
       
       <aside id="sidebar">
