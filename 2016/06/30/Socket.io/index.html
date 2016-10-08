@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Socket.io 简明实践 | Finish</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. socket.ioSocket.IO是一个WebSocket库，包括了客户端的js和服务器端的nodejs，它的目标是构建可以在不同浏览器和移动设备上使用的实时应用。
+2. socket.io的特点
+易用性：socket.io封装了服务端和客户端，使用起来非常简单方便。
+跨平台：socket.io支持跨平台，这就意味着你有了更多的选择，可以在自己喜欢的平台下开发实时应用。
+自适应：它会自动根">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Socket.io 简明实践">
+<meta property="og:url" content="http://yoursite.com/2016/06/30/Socket.io/index.html">
+<meta property="og:site_name" content="Finish">
+<meta property="og:description" content="1. socket.ioSocket.IO是一个WebSocket库，包括了客户端的js和服务器端的nodejs，它的目标是构建可以在不同浏览器和移动设备上使用的实时应用。
+2. socket.io的特点
+易用性：socket.io封装了服务端和客户端，使用起来非常简单方便。
+跨平台：socket.io支持跨平台，这就意味着你有了更多的选择，可以在自己喜欢的平台下开发实时应用。
+自适应：它会自动根">
+<meta property="og:updated_time" content="2016-10-08T16:49:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Socket.io 简明实践">
+<meta name="twitter:description" content="1. socket.ioSocket.IO是一个WebSocket库，包括了客户端的js和服务器端的nodejs，它的目标是构建可以在不同浏览器和移动设备上使用的实时应用。
+2. socket.io的特点
+易用性：socket.io封装了服务端和客户端，使用起来非常简单方便。
+跨平台：socket.io支持跨平台，这就意味着你有了更多的选择，可以在自己喜欢的平台下开发实时应用。
+自适应：它会自动根">
+  
+    <link rel="alternative" href="/atom.xml" title="Finish" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Finish</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Keep Calm and Carry On</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-Socket.io" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/30/Socket.io/" class="article-date">
+  <time datetime="2016-06-30T11:30:30.000Z" itemprop="datePublished">2016-06-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Socket.io 简明实践
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-socket-io"><a href="#1-socket-io" class="headerlink" title="1. socket.io"></a>1. socket.io</h2><p>Socket.IO是一个WebSocket库，包括了客户端的js和服务器端的nodejs，它的目标是构建可以在不同浏览器和移动设备上使用的实时应用。</p>
+<h2 id="2-socket-io的特点"><a href="#2-socket-io的特点" class="headerlink" title="2. socket.io的特点"></a>2. socket.io的特点</h2><ul>
+<li>易用性：socket.io封装了服务端和客户端，使用起来非常简单方便。</li>
+<li>跨平台：socket.io支持跨平台，这就意味着你有了更多的选择，可以在自己喜欢的平台下开发实时应用。</li>
+<li>自适应：它会自动根据浏览器从WebSocket、AJAX长轮询、Iframe流等等各种方式中选择最佳的方式来实现网络实时应用，非常方便和人性化，而且支持的浏览器最低达IE5.5。<a id="more"></a>
+</li>
+</ul>
+<h2 id="3-初步使用"><a href="#3-初步使用" class="headerlink" title="3. 初步使用"></a>3. 初步使用</h2><h3 id="3-1-安装部署"><a href="#3-1-安装部署" class="headerlink" title="3.1 安装部署"></a>3.1 安装部署</h3><p>使用npm安装socket.io</p>
+<p>$ npm install socket.io</p>
+<h3 id="3-2-启动服务"><a href="#3-2-启动服务" class="headerlink" title="3.2 启动服务"></a>3.2 启动服务</h3><p>创建 app.js 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var path = require(&apos;path&apos;);</div><div class="line">var app = express();</div><div class="line"></div><div class="line">app.get(&apos;/&apos;, function (req, res) &#123;</div><div class="line">    res.sendFile(path.resolve(&apos;index.html&apos;));</div><div class="line">&#125;);</div><div class="line"></div><div class="line">var server = require(&apos;http&apos;).createServer(app);</div><div class="line">var io = require(&apos;socket.io&apos;)(server);</div><div class="line"></div><div class="line">io.on(&apos;connection&apos;, function (socket) &#123;</div><div class="line">    console.log(&apos;客户端已经连接&apos;);</div><div class="line">    socket.on(&apos;message&apos;, function (msg) &#123;</div><div class="line">        console.log(msg);</div><div class="line">        socket.send(&apos;sever:&apos; + msg);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line">server.listen(80);</div></pre></td></tr></table></figure>
+<h3 id="3-3-客户端引用"><a href="#3-3-客户端引用" class="headerlink" title="3.3 客户端引用"></a>3.3 客户端引用</h3><p>服务端运行后会在根目录动态生成socket.io的客户端js文件 客户端可以通过固定路径/socket.io/socket.io.js添加引用<br>客户端加载socket.io文件后会得到一个全局的对象io<br>connect函数可以接受一个url参数，url可以socket服务的http完整地址，也可以是相对路径，如果省略则表示默认连接当前路径 创建index.html文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;/socket.io/socket.io.js&quot;&gt;&lt;/script&gt;</div><div class="line"> window.onload = function()&#123;</div><div class="line">    var socket = io.connect(&apos;/&apos;);</div><div class="line">    //监听与服务器端的连接成功事件</div><div class="line">    socket.on(&apos;connect&apos;,function()&#123;</div><div class="line">        console.log(&apos;连接成功&apos;);</div><div class="line">    &#125;);</div><div class="line">    //监听与服务器端断开连接事件</div><div class="line">    socket.on(&apos;disconnect&apos;,function()&#123;</div><div class="line">       console.log(&apos;断开连接&apos;);</div><div class="line">    &#125;);</div><div class="line"> &#125;;</div></pre></td></tr></table></figure>
+<h3 id="3-4-发送消息"><a href="#3-4-发送消息" class="headerlink" title="3.4 发送消息"></a>3.4 发送消息</h3><p>成功建立连接后，我们可以通过socket对象的send函数来互相发送消息 修改index.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var socket = io.connect(&apos;/&apos;);</div><div class="line">socket.on(&apos;connect&apos;,function()&#123;</div><div class="line">   //客户端连接成功后发送消息&apos;welcome&apos;</div><div class="line">   socket.send(&apos;welcome&apos;);</div><div class="line">&#125;);</div><div class="line">//客户端收到服务器发过来的消息后触发</div><div class="line">socket.on(&apos;message&apos;,function(message)&#123;</div><div class="line">   console.log(message);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>修改app.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var io = require(&apos;scoket.io&apos;);</div><div class="line">io.on(&apos;connection&apos;,function(socket)&#123;</div><div class="line">  //向客户端发送消息</div><div class="line">  socket.send(&apos;欢迎光临&apos;);</div><div class="line">  //接收到客户端发过来的消息时触发</div><div class="line">  socket.on(&apos;message&apos;,function(data)&#123;</div><div class="line">      console.log(data);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="4-深入分析"><a href="#4-深入分析" class="headerlink" title="4. 深入分析"></a>4. 深入分析</h2><h3 id="4-1-send方法"><a href="#4-1-send方法" class="headerlink" title="4.1 send方法"></a>4.1 send方法</h3><p>send函数只是emit的封装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function send()&#123;</div><div class="line">  var args = toArray(arguments);</div><div class="line">  args.unshift(&apos;message&apos;);</div><div class="line">  this.emit.apply(this, args);</div><div class="line">  return this;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>emit函数有两个参数</p>
+<ul>
+<li>第一个参数是自定义的事件名称,发送方发送什么类型的事件名称,接收方就可以通过对应的事件名称来监听接收</li>
+<li>第二个参数是要发送的数据<h3 id="4-2-服务端事件"><a href="#4-2-服务端事件" class="headerlink" title="4.2 服务端事件"></a>4.2 服务端事件</h3>事件名称    含义</li>
+<li>connection    客户端成功连接到服务器</li>
+<li>message    接收到客户端发送的消息</li>
+<li>disconnect    客户端断开连接</li>
+<li>error    监听错误<h3 id="4-3-客户端事件"><a href="#4-3-客户端事件" class="headerlink" title="4.3 客户端事件"></a>4.3 客户端事件</h3>事件名称    含义</li>
+<li>connect      成功连接到服务器</li>
+<li>message      接收到服务器发送的消息</li>
+<li>disconnect    客户端断开连接</li>
+<li>error             监听错误<h2 id="5-划分房间"><a href="#5-划分房间" class="headerlink" title="5. 划分房间"></a>5. 划分房间</h2><h3 id="5-1-命名空间"><a href="#5-1-命名空间" class="headerlink" title="5.1 命名空间"></a>5.1 命名空间</h3>可以在服务器端进入不同的房间,在房间里的广播和通信都不会影响到房间以外的客户端</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">socket.join(&apos;chat&apos;);//进入chat房间</div><div class="line">socket.leave(&apos;chat&apos;);//离开chat房间</div></pre></td></tr></table></figure>
+<h3 id="5-2-广播"><a href="#5-2-广播" class="headerlink" title="5.2 广播"></a>5.2 广播</h3><p>全局广播就是所有连接到服务器的客户端都会受到广播的信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">io.emit(&apos;message&apos;,&apos;全局广播&apos;);</div></pre></td></tr></table></figure>
+<p>也可以只在某个房间内发送广播</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">io.in(&apos;room&apos;).emit(&apos;message&apos;,&apos;房间内广播&apos;);</div></pre></td></tr></table></figure>
+<h3 id="5-3-聊天室"><a href="#5-3-聊天室" class="headerlink" title="5.3 聊天室"></a>5.3 聊天室</h3><p>app.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var path = require(&apos;path&apos;);</div><div class="line">var app = express();</div><div class="line"></div><div class="line">app.get(&apos;/&apos;, function (req, res) &#123;</div><div class="line">    res.sendFile(path.resolve(&apos;index.html&apos;));</div><div class="line">&#125;);</div><div class="line"></div><div class="line">var server = require(&apos;http&apos;).createServer(app);</div><div class="line">var io = require(&apos;socket.io&apos;)(server);</div><div class="line"></div><div class="line">io.on(&apos;connection&apos;, function (socket) &#123;</div><div class="line">    var inRoom;</div><div class="line">    socket.on(&apos;message&apos;, function (msg) &#123;</div><div class="line">        if(inRoom)&#123;</div><div class="line">            io.in(inRoom).emit(&apos;message&apos;,msg);</div><div class="line">        &#125;else&#123;</div><div class="line">            io.emit(&apos;message&apos;,msg);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;);</div><div class="line">    socket.on(&apos;join&apos;, function (room) &#123;</div><div class="line">        socket.join(room);</div><div class="line">        io.emit(&apos;message&apos;,&apos;加入&apos;+room);</div><div class="line">        inRoom = room;</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">server.listen(80);</div></pre></td></tr></table></figure>
+<p>index.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">window.onload = function()&#123;</div><div class="line">    var socket = io.connect(&apos;/&apos;);</div><div class="line">    socket.on(&apos;message&apos;,function(msg)&#123;</div><div class="line">        var messages = document.querySelector(&apos;#messages&apos;);</div><div class="line">        var li = document.createElement(&apos;li&apos;);</div><div class="line">        li.innerHTML = msg;</div><div class="line">        li.className = &apos;list-group-item&apos;;</div><div class="line">        messages.appendChild(li);</div><div class="line">    &#125;);</div><div class="line">    window.send = function()&#123;</div><div class="line">        var input = document.querySelector(&apos;#msg&apos;);</div><div class="line">        socket.send(input.value);</div><div class="line">        input.value = &apos;&apos;;</div><div class="line">    &#125;</div><div class="line">    window.join = function(room)&#123;</div><div class="line">        socket.emit(&apos;join&apos;,room);</div><div class="line">        document.querySelector(&apos;#room&apos;).innerHTML = room;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/06/30/Socket.io/" data-id="ciu1frk6g000d3pfyzrx5kurz" class="article-share-link">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2016/06/30/Socket.io/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/通信协议/">通信协议</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/07/05/express 模拟/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          express 框架模拟
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/30/看完让你彻底搞懂Websocket原理/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">看完让你彻底搞懂Websocket原理</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2016/06/30/Socket.io/" data-title="Socket.io 简明实践" data-url="http://yoursite.com/2016/06/30/Socket.io/"></div>
+  </section>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码管理/">代码管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端工程化/">前端工程化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/通信协议/">通信协议</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/HTML/" style="font-size: 12.5px;">HTML</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/代码管理/" style="font-size: 10px;">代码管理</a> <a href="/tags/前端工程化/" style="font-size: 10px;">前端工程化</a> <a href="/tags/性能优化/" style="font-size: 12.5px;">性能优化</a> <a href="/tags/总结/" style="font-size: 17.5px;">总结</a> <a href="/tags/计算机基础/" style="font-size: 10px;">计算机基础</a> <a href="/tags/通信协议/" style="font-size: 15px;">通信协议</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/07/05/express 模拟/">express 框架模拟</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/30/Socket.io/">Socket.io 简明实践</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/30/看完让你彻底搞懂Websocket原理/">看完让你彻底搞懂Websocket原理</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/30/前后端交互指南/">前后端交互指南</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/27/模块化开发/">模块化开发</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://arvinxiang.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+          <li>
+            <a href="http://yuancheng.work" target="_blank">远程.work</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Luo Liang<br>
+      Powered by <a href="//hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"reqianduan"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>
