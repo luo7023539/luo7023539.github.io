@@ -16,14 +16,14 @@
 <meta property="og:description" content="写给刚入门的前端工程师的前后端交互指南作为刚接触前端的不久的童鞋，大家都会兴奋于CSS和JS所带来漂亮界面，然而，前端工程师除了UI重构外，还有非常重要的职责在正确的区域渲染出服务端的数据。
 毕竟，我们要构建一个大的web应用，必然不是普普通通的静态页面构成。
 下文将罗列将来前端工程师应该必备的同后端打交道的常用技能。">
-<meta property="og:image" content="http://yoursite.com/public/img/comet.png">
-<meta property="og:updated_time" content="2016-10-08T13:42:22.000Z">
+<meta property="og:image" content="http://yoursite.com/img/comet.png">
+<meta property="og:updated_time" content="2016-10-08T13:48:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前后端交互指南">
 <meta name="twitter:description" content="写给刚入门的前端工程师的前后端交互指南作为刚接触前端的不久的童鞋，大家都会兴奋于CSS和JS所带来漂亮界面，然而，前端工程师除了UI重构外，还有非常重要的职责在正确的区域渲染出服务端的数据。
 毕竟，我们要构建一个大的web应用，必然不是普普通通的静态页面构成。
 下文将罗列将来前端工程师应该必备的同后端打交道的常用技能。">
-<meta name="twitter:image" content="http://yoursite.com/public/img/comet.png">
+<meta name="twitter:image" content="http://yoursite.com/img/comet.png">
   
     <link rel="alternative" href="/atom.xml" title="Finish" type="application/atom+xml">
   
@@ -122,7 +122,7 @@
 <p>由于CORS的支持，我们可以简单的将数据封装成一个js脚本请求，当然我们在jquery中会用到。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function logResults(json)&#123;  </div><div class="line">  console.log(json);</div><div class="line">&#125;</div><div class="line">$.ajax(&#123;</div><div class="line">  url: &quot;https://yourapi.com/api&quot;,</div><div class="line">  dataType: &quot;jsonp&quot;,</div><div class="line">  jsonpCallback: &quot;logResults&quot;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <h2 id="comet"><a href="#comet" class="headerlink" title="comet"></a>comet</h2><p>聊Comet我们还得说下短轮询，由于某些特定的业务需求，比如通知，我们需要有及时的数据更新,我们能够想到的就是使用setInterval每隔一定时间比如10s去获取一次请求，从而做到一些通知更新，但是这并不一种高效的做法，这会增加服务器的请求数量。这个时候有了另外一种概念，“反向Ajax”，由服务器进行数据推送， Comet能够让信息近乎实时的被推送到页面上，非常适合要求实时性的获取的数据的页面。</p>
-<p><img src="/public/img/comet.png" alt="img"></p>
+<p><img src="/img/comet.png" alt="img"></p>
 <p>如图所示，就是一个简单的Comet模型，就是数据请求后挂起，直到有数据响应推送到客户端，这个时候客户端再发起一个新的连接。</p>
 <p>这样相对来说可以减少一定数量的请求，以及数据的及时响应，从而一定意义的实现所谓推送。</p>
 <p>一个简单的PHP Demo代码，就是我们需要这端代码一直运行着…</p>
@@ -154,7 +154,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/06/30/前后端交互指南/" data-id="ciu18zpt1000htkfyeviduvpu" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2016/06/30/前后端交互指南/" data-id="ciu19aaz5000julfyk6b1n5fd" class="article-share-link">分享到</a>
       
 
       
@@ -170,19 +170,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/06/30/看完让你彻底搞懂Websocket原理/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">
-        
-          看完让你彻底搞懂Websocket原理
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/06/27/模块化开发/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/06/30/看完让你彻底搞懂Websocket原理/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">模块化开发</div>
+      <div class="article-nav-title">看完让你彻底搞懂Websocket原理</div>
     </a>
   
 </nav>
@@ -234,11 +225,11 @@
       <ul>
         
           <li>
-            <a href="/2016/06/30/看完让你彻底搞懂Websocket原理/">看完让你彻底搞懂Websocket原理</a>
+            <a href="/2016/06/30/前后端交互指南/">前后端交互指南</a>
           </li>
         
           <li>
-            <a href="/2016/06/30/前后端交互指南/">前后端交互指南</a>
+            <a href="/2016/06/30/看完让你彻底搞懂Websocket原理/">看完让你彻底搞懂Websocket原理</a>
           </li>
         
           <li>
