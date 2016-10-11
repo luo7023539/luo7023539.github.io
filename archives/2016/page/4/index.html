@@ -4,18 +4,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>带var不带var的具体表现 | Finish</title>
+  <title>Archives: 2016 | Finish</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="声明变量和不声明变量的区别Javascript声明变量的时候，虽然用var关键字声明和不用关键字声明，很多时候运行并没有问题，但是这两种方式还是有区别的。可以正常运行的代码并不代表是合适的代码。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="带var不带var的具体表现">
-<meta property="og:url" content="http://yoursite.com/2016/05/20/带Var和不带Var/index.html">
+  <meta name="description" content="个人技术博客,向大家推荐一些不错的入门文章、以及一些个人总结分享,欢迎大家一起交流">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Finish">
+<meta property="og:url" content="http://yoursite.com/archives/2016/page/4/index.html">
 <meta property="og:site_name" content="Finish">
-<meta property="og:description" content="声明变量和不声明变量的区别Javascript声明变量的时候，虽然用var关键字声明和不用关键字声明，很多时候运行并没有问题，但是这两种方式还是有区别的。可以正常运行的代码并不代表是合适的代码。">
-<meta property="og:updated_time" content="2016-10-07T14:46:48.000Z">
+<meta property="og:description" content="个人技术博客,向大家推荐一些不错的入门文章、以及一些个人总结分享,欢迎大家一起交流">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="带var不带var的具体表现">
-<meta name="twitter:description" content="声明变量和不声明变量的区别Javascript声明变量的时候，虽然用var关键字声明和不用关键字声明，很多时候运行并没有问题，但是这两种方式还是有区别的。可以正常运行的代码并不代表是合适的代码。">
+<meta name="twitter:title" content="Finish">
+<meta name="twitter:description" content="个人技术博客,向大家推荐一些不错的入门文章、以及一些个人总结分享,欢迎大家一起交流">
   
     <link rel="alternative" href="/atom.xml" title="Finish" type="application/atom+xml">
   
@@ -71,89 +70,44 @@
   </div>
 </header>
     <div class="outer">
-      <section id="main"><article id="post-带Var和不带Var" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/05/20/带Var和不带Var/" class="article-date">
-  <time datetime="2016-05-20T07:25:25.000Z" itemprop="datePublished">2016-05-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+      <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      带var不带var的具体表现
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2016/04/25/字符编码简介/" class="archive-article-date">
+  <time datetime="2016-04-25T04:30:35.000Z" itemprop="datePublished">4月 25</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/04/25/字符编码简介/">字符编码简介</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="声明变量和不声明变量的区别"><a href="#声明变量和不声明变量的区别" class="headerlink" title="声明变量和不声明变量的区别"></a>声明变量和不声明变量的区别</h2><p>Javascript声明变量的时候，虽然用var关键字声明和不用关键字声明，很多时候运行并没有问题，但是这两种方式还是有区别的。可以正常运行的代码并不代表是合适的代码。<br><a id="more"></a><br>如果只考虑在全局声明跟全局直接赋值的话<br>使用上面确实没有太大区别。</p>
-<p>因为js找变量不仅在作用域里面找，还跑到全局对象那里去找。</p>
-<p>导致我们使用全局的属性都忽略书写全局，代码就不规范了。</p>
-<p>当有一个变量和全局属性重名的时候就有点不舒服了。</p>
-<p>而且属性是可以用delete删除的，而变量不行，除非手动配置变量。</p>
-<p>a = 1 ;<br>在预解释上面也不一样。<br>不带var的话，在该行代码上面使用就报错啦</p>
-<p>JS中变量申明分显式申明和隐式申明。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Var i=100  显示申明</div><div class="line">i=100  隐式申明</div></pre></td></tr></table></figure>
-<p>在函数中使用var关键字进行显式申明的变量是做为局部变量，而没有用var关键字，使用直接赋值方式声明的是全局变量。</p>
-<p>当我们使用访问一个没有声明的变量时，JS会报错。而当我们给一个没有声明的变量赋值时，JS不会报错，相反它会认为我们是要隐式申明一个全局变量，这一点一定要注意。</p>
-<p>var num = 1是在当前域中声明变量. 如果在方法中声明，则为局部变量；</p>
-<p>如果是在全局域中声明，则为全局变量。</p>
-<p>而num = 1，事实上是对属性赋值操作。首先，它会尝试在当前作用域链（如在方法中声明，则当前作用域链代表全局作用域和方法局部作用域etc。。。）中解析 num； </p>
-<p>如果在任何当前作用域链中找到num，则会执行对num属性赋值； </p>
-<p>如果没有找到num，它才会在全局对象（即当前作用域链的最顶层对象，如window对象）中创造num属性并赋值。</p>
-<p>注意！它并不是声明了一个全局变量，而是创建了一个全局对象的属性</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://yoursite.com/2016/05/20/带Var和不带Var/" data-id="ciu242vpv000zj5fy3mrcixar" class="article-share-link">分享到</a>
-      
-
-      
-        <a href="http://yoursite.com/2016/05/20/带Var和不带Var/#ds-thread" class="article-comment-link">评论</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2016/05/20/ES6/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">
-        
-          ECMAScript6
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/05/20/webStorage/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">Webstorage</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
 
-  <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2016/05/20/带Var和不带Var/" data-title="带var不带var的具体表现" data-url="http://yoursite.com/2016/05/20/带Var和不带Var/"></div>
-  </section>
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/archives/2016/page/3/">&laquo; 上一页</a><a class="page-number" href="/archives/2016/">1</a><a class="page-number" href="/archives/2016/page/2/">2</a><a class="page-number" href="/archives/2016/page/3/">3</a><span class="page-number current">4</span>
+  </nav>
 </section>
       
       <aside id="sidebar">
