@@ -1,0 +1,457 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>浅谈Hybrid技术的设计与实现 | Finish</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="浅谈Hybrid技术的设计与实现前言随着移动浪潮的兴起，各种APP层出不穷，极速的业务扩展提升了团队对开发效率的要求，这个时候使用IOS&amp;amp;Andriod开发一个APP似乎成本有点过高了，而H5的低成本、高效率、跨平台等特性马上被利用起来形成了一种新的开发模式：Hybrid APP。
+作为一种混合开发的模式，Hybrid APP底层依赖于Native提供的容器（UIWebview），上层使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈Hybrid技术的设计与实现">
+<meta property="og:url" content="http://yoursite.com/2016/05/21/Hybird/index.html">
+<meta property="og:site_name" content="Finish">
+<meta property="og:description" content="浅谈Hybrid技术的设计与实现前言随着移动浪潮的兴起，各种APP层出不穷，极速的业务扩展提升了团队对开发效率的要求，这个时候使用IOS&amp;amp;Andriod开发一个APP似乎成本有点过高了，而H5的低成本、高效率、跨平台等特性马上被利用起来形成了一种新的开发模式：Hybrid APP。
+作为一种混合开发的模式，Hybrid APP底层依赖于Native提供的容器（UIWebview），上层使用">
+<meta property="og:updated_time" content="2016-10-11T05:26:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈Hybrid技术的设计与实现">
+<meta name="twitter:description" content="浅谈Hybrid技术的设计与实现前言随着移动浪潮的兴起，各种APP层出不穷，极速的业务扩展提升了团队对开发效率的要求，这个时候使用IOS&amp;amp;Andriod开发一个APP似乎成本有点过高了，而H5的低成本、高效率、跨平台等特性马上被利用起来形成了一种新的开发模式：Hybrid APP。
+作为一种混合开发的模式，Hybrid APP底层依赖于Native提供的容器（UIWebview），上层使用">
+  
+    <link rel="alternative" href="/atom.xml" title="Finish" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Finish</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Keep Calm and Carry On</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-Hybird" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/21/Hybird/" class="article-date">
+  <time datetime="2016-05-21T11:30:30.000Z" itemprop="datePublished">2016-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      浅谈Hybrid技术的设计与实现
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="浅谈Hybrid技术的设计与实现"><a href="#浅谈Hybrid技术的设计与实现" class="headerlink" title="浅谈Hybrid技术的设计与实现"></a>浅谈Hybrid技术的设计与实现</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>随着移动浪潮的兴起，各种APP层出不穷，极速的业务扩展提升了团队对开发效率的要求，这个时候使用IOS&amp;Andriod开发一个APP似乎成本有点过高了，而H5的低成本、高效率、跨平台等特性马上被利用起来形成了一种新的开发模式：Hybrid APP。</p>
+<p>作为一种混合开发的模式，Hybrid APP底层依赖于Native提供的容器（UIWebview），上层使用Html&amp;Css&amp;JS做业务开发，底层透明化、上层多多样化，这种场景非常有利于前端介入，非常适合业务快速迭代，于是Hybrid火啦。</p>
+<p>本来我觉得这种开发模式既然大家都知道了，那么Hybrid就没有什么探讨的价值了，但令我诧异的是依旧有很多人对Hybrid这种模式感到陌生，这种情况在二线城市很常见，所以我这里尝试从另一个方面向各位介绍Hybrid，期望对各位正确的技术选型有所帮助。<br><a id="more"></a></p>
+<h2 id="Hybrid发家史"><a href="#Hybrid发家史" class="headerlink" title="Hybrid发家史"></a>Hybrid发家史</h2><p>最初携程的应用全部是Native的，H5站点只占其流量很小的一部分，当时Native有200人红红火火，而H5开仅有5人左右在打酱油，后面无线团队来了一个执行力十分强的服务器端出身的leader，他为了了解前端开发，居然亲手使用jQuery Mobile开发了第一版程序，虽然很快方案便被推翻，但是H5团队开始发力，在短时间内已经赶上了Native的业务进度：</p>
+<p>突然有一天andriod同事跑过来告诉我们andriod中有一个方法最大树限制，可能一些页面需要我们内嵌H5的页面，于是Native与H5框架团队牵头做了第一个Hybrid项目，携程第一次出现了一套代码兼容三端的情况。</p>
+<p>这个开发效率杠杠的，团队尝到了甜头，于是乎后续的频道基本都开始了Hybrid开发，到我离开时，整个机制已经十分成熟了，而前端也有几百人了。</p>
+<h2 id="场景重现"><a href="#场景重现" class="headerlink" title="场景重现"></a>场景重现</h2><p>狼厂有三大大流量APP，手机百度、百度地图、糯米APP，最近接入糯米的时候，发现他们也在做Hybrid平台化相关的推广，将静态资源打包至Native中，Native提供js调用原生应用的能力，从产品化和工程化来说做的很不错，但是有两个瑕疵：</p>
+<ol>
+<li><p>资源全部打包至Naive中APP尺寸会增大，就算以增量机制也避免不了APP的膨胀，因为现在接入的频道较少一个频道500K没有感觉，一旦平台化后主APP尺寸会急剧增大</p>
+</li>
+<li><p>糯米前端框架团队封装了Native端的能力，但是没有提供配套的前端框架，这个解决方案是不完整的。很多业务已经有H5站点了，为了接入还得单独开发一套程序；而就算是新业务接入，又会面临嵌入资源必须是静态资源的限制，做出来的项目没有SEO，如果关注SEO的话还是需要再开发，从工程角度来说是有问题的。</p>
+</li>
+</ol>
+<p>但从产品可接入度与产品化来说，糯米Hybrid化的大方向是很乐观的，也确实取得了一些成绩，在短时间就有很多频道接入了，随着推广进行，明年可能会形成一个大型的Hybrid平台。但是因为我也经历过推广框架，当听到他们忽悠我说性能会提高70%，与Native体验基本一致时，不知为何我居然笑了……</p>
+<p>总结</p>
+<p>如果读了上面几个故事你依旧不知道为何要使用Hybrid技术的话，我这里再做一个总结吧：</p>
+<ul>
+<li>Hybrid开发效率高、跨平台、低层本</li>
+<li>Hybrid从业务开发上讲，没有版本问题，有BUG能及时修复</li>
+<li>Hybrid是有缺点的，Hybrid体验就肯定比不上Native，所以使用有其场景，但是对于需要快速试错、快速占领市场的团队来说，Hybrid一定是不二的选择，团队生存下来后还是需要做体验更好的原生APP。</li>
+</ul>
+<p>好了，上面扯了那么多没用的东西，今天的目的其实是为大家介绍Hybrid的一些设计知识，如果你认真阅读此文，可能在以下方面对你有所帮助：</p>
+<ol>
+<li><p>Hybrid中Native与前端各自的工作是什么</p>
+</li>
+<li><p>Hybrid的交互接口如何设计</p>
+</li>
+<li><p>Hybrid的Header如何设计</p>
+</li>
+<li><p>Hybrid的如何设计目录结构以及增量机制如何实现</p>
+</li>
+<li><p>资源缓存策略，白屏问题……</p>
+</li>
+</ol>
+<p>文中是我个人的一些开发经验，希望对各位有用，也希望各位多多支持讨论，指出文中不足以及提出您的一些建议。</p>
+<p>然后文中Andriod相关代码由我的同事明月提供，这里特别感谢明月同学对我的支持，这里扫描二维码可以下载APP进行测试：</p>
+<p>Andriod APP二维码：</p>
+<p>代码地址：</p>
+<p><a href="https://github.com/yexiaochai/hybrid" target="_blank" rel="external">https://github.com/yexiaochai/hybrid</a></p>
+<h2 id="Native与前端分工"><a href="#Native与前端分工" class="headerlink" title="Native与前端分工"></a>Native与前端分工</h2><p>在做Hybrid架构设计之前需要分清Native与前端的界限，首先Native提供的是一宿主环境，要合理的利用Native提供的能力，要实现通用的Hybrid平台架构，站在前端视角，我认为需要考虑以下核心设计问题。</p>
+<h3 id="交互设计"><a href="#交互设计" class="headerlink" title="交互设计"></a>交互设计</h3><p>Hybrid架构设计第一个要考虑的问题是如何设计与前端的交互，如果这块设计的不好会对后续开发、前端框架维护造成深远的影响，并且这种影响往往是不可逆的，所以这里需要前端与Native好好配合，提供通用的接口，比如：</p>
+<ol>
+<li><p>NativeUI组件，header组件、消息类组件</p>
+</li>
+<li><p>通讯录、系统、设备信息读取接口</p>
+</li>
+<li><p>H5与Native的互相跳转，比如H5如何跳到一个Native页面，H5如何新开Webview做动画跳到另一个H5页面</p>
+</li>
+</ol>
+<h3 id="资源访问机制"><a href="#资源访问机制" class="headerlink" title="资源访问机制"></a>资源访问机制</h3><p>Native首先需要考虑如何访问H5资源，做到既能以file的方式访问Native内部资源，又能使用url的方式访问线上资源；需要提供前端资源增量替换机制，以摆脱APP迭代发版问题，避免用户升级APP。这里就会涉及到静态资源在APP中的存放策略，更新策略的设计，复杂的话还会涉及到服务器端的支持。</p>
+<h3 id="账号信息设计"><a href="#账号信息设计" class="headerlink" title="账号信息设计"></a>账号信息设计</h3><p>账号系统是重要并且无法避免的，Native需要设计良好安全的身份验证机制，保证这块对业务开发者足够透明，打通账户信息。</p>
+<h3 id="Hybrid开发调试"><a href="#Hybrid开发调试" class="headerlink" title="Hybrid开发调试"></a>Hybrid开发调试</h3><p>功能设计完并不是结束，Native与前端需要商量出一套可开发调试的模型，不然很多业务开发的工作将难以继续，这个很多文章已经接受过了，本文不赘述。</p>
+<p>至于Native还会关注的一些通讯设计、并发设计、异常处理、日志监控以及安全模块因为不是我涉及的领域便不予关注了（事实上是想关注不得其门），而前端要做的事情就是封装Native提供的各种能力，整体架构是这样的：</p>
+<p>真实业务开发时，Native除了会关注登录模块之外还会封装支付等重要模块，这里视业务而定。</p>
+<p>Hybrid交互设计</p>
+<p>Hybrid的交互无非是Native调用前端页面的JS方法，或者前端页面通过JS调用Native提供的接口，两者交互的桥梁皆Webview：</p>
+<p>app自身可以自定义url schema，并且把自定义的url注册在调度中心， 例如</p>
+<p>ctrip://wireless 打开携程App<br>weixin:// 打开微信<br>我们JS与Native通信一般就是创建这类URL被Native捕获处理，后续也出现了其它前端调用Native的方式，但可以做底层封装使其透明化，所以重点以及是如何进行前端与Native的交互设计。</p>
+<p>JS to Native</p>
+<p>Native在每个版本会提供一些API，前端会有一个对应的框架团队对其进行封装，释放业务接口。比如糯米对外的接口是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1 BNJS.http.get()；//向业务服务器拿请求据【1.0】 1.3版本接口有扩展</div><div class="line">2 BNJS.http.post()；//向业务服务器提交数据【1.0】</div><div class="line">3 BNJS.http.sign()；//计算签名【1.0】</div><div class="line">4 BNJS.http.getNA()；//向NA服务器拿请求据【1.0】 1.3版本接口有扩展</div><div class="line">5 BNJS.http.postNA()；//向NA服务器提交数据【1.0】</div><div class="line">6 BNJS.http.getCatgData()；//从Native本地获取筛选数据【1.1】</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"> 1 BNJSReady(function()&#123;</div><div class="line"> 2     BNJS.http.post(&#123;</div><div class="line"> 3         url : &apos;http://cp01-testing-tuan02.cp01.baidu.com:8087/naserver/user/feedback&apos;,</div><div class="line"> 4         params : &#123;</div><div class="line"> 5             msg : &apos;测试post&apos;,</div><div class="line"> 6             contact : &apos;18721687903&apos;</div><div class="line"> 7         &#125;,</div><div class="line"> 8         onSuccess : function(res)&#123;</div><div class="line"> 9             alert(&apos;发送post请求成功！&apos;);</div><div class="line">10         &#125;,</div><div class="line">11         onFail : function(res)&#123;</div><div class="line">12             alert(&apos;发送post请求失败！&apos;);</div><div class="line">13         &#125;</div><div class="line">14     &#125;);</div><div class="line">15 &#125;);</div></pre></td></tr></table></figure>
+<p>前端框架定义了一个全局变量BNJS作为Native与前端交互的对象，只要引入了糯米提供的这个JS库，并且在糯米封装的Webview容器中，前端便获得了调用Native的能力，我揣测糯米这种设计是因为这样便于第三方团队的接入使用，手机百度有一款轻应用框架也走的这种路线：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">clouda.mbaas.account //释放了clouda全局变量</div></pre></td></tr></table></figure>
+<p>这样做有一个前提是，Native本身已经十分稳定了，很少新增功能了，否则在直连情况下就会面临一个尴尬，因为web站点永远保持最新的，就会在一些低版本容器中调用了没有提供的Native能力而报错。</p>
+<h3 id="API式交互"><a href="#API式交互" class="headerlink" title="API式交互"></a>API式交互</h3><p>手白、糯米底层如何做我们无从得知，但我们发现调用Native API接口的方式和我们使用AJAX调用服务器端提供的接口是及其相似的：</p>
+<p>这里类似的微薄开放平台的接口是这样定义的：</p>
+<p>粉丝服务（新手接入指南）<br>读取接口    接收消息    接收用户私信、关注、取消关注、@等消息接口<br>写入接口    发送消息    向用户回复私信消息接口<br>生成带参数的二维码    生成带参数的二维码接口<br>我们要做的就是通过一种方式创建ajax请求即可：</p>
+<p><a href="https://api.weibo.com/2/statuses/public_timeline.json" target="_blank" rel="external">https://api.weibo.com/2/statuses/public_timeline.json</a><br>所以我在实际设计Hybrid交互模型时，是以接口为单位进行设计的，比如获取通讯录的总体交互是：</p>
+<p>格式约定</p>
+<p>交互的第一步是设计数据格式，这里分为请求数据格式与响应数据格式，参考ajax的请求模型大概是：</p>
+<p>$.ajax(options) ⇒ XMLHttpRequest<br>type (默认值：”GET”) HTTP的请求方法(“GET”, “POST”, or other)。<br>url (默认值：当前url) 请求的url地址。<br>data (默认值：none) 请求中包含的数据，对于GET请求来说，这是包含查询字符串的url地址，如果是包含的是object的话，$.param会将其转化成string。<br>所以我这边与Native约定的请求模型是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">requestHybrid(&#123;</div><div class="line">  //创建一个新的webview对话框窗口</div><div class="line">  tagname: &apos;hybridapi&apos;,</div><div class="line">  //请求参数，会被Native使用</div><div class="line">  param: &#123;&#125;,</div><div class="line">  //Native处理成功后回调前端的方法</div><div class="line">  callback: function (data) &#123;</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>这个方法执行会形成一个URL，比如：</p>
+<p>hybridschema://hybridapi?callback=hybrid_1446276509894&amp;param=%7B%22data1%22%3A1%2C%22data2%22%3A2%7D</p>
+<p>这里提一点，APP安装后会在手机上注册一个schema，比如淘宝是taobao://，Native会有一个进程监控Webview发出的所有schema://请求，然后分发到“控制器”hybridapi处理程序，Native控制器处理时会需要param提供的参数（encode过），处理结束后将携带数据获取Webview window对象中的callback（hybrid_1446276509894）调用之</p>
+<p>数据返回的格式约定是：</p>
+<p>{<br>  data: {},<br>  errno: 0,<br>  msg: “success”<br>}<br>真实的数据在data对象中，如果errno不为0的话，便需要提示msg，这里举个例子如果错误码1代表该接口需要升级app才能使用的话：</p>
+<p>{<br>  data: {},<br>  errno: 1,<br>  msg: “APP版本过低，请升级APP版本”<br>}<br>代码实现</p>
+<p>这里给一个简单的代码实现，真实代码在APP中会有所变化：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"> 1 window.Hybrid = window.Hybrid || &#123;&#125;;</div><div class="line"> 2 var bridgePostMsg = function (url) &#123;</div><div class="line"> 3     if ($.os.ios) &#123;</div><div class="line"> 4         window.location = url;</div><div class="line"> 5     &#125; else &#123;</div><div class="line"> 6         var ifr = $(&apos;&lt;iframe style=&quot;display: none;&quot; src=&quot;&apos; + url + &apos;&quot;/&gt;&apos;);</div><div class="line"> 7         $(&apos;body&apos;).append(ifr);</div><div class="line"> 8         setTimeout(function () &#123;</div><div class="line"> 9             ifr.remove();</div><div class="line">10         &#125;, 1000)</div><div class="line">11     &#125;</div><div class="line">12 &#125;;</div><div class="line">13 var _getHybridUrl = function (params) &#123;</div><div class="line">14     var k, paramStr = &apos;&apos;, url = &apos;scheme://&apos;;</div><div class="line">15     url += params.tagname + &apos;?t=&apos; + new Date().getTime(); //时间戳，防止url不起效</div><div class="line">16     if (params.callback) &#123;</div><div class="line">17         url += &apos;&amp;callback=&apos; + params.callback;</div><div class="line">18         delete params.callback;</div><div class="line">19     &#125;</div><div class="line">20     if (params.param) &#123;</div><div class="line">21         paramStr = typeof params.param == &apos;object&apos; ? JSON.stringify(params.param) : params.param;</div><div class="line">22         url += &apos;&amp;param=&apos; + encodeURIComponent(paramStr);</div><div class="line">23     &#125;</div><div class="line">24     return url;</div><div class="line">25 &#125;;</div><div class="line">26 var requestHybrid = function (params) &#123;</div><div class="line">27     //生成唯一执行函数，执行后销毁</div><div class="line">28     var tt = (new Date().getTime());</div><div class="line">29     var t = &apos;hybrid_&apos; + tt;</div><div class="line">30     var tmpFn;</div><div class="line">31 </div><div class="line">32     //处理有回调的情况</div><div class="line">33     if (params.callback) &#123;</div><div class="line">34         tmpFn = params.callback;</div><div class="line">35         params.callback = t;</div><div class="line">36         window.Hybrid[t] = function (data) &#123;</div><div class="line">37             tmpFn(data);</div><div class="line">38             delete window.Hybrid[t];</div><div class="line">39         &#125;</div><div class="line">40     &#125;</div><div class="line">41     bridgePostMsg(_getHybridUrl(params));</div><div class="line">42 &#125;;</div><div class="line">43 //获取版本信息，约定APP的navigator.userAgent版本包含版本信息：scheme/xx.xx.xx</div><div class="line">44 var getHybridInfo = function () &#123;</div><div class="line">45     var platform_version = &#123;&#125;;</div><div class="line">46     var na = navigator.userAgent;</div><div class="line">47     var info = na.match(/scheme\/\d\.\d\.\d/);</div><div class="line">48 </div><div class="line">49     if (info &amp;&amp; info[0]) &#123;</div><div class="line">50         info = info[0].split(&apos;/&apos;);</div><div class="line">51         if (info &amp;&amp; info.length == 2) &#123;</div><div class="line">52             platform_version.platform = info[0];</div><div class="line">53             platform_version.version = info[1];</div><div class="line">54         &#125;</div><div class="line">55     &#125;</div><div class="line">56     return platform_version;</div><div class="line">57 &#125;;</div></pre></td></tr></table></figure>
+<p>因为Native对于H5来是底层，框架&amp;底层一般来说是不会关注业务实现的，所以真实业务中Native调用H5场景较少，这里不予关注了。</p>
+<p>常用交互API</p>
+<p>良好的交互设计是成功的第一步，在真实业务开发中有一些API一定会用到。</p>
+<p>跳转</p>
+<p>跳转是Hybrid必用API之一，对前端来说有以下跳转：</p>
+<p>① 页面内跳转，与Hybrid无关</p>
+<p>② H5跳转Native界面</p>
+<p>③ H5新开Webview跳转H5页面，一般为做页面动画切换</p>
+<p>如果要使用动画，按业务来说有向前与向后两种，forward&amp;back，所以约定如下，首先是H5跳Native某一个页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"> 1 //H5跳Native页面</div><div class="line"> 2 //=&gt;baidubus://forward?t=1446297487682&amp;param=%7B%22topage%22%3A%22home%22%2C%22type%22%3A%22h2n%22%2C%22data2%22%3A2%7D</div><div class="line"> 3 requestHybrid(&#123;</div><div class="line"> 4     tagname: &apos;forward&apos;,</div><div class="line"> 5     param: &#123;</div><div class="line"> 6         //要去到的页面</div><div class="line"> 7         topage: &apos;home&apos;,</div><div class="line"> 8         //跳转方式，H5跳Native</div><div class="line"> 9         type: &apos;native&apos;,</div><div class="line">10         //其它参数</div><div class="line">11         data2: 2</div><div class="line">12     &#125;</div><div class="line">13 &#125;);</div></pre></td></tr></table></figure>
+<p>比如携程H5页面要去到酒店Native某一个页面可以这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"> 1 //=&gt;schema://forward?t=1446297653344&amp;param=%7B%22topage%22%3A%22hotel%2Fdetail%20%20%22%2C%22type%22%3A%22h2n%22%2C%22id%22%3A20151031%7D</div><div class="line"> 2 requestHybrid(&#123;</div><div class="line"> 3     tagname: &apos;forward&apos;,</div><div class="line"> 4     param: &#123;</div><div class="line"> 5         //要去到的页面</div><div class="line"> 6         topage: &apos;hotel/detail&apos;,</div><div class="line"> 7         //跳转方式，H5跳Native</div><div class="line"> 8         type: &apos;native&apos;,</div><div class="line"> 9         //其它参数</div><div class="line">10         id: 20151031</div><div class="line">11     &#125;</div><div class="line">12 &#125;);</div></pre></td></tr></table></figure>
+<p>比如H5新开Webview的方式跳转H5页面便可以这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> 1 requestHybrid(&#123;</div><div class="line"> 2     tagname: &apos;forward&apos;,</div><div class="line"> 3     param: &#123;</div><div class="line"> 4         //要去到的页面，首先找到hotel频道，然后定位到detail模块</div><div class="line"> 5         topage: &apos;hotel/detail  &apos;,</div><div class="line"> 6         //跳转方式，H5新开Webview跳转，最后装载H5页面</div><div class="line"> 7         type: &apos;webview&apos;,</div><div class="line"> 8         //其它参数</div><div class="line"> 9         id: 20151031</div><div class="line">10     &#125;</div><div class="line">11 &#125;);</div></pre></td></tr></table></figure>
+<p>back与forward一致，我们甚至会有animattype参数决定切换页面时的动画效果，真实使用时可能会封装全局方法略去tagname的细节，这时就和糯米对外释放的接口差不多了。</p>
+<p>Header 组件的设计</p>
+<p>最初我其实是抵制使用Native提供的UI组件的，尤其是Header，因为平台化后，Native每次改动都很慎重并且响应很慢，但是出于两点核心因素考虑，我基本放弃了抵抗：</p>
+<p>① 其它主流容器都是这么做的，比如微信、手机百度、携程</p>
+<p>② 没有header一旦网络出错出现白屏，APP将陷入假死状态，这是不可接受的，而一般的解决方案都太业务了</p>
+<p>PS：Native吊起Native时，如果300ms没有响应需要出loading组件，避免白屏</p>
+<p>因为H5站点本来就有Header组件，站在前端框架层来说，需要确保业务的代码是一致的，所有的差异需要在框架层做到透明化，简单来说Header的设计需要遵循：</p>
+<p>① H5 header组件与Native提供的header组件使用调用层接口一致</p>
+<p>② 前端框架层根据环境判断选择应该使用H5的header组件抑或Native的header组件</p>
+<p>一般来说header组件需要完成以下功能：</p>
+<p>① header左侧与右侧可配置，显示为文字或者图标（这里要求header实现主流图标，并且也可由业务控制图标），并需要控制其点击回调</p>
+<p>② header的title可设置为单标题或者主标题、子标题类型，并且可配置lefticon与righticon（icon居中）</p>
+<p>③ 满足一些特殊配置，比如标签类header</p>
+<p>所以，站在前端业务方来说，header的使用方式为（其中tagname是不允许重复的）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"> 1 //Native以及前端框架会对特殊tagname的标识做默认回调，如果未注册callback，或者点击回调callback无返回则执行默认方法</div><div class="line"> 2 // back前端默认执行History.back，如果不可后退则回到指定URL，Native如果检测到不可后退则返回Naive大首页</div><div class="line"> 3 // home前端默认返回指定URL，Native默认返回大首页</div><div class="line"> 4 this.header.set(&#123;</div><div class="line"> 5     left: [</div><div class="line"> 6         &#123;</div><div class="line"> 7             //如果出现value字段，则默认不使用icon</div><div class="line"> 8             tagname: &apos;back&apos;,</div><div class="line"> 9             value: &apos;回退&apos;,</div><div class="line">10             //如果设置了lefticon或者righticon，则显示icon</div><div class="line">11             //native会提供常用图标icon映射，如果找不到，便会去当前业务频道专用目录获取图标</div><div class="line">12             lefticon: &apos;back&apos;,</div><div class="line">13             callback: function () &#123; &#125;</div><div class="line">14         &#125;</div><div class="line">15     ],</div><div class="line">16     right: [</div><div class="line">17         &#123;</div><div class="line">18             //默认icon为tagname，这里为icon</div><div class="line">19             tagname: &apos;search&apos;,</div><div class="line">20             callback: function () &#123; &#125;</div><div class="line">21         &#125;,</div><div class="line">22     //自定义图标</div><div class="line">23         &#123;</div><div class="line">24         tagname: &apos;me&apos;,</div><div class="line">25         //会去hotel频道存储静态header图标资源目录搜寻该图标，没有便使用默认图标</div><div class="line">26         icon: &apos;hotel/me.png&apos;,</div><div class="line">27         callback: function () &#123; &#125;</div><div class="line">28     &#125;</div><div class="line">29     ],</div><div class="line">30     title: &apos;title&apos;,</div><div class="line">31     //显示主标题，子标题的场景</div><div class="line">32     title: [&apos;title&apos;, &apos;subtitle&apos;],</div><div class="line">33 </div><div class="line">34     //定制化title</div><div class="line">35     title: &#123;</div><div class="line">36         value: &apos;title&apos;,</div><div class="line">37         //标题右边图标</div><div class="line">38         righticon: &apos;down&apos;, //也可以设置lefticon</div><div class="line">39         //标题类型，默认为空，设置的话需要特殊处理</div><div class="line">40         //type: &apos;tabs&apos;,</div><div class="line">41         //点击标题时的回调，默认为空</div><div class="line">42         callback: function () &#123; &#125;</div><div class="line">43     &#125;</div><div class="line">44 &#125;);</div></pre></td></tr></table></figure>
+<p>因为Header左边一般来说只有一个按钮，所以其对象可以使用这种形式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"> 1 this.header.set(&#123;</div><div class="line"> 2     back: function () &#123; &#125;,</div><div class="line"> 3     title: &apos;&apos;</div><div class="line"> 4 &#125;);</div><div class="line"> 5 //语法糖=&gt;</div><div class="line"> 6 this.header.set(&#123;</div><div class="line"> 7     left: [&#123;</div><div class="line"> 8         tagname: &apos;back&apos;,</div><div class="line"> 9         callback: function()&#123;&#125;</div><div class="line">10     &#125;],</div><div class="line">11     title: &apos;&apos;,</div><div class="line">12 &#125;);</div></pre></td></tr></table></figure>
+<p>为完成Native端的实现，这里会新增两个接口，向Native注册事件，以及注销事件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">1 var registerHybridCallback = function (ns, name, callback) &#123;</div><div class="line">2   if(!window.Hybrid[ns]) window.Hybrid[ns] = &#123;&#125;;</div><div class="line">3   window.Hybrid[ns][name] = callback;</div><div class="line">4 &#125;;</div><div class="line">5 </div><div class="line">6 var unRegisterHybridCallback = function (ns) &#123;</div><div class="line">7   if(!window.Hybrid[ns]) return;</div><div class="line">8   delete window.Hybrid[ns];</div><div class="line">9 &#125;;</div></pre></td></tr></table></figure>
+<p>Native Header组件的实现：</p>
+<p> Native Header组件的封装<br>请求类</p>
+<p>虽然get类请求可以用jsonp的方式绕过跨域问题，但是post请求却是真正的拦路虎，为了安全性服务器设置cors会仅仅针对几个域名，Hybrid内嵌静态资源是通过file的方式读取，这种场景使用cors就不好使了，所以每个请求需要经过Native做一层代理发出去。</p>
+<p>这个使用场景与Header组件一致，前端框架层必须做到对业务透明化，业务事实上不必关心这个请求是由浏览器发出还是由Native发出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1 HybridGet = function (url, param, callback) &#123;</div><div class="line">2 &#125;;</div><div class="line">3 HybridPost = function (url, param, callback) &#123;</div><div class="line">4 &#125;;</div></pre></td></tr></table></figure>
+<p>真实的业务场景，会将之封装到数据请求模块，在底层做适配，在H5站点下使用ajax请求，在Native内嵌时使用代理发出，与Native的约定为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> 1 requestHybrid(&#123;</div><div class="line"> 2     tagname: &apos;ajax&apos;,</div><div class="line"> 3     param: &#123;</div><div class="line"> 4         url: &apos;hotel/detail&apos;,</div><div class="line"> 5         param: &#123;&#125;,</div><div class="line"> 6         //默认为get</div><div class="line"> 7         type: &apos;post&apos;</div><div class="line"> 8     &#125;,</div><div class="line"> 9     //响应后的回调</div><div class="line">10     callback: function (data) &#123; &#125;</div><div class="line">11 &#125;);</div></pre></td></tr></table></figure>
+<p>常用NativeUI组件</p>
+<p>最后，Native会提供几个常用的Native级别的UI，比如loading加载层，比如toast消息框：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"> 1 var HybridUI = &#123;&#125;;</div><div class="line"> 2 HybridUI.showLoading();</div><div class="line"> 3 //=&gt;</div><div class="line"> 4 requestHybrid(&#123;</div><div class="line"> 5     tagname: &apos;showLoading&apos;</div><div class="line"> 6 &#125;);</div><div class="line"> 7 </div><div class="line"> 8 HybridUI.showToast(&#123;</div><div class="line"> 9     title: &apos;111&apos;,</div><div class="line">10     //几秒后自动关闭提示框，-1需要点击才会关闭</div><div class="line">11     hidesec: 3,</div><div class="line">12     //弹出层关闭时的回调</div><div class="line">13     callback: function () &#123; &#125;</div><div class="line">14 &#125;);</div><div class="line">15 //=&gt;</div><div class="line">16 requestHybrid(&#123;</div><div class="line">17     tagname: &apos;showToast&apos;,</div><div class="line">18     param: &#123;</div><div class="line">19         title: &apos;111&apos;,</div><div class="line">20         hidesec: 3,</div><div class="line">21         callback: function () &#123; &#125;</div><div class="line">22     &#125;</div><div class="line">23 &#125;);</div></pre></td></tr></table></figure>
+<p>Native UI与前端UI不容易打通，所以在真实业务开发过程中，一般只会使用几个关键的Native UI。</p>
+<p>账号系统的设计</p>
+<p>根据上面的设计，我们约定在Hybrid中请求有两种发出方式：</p>
+<p>① 如果是webview访问线上站点的话，直接使用传统ajax发出</p>
+<p>② 如果是file的形式读取Native本地资源的话，请求由Native代理发出</p>
+<p>因为静态html资源没有鉴权的问题，真正的权限验证需要请求服务器api响应通过错误码才能获得，这是动态语言与静态语言做入口页面的一个很大的区别。</p>
+<p>以网页的方式访问，账号登录与否由是否带有秘钥cookie决定（这时并不能保证秘钥的有效性），因为Native不关注业务实现，而每次载入都有可能是登录成功跳回来的结果，所以每次载入后都需要关注秘钥cookie变化，以做到登录态数据一致性。</p>
+<p>以file的方式访问内嵌资源的话，因为API请求控制方为Native，所以鉴权的工作完全由Native完成，接口访问如果没有登录便弹出Native级别登录框引导登录即可，每次访问webview将账号信息种入到webview中，这里有个矛盾点是Native种入webview的时机，因为有可能是网页注销的情况，所以这里的逻辑是：</p>
+<p>① webview载入结束</p>
+<p>② Native检测webview是否包含账号cookie信息</p>
+<p>③ 如果不包含则种入cookie，如果包含则检测与Native账号信息是否相同，不同则替换自身</p>
+<p>④ 如果检测到跳到了注销账户的页面，则需要清理自身账号信息</p>
+<p>如果登录不统一会就会出现上述复杂的逻辑，所以真实情况下我们会对登录接口收口。</p>
+<p>简单化账号接口</p>
+<p>平台层面觉得上述操作过于复杂，便强制要求在Hybrid容器中只能使用Native接口进行登录和登出，前端框架在底层做适配，保证上层业务的透明，这样情况会简单很多：</p>
+<p>① 使用Native代理做请求接口，如果没有登录直接Native层唤起登录框</p>
+<p>② 直连方式使用ajax请求接口，如果没有登录则在底层唤起登录框（需要前端框架支持）</p>
+<p>简单的登录登出接口实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"> 1 /*</div><div class="line"> 2 无论成功与否皆会关闭登录框</div><div class="line"> 3 参数包括：</div><div class="line"> 4 success 登录成功的回调</div><div class="line"> 5 error 登录失败的回调</div><div class="line"> 6 url 如果没有设置success，或者success执行后没有返回true，则默认跳往此url</div><div class="line"> 7 */</div><div class="line"> 8 HybridUI.Login = function (opts) &#123;</div><div class="line"> 9 &#125;;</div><div class="line">10 //=&gt;</div><div class="line">11 requestHybrid(&#123;</div><div class="line">12     tagname: &apos;login&apos;,</div><div class="line">13     param: &#123;</div><div class="line">14         success: function () &#123; &#125;,</div><div class="line">15         error: function () &#123; &#125;,</div><div class="line">16         url: &apos;...&apos;</div><div class="line">17     &#125;</div><div class="line">18 &#125;);</div><div class="line">19 //与登录接口一致，参数一致</div><div class="line">20 HybridUI.logout = function () &#123;</div><div class="line">21 &#125;;</div></pre></td></tr></table></figure>
+<p>账号信息获取</p>
+<p>在实际的业务开发中，判断用户是否登录、获取用户基本信息的需求比比皆是，所以这里必须保证Hybrid开发模式与H5开发模式保持统一，否则需要在业务代码中做很多无谓的判断，我们在前端框架会封装一个User模块，主要接口包括：</p>
+<p>1 var User = {};<br>2 User.isLogin = function () { };<br>3 User.getInfo = function () { };<br>这个代码的底层实现分为前端实现，Native实现，首先是前端的做法是：</p>
+<p>当前端页面载入后，会做一次异步请求，请求用户相关数据，如果是登录状态便能获取数据存于localstorage中，这里一定不能存取敏感信息</p>
+<p>前端使用localstorage的话需要考虑极端情况下使用内存变量的方式替换localstorage的实现，否则会出现不可使用的情况，而后续的访问皆是使用localstorage中的数据做判断依据，以下情况需要清理localstorage的账号数据：</p>
+<p>① 系统登出</p>
+<p>② 访问接口提示需要登录</p>
+<p>③ 调用登录接口</p>
+<p>这种模式多用于单页应用，非单页应用一般会在每次刷新页面先清空账号信息再异步拉取，但是如果当前页面马上就需要判断用户登录数据的话，便不可靠了;处于Hybrid容器中时，因为Native本身就保存了用户信息，封装的接口直接由Native获取即可，这块比较靠谱。</p>
+<p>Hybrid的资源</p>
+<p>目录结构</p>
+<p>Hybrid技术既然是将静态资源存于Native，那么就需要目录设计，经过之前的经验，目录结构一般以2层目录划分：</p>
+<p>如果我们有两个频道酒店与机票，那么目录结构是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"> 1 webapp //根目录</div><div class="line"> 2 ├─flight</div><div class="line"> 3 ├─hotel //酒店频道</div><div class="line"> 4 │  │  index.html //业务入口html资源，如果不是单页应用会有多个入口</div><div class="line"> 5 │  │  main.js //业务所有js资源打包</div><div class="line"> 6 │  │</div><div class="line"> 7 │  └─static //静态样式资源</div><div class="line"> 8 │      ├─css </div><div class="line"> 9 │      ├─hybrid //存储业务定制化类Native Header图标</div><div class="line">10 │      └─images</div><div class="line">11 ├─libs</div><div class="line">12 │      libs.js //框架所有js资源打包</div><div class="line">13 │</div><div class="line">14 └─static</div><div class="line">15     ├─css</div><div class="line">16     └─images</div></pre></td></tr></table></figure>
+<p>最初设计的forward跳转中的topage参数规则是：频道/具体页面=&gt;channel/page，其余资源会由index.html这个入口文件带出。</p>
+<p>增量机制</p>
+<p>真实的增量机制需要服务器端的配合，我这里只能简单描述，Native端会有维护一个版本映射表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  flight: 1.0.0,</div><div class="line">  hotel: 1.0.0,</div><div class="line">  libs: 1.0.0,</div><div class="line">  static: 1.0.0</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个映射表是每次大版本APP发布时由服务器端生成的，如果酒店频道需要在线做增量发布的话，会打包一个与线上一致的文件目录，走发布平台发布，会在数据库中形成一条记录：</p>
+<p>channel    ver    md5<br>flight    1.0.0    1245355335<br>hotel    1.0.1    455ettdggd</p>
+<p>当APP启动时，APP会读取版本信息，这里发现hotel的本地版本号比线上的小，便会下载md5对应的zip文件，然后解压之并且替换整个hotel文件，本次增量结束，因为所有的版本文件不会重复，APP回滚时可用回到任意想去的版本，也可以对任意版本做BUG修复。</p>
+<p>结语</p>
+<p>github上代码会持续更新，现在界面反正不太好看，大家多多包涵吧，这里是一些效果图：</p>
+<p>Hybrid方案是快速迭代项目，快速占领市场的神器，希望此文能对准备接触Hybrid技术的朋友提供一些帮助，并且再次感谢明月同学的配合。</p>
+<p>微博求粉</p>
+<p>最后，我的微博粉丝及其少，如果您觉得这篇博客对您哪怕有一丝丝的帮助，微博求粉博客求赞！！！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/05/21/Hybird/" data-id="ciu6xf8x60000xufywc260z2j" class="article-share-link">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2016/05/21/Hybird/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/app/">app</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/21/网站性能优化小技巧/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          网站性能优化
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/20/ES6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">ECMAScript6</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2016/05/21/Hybird/" data-title="浅谈Hybrid技术的设计与实现" data-url="http://yoursite.com/2016/05/21/Hybird/"></div>
+  </section>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码管理/">代码管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端工程化/">前端工程化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/通信协议/">通信协议</a><span class="tag-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/app/" style="font-size: 10px;">app</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/代码管理/" style="font-size: 10px;">代码管理</a> <a href="/tags/前端工程化/" style="font-size: 10px;">前端工程化</a> <a href="/tags/性能优化/" style="font-size: 13.33px;">性能优化</a> <a href="/tags/总结/" style="font-size: 16.67px;">总结</a> <a href="/tags/计算机基础/" style="font-size: 10px;">计算机基础</a> <a href="/tags/通信协议/" style="font-size: 16.67px;">通信协议</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/07/05/express 模拟/">express 框架模拟</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/01/跨域/">js中几种使用的跨域方法原理详解</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/30/看完让你彻底搞懂Websocket原理/">看完让你彻底搞懂Websocket原理</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/30/前后端交互指南/">前后端交互指南</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/30/Socket.io/">Socket.io 简明实践</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://arvinxiang.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+          <li>
+            <a href="http://yuancheng.work" target="_blank">远程.work</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Luo Liang<br>
+      Powered by <a href="//hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"reqianduan"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>
